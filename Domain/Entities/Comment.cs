@@ -1,8 +1,9 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using Domain.Contracts;
 
 namespace Domain.Entities;
 
-public class Comment
+public class Comment : BaseEntity
 {
     [Column("CommentId")]
     public  Guid Id { get; set; }

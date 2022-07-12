@@ -1,8 +1,9 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using Domain.Contracts;
 
 namespace Domain.Entities;
 
-public class ForumList
+public class ForumList : BaseEntity
 {
     [Column("ForumId")]
     public Guid Id { get; set; }

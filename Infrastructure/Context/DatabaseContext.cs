@@ -1,20 +1,19 @@
 using Domain.Contracts;
 using Domain.Entities;
+using Domain.Entities.Identity;
 using Infrastructure.Shared.Abstractions;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace Infrastructure.Context;
 
-public class DatabaseContext : DbContext
+public class DatabaseContext : IdentityDbContext<User,Role, Guid>
 {
     private readonly ICurrentDateProvider _currentDateProvider;
 
     public DatabaseContext()
     {
-        
     }
-
     public DatabaseContext(DbContextOptions<DatabaseContext> options,ICurrentDateProvider currentDateProvider) : base(options)
     {
         _currentDateProvider = currentDateProvider;
@@ -34,12 +33,31 @@ public class DatabaseContext : DbContext
     public DbSet<BookMark> BookMarks { get; set; }
     public DbSet<Country> Countries { get; set; }
     public DbSet<Activity> Activities { get; set; }
-    
-    private IEnumerable<IBaseEntity> FilterTrackedEntriesByState(EntityState entityState)
+
+    public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
     {
-        return ChangeTracker
-            .Entries()
-            .Where(e => e.Entity is IBaseEntity && e.State == entityState)
-            .Select(e => (IBaseEntity)e.Entity);
+        AddModelTimestamps();
+        return await base.SaveChangesAsync(cancellationToken);
     }
+
+    private void AddModelTimestamps()
+    {
+        var entities = ChangeTracker.Entries()
+            .Where(x => x.Entity is BaseEntity && (x.State == EntityState.Added || x.State == EntityState.Modified));
+
+        //get current user
+        var currentUser = Guid.NewGuid();
+        foreach (var entity in entities)
+        {
+            if (entity.State == EntityState.Added)
+            {
+                ((BaseEntity)entity.Entity).CreatedOn = _currentDateProvider.NowUtc;
+                ((BaseEntity)entity.Entity).CreatedBy = currentUser;
+            }
+            //modification
+            ((BaseEntity)entity.Entity).LastModifiedOn = _currentDateProvider.NowUtc;
+            ((BaseEntity)entity.Entity).LastModifiedBy = currentUser;
+        }
+    }
+
 }

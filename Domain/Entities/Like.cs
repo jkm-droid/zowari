@@ -1,8 +1,9 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using Domain.Contracts;
 
 namespace Domain.Entities;
 
-public class Like
+public class Like: BaseEntity
 {
     [Column("LikeId")]
     public Guid Id { get; set; }
