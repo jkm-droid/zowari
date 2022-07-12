@@ -1,18 +1,20 @@
 using Domain.Contracts;
 using Domain.Entities;
 using Domain.Entities.Identity;
+using Infrastructure.Configuration;
 using Infrastructure.Shared.Abstractions;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Context;
 
-public class DatabaseContext : IdentityDbContext<User,Role, Guid>
+public class DatabaseContext : IdentityDbContext<User, Role, Guid>
 {
     private readonly ICurrentDateProvider _currentDateProvider;
 
     public DatabaseContext()
     {
+        
     }
     public DatabaseContext(DbContextOptions<DatabaseContext> options,ICurrentDateProvider currentDateProvider) : base(options)
     {
@@ -22,6 +24,7 @@ public class DatabaseContext : IdentityDbContext<User,Role, Guid>
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
+        builder.ApplyConfiguration(new RoleConfiguration());
     }
     
     public DbSet<ForumList> ForumLists { get; set; }

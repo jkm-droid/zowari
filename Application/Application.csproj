@@ -11,4 +11,20 @@
       <Folder Include="Implementations" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="MediatR" Version="10.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Domain\Domain.csproj" />
+      <ProjectReference Include="..\Infrastructure.Shared\Infrastructure.Shared.csproj" />
+      <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="AutoMapper, Version=11.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005">
+        <HintPath>..\..\..\.nuget\packages\automapper\11.0.1\lib\netstandard2.1\AutoMapper.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
 </Project>

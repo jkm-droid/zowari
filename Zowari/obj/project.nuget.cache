@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "VYUysiy4oXrm8g1SQtQyO/i1qc3ERuQoc4zCtmgKozJqE91nn6tUArTllSPTvlHEJA/bJZze1XLrWjKW++J3zQ==",
+  "dgSpecHash": "n/TLFOLevPfFL2l2xCVjqPP7TL47QyYUmUZQRwqD9IkLdA9NllhbKvJFD/JbKbJtIKXB3t4hULzKU4ztRLaVQA==",
   "success": true,
   "projectFilePath": "/home/jkmdroid/RiderProjects/Zowari/Zowari/Zowari.csproj",
   "expectedPackageFiles": [
+    "/home/jkmdroid/.nuget/packages/automapper/11.0.1/automapper.11.0.1.nupkg.sha512",
+    "/home/jkmdroid/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/11.0.0/automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "/home/jkmdroid/.nuget/packages/fluentvalidation/11.1.0/fluentvalidation.11.1.0.nupkg.sha512",
     "/home/jkmdroid/.nuget/packages/fluentvalidation.aspnetcore/11.1.2/fluentvalidation.aspnetcore.11.1.2.nupkg.sha512",
     "/home/jkmdroid/.nuget/packages/fluentvalidation.dependencyinjectionextensions/11.1.0/fluentvalidation.dependencyinjectionextensions.11.1.0.nupkg.sha512",
@@ -28,6 +30,7 @@
     "/home/jkmdroid/.nuget/packages/microsoft.aspnetcore.identity/2.2.0/microsoft.aspnetcore.identity.2.2.0.nupkg.sha512",
     "/home/jkmdroid/.nuget/packages/microsoft.aspnetcore.identity.entityframeworkcore/6.0.6/microsoft.aspnetcore.identity.entityframeworkcore.6.0.6.nupkg.sha512",
     "/home/jkmdroid/.nuget/packages/microsoft.aspnetcore.webutilities/2.2.0/microsoft.aspnetcore.webutilities.2.2.0.nupkg.sha512",
+    "/home/jkmdroid/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
     "/home/jkmdroid/.nuget/packages/microsoft.entityframeworkcore/6.0.6/microsoft.entityframeworkcore.6.0.6.nupkg.sha512",
     "/home/jkmdroid/.nuget/packages/microsoft.entityframeworkcore.abstractions/6.0.6/microsoft.entityframeworkcore.abstractions.6.0.6.nupkg.sha512",
     "/home/jkmdroid/.nuget/packages/microsoft.entityframeworkcore.analyzers/6.0.6/microsoft.entityframeworkcore.analyzers.6.0.6.nupkg.sha512",

@@ -11,6 +11,8 @@ builder.Services.ConfigureDatabase(builder.Configuration);
 builder.Services.ConfigureRepositoryManager();
 builder.Services.ConfigureLoggerService(builder.Configuration);
 builder.Services.ConfigureSharedInfrastructure();
+builder.Services.ConfigureIdentity();
+builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddControllers(configuration =>
     {
         configuration.RespectBrowserAcceptHeader = true;
