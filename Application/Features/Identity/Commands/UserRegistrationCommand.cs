@@ -3,6 +3,7 @@ using Domain.Boundary.Responses;
 using Domain.Entities.Identity;
 using Infrastructure.Abstractions;
 using Infrastructure.Shared.Wrapper;
+using LoggerService.Abstractions;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -23,27 +24,31 @@ internal sealed class UserRegistrationCommandHandler : IRequestHandler<UserRegis
 {
     private readonly UserManager<User> _userManager;
     private readonly IRepositoryManager _repositoryManager;
+    private readonly ILoggerManager _logger;
 
-    public UserRegistrationCommandHandler(UserManager<User> userManager, IRepositoryManager repositoryManager)
+    public UserRegistrationCommandHandler(UserManager<User> userManager, IRepositoryManager repositoryManager,ILoggerManager logger)
     {
         _userManager = userManager;
         _repositoryManager = repositoryManager;
+        _logger = logger;
     }
     public async Task<Result<string>> Handle(UserRegistrationCommand request, CancellationToken cancellationToken)
     {
-        var checkSameEmail = await _userManager.FindByEmailAsync(request.UserRegistrationRequest.EmailAddress);
+        _logger.LogInfo($"inside command{request.UserRegistrationRequest.Username},{request.UserRegistrationRequest.Email}");
+        var checkSameEmail = await _userManager.FindByEmailAsync(request.UserRegistrationRequest.Email);
         if (checkSameEmail != null)
         {
-            return await Result<string>.FailAsync($"Email {request.UserRegistrationRequest.EmailAddress} is already registered.");
+            return await Result<string>.FailAsync($"Email {request.UserRegistrationRequest.Email} is already registered.");
         }
 
+        var fullName =
+            $"{request.UserRegistrationRequest.FirstName.Trim()} {request.UserRegistrationRequest.LastName.Trim()}";
         var user = new User
         {
-            UserName = request.UserRegistrationRequest.Username,
-            EmailAddress = request.UserRegistrationRequest.EmailAddress,
-            Password = request.UserRegistrationRequest.Password,
-            FirstName = request.UserRegistrationRequest.FirstName,
-            LastName = request.UserRegistrationRequest.LastName,
+            UserName = request.UserRegistrationRequest.Username.Trim(),
+            NormalizedUserName = request.UserRegistrationRequest.Username.Trim().ToUpper(),
+            Email = request.UserRegistrationRequest.Email.Trim(),
+            FullName = fullName,
             IsActive = false,
         };
         //register the user
@@ -56,15 +61,19 @@ internal sealed class UserRegistrationCommandHandler : IRequestHandler<UserRegis
         
         //add role to the user
         var role = await _repositoryManager.Entity<Role>()
-            .Where(r => r.Name.Equals("visitor", StringComparison.InvariantCultureIgnoreCase))
+            .Where(r => r.Name == "visitor")
             .FirstOrDefaultAsync(cancellationToken);
         if (role != null)
         {
-            var userRole = new UserRole {UserId = user.UserId, RoleId = role.RoleId};
+            var userRole = new UserRole {UserId = user.Id, RoleId = role.Id};
             _repositoryManager.DbContext().UserRoles.Add(userRole);
             await _repositoryManager.SaveAsync();
         }
-        
+        else
+        {
+            await _userManager.AddToRoleAsync(user, "visitor");
+        }
+        _logger.LogInfo($"user created{response.Succeeded}");
         return await Result<string>.SuccessAsync($"{request.UserRegistrationRequest.Username} created successfully");
     }
 }

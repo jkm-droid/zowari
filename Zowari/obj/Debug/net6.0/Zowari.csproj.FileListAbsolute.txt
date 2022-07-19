@@ -7,6 +7,8 @@
 /home/jkmdroid/RiderProjects/Zowari/Zowari/bin/Debug/net6.0/Zowari.dll
 /home/jkmdroid/RiderProjects/Zowari/Zowari/bin/Debug/net6.0/ref/Zowari.dll
 /home/jkmdroid/RiderProjects/Zowari/Zowari/bin/Debug/net6.0/Zowari.pdb
+/home/jkmdroid/RiderProjects/Zowari/Zowari/bin/Debug/net6.0/AutoMapper.dll
+/home/jkmdroid/RiderProjects/Zowari/Zowari/bin/Debug/net6.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 /home/jkmdroid/RiderProjects/Zowari/Zowari/bin/Debug/net6.0/FluentValidation.dll
 /home/jkmdroid/RiderProjects/Zowari/Zowari/bin/Debug/net6.0/FluentValidation.AspNetCore.dll
 /home/jkmdroid/RiderProjects/Zowari/Zowari/bin/Debug/net6.0/FluentValidation.DependencyInjectionExtensions.dll

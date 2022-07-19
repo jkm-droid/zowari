@@ -12,13 +12,7 @@ public class User : IdentityUser<Guid>,IBaseEntity
         CreatedOn = DateTimeOffset.UtcNow;
         LastModifiedOn = DateTimeOffset.UtcNow;
     }
-    [Column("UserId")]
-    public Guid UserId { get; set; }
-    public string Username { get; set; }
-    public string EmailAddress { get; set; }
-    public string Password { get; set; }
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
+    public string FullName { get; set; }
     public Boolean IsActive { get; set; }
     public DateTimeOffset CreatedOn { get; set; }
     public Guid? CreatedBy { get; set; }
