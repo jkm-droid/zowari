@@ -1,9 +1,10 @@
+
+
 using Zowari.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
 builder.Services.ConfigureCors();
 builder.Services.ConfigureIISIntegration();
 builder.Services.ConfigureMediatr();
@@ -12,8 +13,11 @@ builder.Services.ConfigureRepositoryManager();
 builder.Services.ConfigureLoggerService(builder.Configuration);
 builder.Services.ConfigureSharedInfrastructure();
 builder.Services.ConfigureIdentity();
+builder.Services.ConfigureJwtService(builder.Configuration);
+
 builder.Services.AddAutoMapper(typeof(Program));
-builder.Services.AddControllers(configuration =>
+builder.Services.AddRazorPages();
+builder.Services.AddControllersWithViews(configuration =>
     {
         configuration.RespectBrowserAcceptHeader = true;
         configuration.ReturnHttpNotAcceptable = true;

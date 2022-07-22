@@ -1,8 +1,11 @@
+using System.Security.Claims;
 using Application.Features.Identity.Commands;
 using Domain.Boundary.Requests;
 using Domain.Entities.Identity;
 using LoggerService.Abstractions;
 using MediatR;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,18 +15,28 @@ public class AccountController : Controller
 {
     private readonly IMediator _mediator;
     private readonly ILoggerManager _logger;
+    private readonly SignInManager<User> _signInManager;
 
-    public AccountController(IMediator mediator, ILoggerManager logger, IAuthenticationManager authManager)
+    public AccountController(IMediator mediator, ILoggerManager logger, SignInManager<User> signInManager)
     {
         _mediator = mediator;
         _logger = logger;
+        _signInManager = signInManager;
     }
+    
+    [AllowAnonymous]
     [HttpGet]
     public IActionResult Register()
     {
+        if (_signInManager.IsSignedIn(User))
+        {
+            return RedirectToAction("Index", "Home");
+        }
+        
         return View();
     }
     
+    [AllowAnonymous]
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Register(UserRegistrationRequest userRegistrationRequest)
@@ -34,25 +47,33 @@ public class AccountController : Controller
         }
 
         var response = await _mediator.Send(new UserRegistrationCommand(userRegistrationRequest));
-        if (!response.Succeeded)
-        {
-            _logger.LogError($"Errors: {response.Messages}");
-            ViewData["PageErrors"] = response.Messages;
-            return View();
-        }
-
-        return RedirectToAction("Login");
-    }
-
-    [HttpGet]
-    public IActionResult Login()
-    {
+        if (response.Succeeded) return RedirectToAction("Login");
+        
+        _logger.LogError($"Errors: {response.Messages}");
+        ViewData["PageErrors"] = response.Messages;
         return View();
     }
 
+    [AllowAnonymous]
+    [HttpGet]
+    public IActionResult Login(string? returnUrl = null)
+    {
+        if (_signInManager.IsSignedIn(User))
+        {
+            return RedirectToAction("Index", "Home");
+        }
+        ViewData["ReturnUrl"] = returnUrl;
+        return View(new UserLoginRequest
+        {
+            Username = string.Empty,
+            Password = string.Empty
+        });
+    }
+
+    [AllowAnonymous]
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Login([Bind("Username","Password")] UserLoginRequest userLoginRequest)
+    public async Task<IActionResult> Login([Bind("Username","Password")] UserLoginRequest userLoginRequest,string? returnUrl = null)
     {
         if (!ModelState.IsValid)
         {
@@ -65,7 +86,27 @@ public class AccountController : Controller
             ViewData["PageErrors"] = response.Messages;
             return View();
         }
+        var identity = new ClaimsIdentity(IdentityConstants.ApplicationScheme);
+        identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, response.Data.User.Id.ToString()));
+        identity.AddClaim(new Claim(ClaimTypes.Name, response.Data.User.FullName));
+        identity.AddClaim(new Claim(ClaimTypes.Email, response.Data.User.Email));
+        // identity.AddClaim(new Claim(ClaimTypes.Expiration, user.UserName));
+        await HttpContext.SignInAsync(IdentityConstants.ApplicationScheme,
+            new ClaimsPrincipal(identity));
 
-        return RedirectToAction("Index","Home");
+        return RedirectToLocalUrl(returnUrl);
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> LogOut()
+    {
+        await _signInManager.SignOutAsync();
+        return RedirectToAction(nameof(HomeController.Index), "Home");
+    }
+
+    private IActionResult RedirectToLocalUrl(string? returnUrl)
+    {
+        return Url.IsLocalUrl(returnUrl) ? Redirect(returnUrl) : RedirectToAction("Index", "Home");
     }
 }

@@ -4,6 +4,7 @@
     ViewBag.Title = "Zowari | Login";
     Layout = "_Layout";
     var errors = ViewData["PageErrors"] as List<string>;
+    var returnUrl = ViewData["ReturnUrl"];
 }
 
 <h2>Login</h2>
@@ -11,7 +12,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Login" asp-controller="Account">
+        <form asp-action="Login" asp-controller="Account" asp-route-returnUrl="@returnUrl">
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Username" class="control-label"></label>

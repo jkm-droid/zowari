@@ -31,32 +31,21 @@ internal sealed class UserLoginCommandHandler : IRequestHandler<UserLoginCommand
     }
     public async Task<Result<UserLoginResponse>> Handle(UserLoginCommand request, CancellationToken cancellationToken)
     {
-        //find user by email
-        var userByEmail = await _userManager.FindByEmailAsync(request.LoginRequest.Username);
-        //find user by username
-        var userByUserName = await _repositoryManager.DbContext().Users
-            .Where(u => u.UserName == request.LoginRequest.Username)
+        var user = await _repositoryManager.DbContext().Users
+            .Where(u => u.UserName == request.LoginRequest.Username.Trim() || u.Email == request.LoginRequest.Username.Trim())
             .SingleOrDefaultAsync(cancellationToken);
-        if (userByEmail == null && userByUserName == null)
+        
+        if (user == null)
         {
             return await Result<UserLoginResponse>.FailAsync("Oops..It seems you don't have an account with us");
         }
 
-        if (userByEmail != null)
-        {
-            if (!userByEmail.IsActive)
-            {
-                return await Result<UserLoginResponse>.FailAsync("Oops..It seems your account is not active");
-            }
-        }else if (userByUserName is {IsActive: false})
-        {
-            return await Result<UserLoginResponse>.FailAsync("Oops..It seems your account is not active");
-        }
+        // if (!user.IsActive)
+        // {
+        //     return await Result<UserLoginResponse>.FailAsync("Oops..It seems your account is not active");
+        // }
 
-        var passwordValid = userByEmail != null
-            ? await _userManager.CheckPasswordAsync(userByEmail, request.LoginRequest.Password)
-            : await _userManager.CheckPasswordAsync(userByUserName, request.LoginRequest.Password);
-
+        var passwordValid = await _userManager.CheckPasswordAsync(user, request.LoginRequest.Password);
         if (!passwordValid)
         {
             return await Result<UserLoginResponse>.FailAsync("Invalid credentials.");
@@ -64,10 +53,10 @@ internal sealed class UserLoginCommandHandler : IRequestHandler<UserLoginCommand
 
         var response = new UserLoginResponse
         {
-            Username = request.LoginRequest.Username,
+            User = user,
             Message = "Logged in successfully"
         };
-
+  
         return await Result<UserLoginResponse>.SuccessAsync(response);
     }
 }
