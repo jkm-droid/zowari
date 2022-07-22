@@ -1,6 +1,7 @@
 using System.Security.Claims;
 using Application.Features.Identity.Commands;
 using Domain.Boundary.Requests;
+using Domain.Constants;
 using Domain.Entities.Identity;
 using LoggerService.Abstractions;
 using MediatR;
@@ -81,20 +82,14 @@ public class AccountController : Controller
         }
 
         var response = await _mediator.Send(new UserLoginCommand(userLoginRequest));
-        if (!response.Succeeded)
+        if (response.Succeeded)
         {
-            ViewData["PageErrors"] = response.Messages;
-            return View();
+            HttpContext.Session.SetString(JwtConstants.JwtToken, response.Data.Token);
+            return RedirectToLocalUrl(returnUrl);
         }
-        var identity = new ClaimsIdentity(IdentityConstants.ApplicationScheme);
-        identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, response.Data.User.Id.ToString()));
-        identity.AddClaim(new Claim(ClaimTypes.Name, response.Data.User.FullName));
-        identity.AddClaim(new Claim(ClaimTypes.Email, response.Data.User.Email));
-        // identity.AddClaim(new Claim(ClaimTypes.Expiration, user.UserName));
-        await HttpContext.SignInAsync(IdentityConstants.ApplicationScheme,
-            new ClaimsPrincipal(identity));
-
-        return RedirectToLocalUrl(returnUrl);
+        
+        ViewData["PageErrors"] = response.Messages;
+        return View();
     }
 
     [HttpPost]

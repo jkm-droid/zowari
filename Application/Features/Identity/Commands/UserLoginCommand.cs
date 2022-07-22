@@ -1,3 +1,4 @@
+using Application.Auth.Abstractions;
 using Domain.Boundary.Requests;
 using Domain.Boundary.Responses;
 using Domain.Entities.Identity;
@@ -23,11 +24,13 @@ internal sealed class UserLoginCommandHandler : IRequestHandler<UserLoginCommand
 {
     private readonly UserManager<User> _userManager;
     private readonly IRepositoryManager _repositoryManager;
+    private readonly IAuthenticationManager _authenticationManager;
 
-    public UserLoginCommandHandler(UserManager<User> userManager, IRepositoryManager repositoryManager)
+    public UserLoginCommandHandler(UserManager<User> userManager, IRepositoryManager repositoryManager, IAuthenticationManager authenticationManager)
     {
         _userManager = userManager;
         _repositoryManager = repositoryManager;
+        _authenticationManager = authenticationManager;
     }
     public async Task<Result<UserLoginResponse>> Handle(UserLoginCommand request, CancellationToken cancellationToken)
     {
@@ -51,10 +54,12 @@ internal sealed class UserLoginCommandHandler : IRequestHandler<UserLoginCommand
             return await Result<UserLoginResponse>.FailAsync("Invalid credentials.");
         }
 
+        var jwtToken = await _authenticationManager.CreateAuthJwtToken(user);
         var response = new UserLoginResponse
         {
-            User = user,
-            Message = "Logged in successfully"
+            Message = "Logged in successfully",
+            Token = jwtToken,
+            RefreshTokem = "ComingSoon"
         };
   
         return await Result<UserLoginResponse>.SuccessAsync(response);
