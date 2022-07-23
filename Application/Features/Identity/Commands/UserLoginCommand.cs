@@ -57,6 +57,7 @@ internal sealed class UserLoginCommandHandler : IRequestHandler<UserLoginCommand
         var jwtToken = await _authenticationManager.CreateAuthJwtToken(user);
         var response = new UserLoginResponse
         {
+            User = user,
             Message = "Logged in successfully",
             Token = jwtToken,
             RefreshTokem = "ComingSoon"

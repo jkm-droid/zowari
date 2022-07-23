@@ -30,7 +30,7 @@ public class AuthenticationManager : IAuthenticationManager
     }
     public async Task<string> CreateAuthJwtToken(User user)
     {
-        var signCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_identityConfiguration.SecretKey)),SecurityAlgorithms.HmacSha256);
+        var signCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtConstants.SecretKey)),SecurityAlgorithms.HmacSha256);
         var userClaims = await GetUSerClaims(user);
         var tokenOptions = GenerateTokenOptions(signCredentials, userClaims);
 
@@ -54,10 +54,10 @@ public class AuthenticationManager : IAuthenticationManager
     private JwtSecurityToken GenerateTokenOptions(SigningCredentials signingCredentials, IEnumerable<Claim> claims)
     {
         var tokenOptions = new JwtSecurityToken(
-            issuer: _identityConfiguration.ValidIssuer,
-            audience: _identityConfiguration.ValidAudience,
+            issuer: JwtConstants.ValidIssuer,//_identityConfiguration.ValidIssuer,
+            audience: JwtConstants.ValidAudience,// _identityConfiguration.ValidAudience,
             claims: claims,
-            expires: DateTime.Now.AddMinutes(_identityConfiguration.Expires),
+            expires: DateTime.Now.AddMinutes(JwtConstants.Expires),
             signingCredentials: signingCredentials);
         
         return tokenOptions;
@@ -66,9 +66,9 @@ public class AuthenticationManager : IAuthenticationManager
 
     public bool ValidateJwtToken(string token)
     {
-        var securityKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(_identityConfiguration.SecretKey));
-        var issuer = _identityConfiguration.ValidIssuer;
-        var audience = _identityConfiguration.ValidAudience;
+        var securityKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(JwtConstants.SecretKey));
+        var issuer = JwtConstants.ValidIssuer;
+        var audience = JwtConstants.ValidAudience;
 
         var tokenHandler = new JwtSecurityTokenHandler();
         try

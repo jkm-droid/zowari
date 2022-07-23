@@ -1,3 +1,4 @@
+using Domain.Configurations;
 using Infrastructure.Abstractions;
 using Infrastructure.Context;
 using Infrastructure.Implementations;
@@ -95,5 +96,11 @@ public static class ServiceExtensions
         serviceCollection.AddTransient<ICurrentDateProvider, CurrentDateProvider>();
 
         return serviceCollection;
+    }
+
+    public static void AddConfigurationSections(this IServiceCollection serviceCollection,
+        IConfiguration configuration)
+    {
+        serviceCollection.Configure<IdentityConfiguration>(configuration.GetSection(IdentityConfiguration.SectionName));
     }
 }
