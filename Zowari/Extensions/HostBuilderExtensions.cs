@@ -6,12 +6,14 @@ public static class HostBuilderExtensions
 {
     public static IHostBuilder AddSerilog(this IHostBuilder hostBuilder)
     {
+        var environment = Environment.GetEnvironmentVariable("ASPNETCORE_DEVELOPMENT") ?? Environments.Development;
         var configuration = new ConfigurationBuilder()
-            .AddJsonFile(path: "appsettings.Development.json", optional: true, reloadOnChange: true)
-            .AddJsonFile("appsettings.json")
-            .AddJsonFile(path: "appsettings.Production.json", optional: true, reloadOnChange: true)
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json", optional:false,reloadOnChange: true)
+            .AddJsonFile(path: $"appsettings.{environment}.json", optional: true, reloadOnChange: true)
             .AddEnvironmentVariables()
             .Build();
+        
         Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(configuration).CreateLogger();
         SerilogHostBuilderExtensions.UseSerilog(hostBuilder);
         
