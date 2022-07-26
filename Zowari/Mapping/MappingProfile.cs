@@ -1,6 +1,4 @@
 using AutoMapper;
-using Domain.Boundary.Requests;
-using Domain.Entities.Identity;
 
 namespace Zowari.Mapping;
 

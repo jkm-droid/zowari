@@ -1,4 +1,6 @@
+using Microsoft.AspNetCore.HttpOverrides;
 using Zowari.Extensions;
+using Zowari.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,18 +24,18 @@ builder.Services.ConfigureIdentity();
 builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Host.AddSerilog();
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-}
-
+app.UseMiddleware<ExceptionMiddleware>();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseCors("CorsPolicy");
+// Configure the HTTP request pipeline.
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.All
+});
 
 app.UseRouting();
 
