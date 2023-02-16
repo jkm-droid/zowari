@@ -18,6 +18,14 @@
           "Application.dll": {}
         }
       },
+      "Bogus/34.0.2": {
+        "runtime": {
+          "lib/net6.0/Bogus.dll": {
+            "assemblyVersion": "34.0.2.0",
+            "fileVersion": "34.0.2.0"
+          }
+        }
+      },
       "MediatR/10.0.1": {
         "dependencies": {
           "MediatR.Contracts": "1.0.1"
@@ -576,6 +584,15 @@
         }
       },
       "System.Text.Encodings.Web/4.5.0": {},
+      "DataGenerator/1.0.0": {
+        "dependencies": {
+          "Bogus": "34.0.2",
+          "Domain": "1.0.0"
+        },
+        "runtime": {
+          "DataGenerator.dll": {}
+        }
+      },
       "Domain/1.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Identity.Stores": "6.0.6"
@@ -586,6 +603,8 @@
       },
       "Infrastructure/1.0.0": {
         "dependencies": {
+          "Bogus": "34.0.2",
+          "DataGenerator": "1.0.0",
           "Domain": "1.0.0",
           "Infrastructure.Shared": "1.0.0",
           "LoggerService": "1.0.0",
@@ -600,6 +619,9 @@
         }
       },
       "Infrastructure.Shared/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0"
+        },
         "runtime": {
           "Infrastructure.Shared.dll": {}
         }
@@ -627,6 +649,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Bogus/34.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2KQAuMn3fLAQ2r6jeiffZnpv0bi3GCW3iRB2v1KeHIEBu8MNTh9dBlLTZwGvM0pr+9doKkU8L5JgCURmTmT88A==",
+      "path": "bogus/34.0.2",
+      "hashPath": "bogus.34.0.2.nupkg.sha512"
     },
     "MediatR/10.0.1": {
       "type": "package",
@@ -1005,6 +1034,11 @@
       "sha512": "sha512-Xg4G4Indi4dqP1iuAiMSwpiWS54ZghzR644OtsRCm/m/lBMG8dUBhLVN7hLm8NNrNTR+iGbshCPTwrvxZPlm4g==",
       "path": "system.text.encodings.web/4.5.0",
       "hashPath": "system.text.encodings.web.4.5.0.nupkg.sha512"
+    },
+    "DataGenerator/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Domain/1.0.0": {
       "type": "project",

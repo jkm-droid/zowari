@@ -1,7 +1,6 @@
 /home/jkmdroid/RiderProjects/Zowari/Infrastructure/bin/Debug/net6.0/Infrastructure.deps.json
 /home/jkmdroid/RiderProjects/Zowari/Infrastructure/bin/Debug/net6.0/Infrastructure.runtimeconfig.json
 /home/jkmdroid/RiderProjects/Zowari/Infrastructure/bin/Debug/net6.0/Infrastructure.dll
-/home/jkmdroid/RiderProjects/Zowari/Infrastructure/bin/Debug/net6.0/ref/Infrastructure.dll
 /home/jkmdroid/RiderProjects/Zowari/Infrastructure/bin/Debug/net6.0/Infrastructure.pdb
 /home/jkmdroid/RiderProjects/Zowari/Infrastructure/bin/Debug/net6.0/Domain.dll
 /home/jkmdroid/RiderProjects/Zowari/Infrastructure/bin/Debug/net6.0/Infrastructure.Shared.dll
@@ -19,3 +18,6 @@
 /home/jkmdroid/RiderProjects/Zowari/Infrastructure/obj/Debug/net6.0/ref/Infrastructure.dll
 /home/jkmdroid/RiderProjects/Zowari/Infrastructure/obj/Debug/net6.0/Infrastructure.pdb
 /home/jkmdroid/RiderProjects/Zowari/Infrastructure/obj/Debug/net6.0/Infrastructure.genruntimeconfig.cache
+/home/jkmdroid/RiderProjects/Zowari/Infrastructure/bin/Debug/net6.0/DataGenerator.dll
+/home/jkmdroid/RiderProjects/Zowari/Infrastructure/bin/Debug/net6.0/DataGenerator.pdb
+/home/jkmdroid/RiderProjects/Zowari/Infrastructure/obj/Debug/net6.0/refint/Infrastructure.dll

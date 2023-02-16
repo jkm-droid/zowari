@@ -4,6 +4,69 @@
     "/home/jkmdroid/RiderProjects/Zowari/Infrastructure/Infrastructure.csproj": {}
   },
   "projects": {
+    "/home/jkmdroid/RiderProjects/Zowari/DataGenerator/DataGenerator.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/jkmdroid/RiderProjects/Zowari/DataGenerator/DataGenerator.csproj",
+        "projectName": "DataGenerator",
+        "projectPath": "/home/jkmdroid/RiderProjects/Zowari/DataGenerator/DataGenerator.csproj",
+        "packagesPath": "/home/jkmdroid/.nuget/packages/",
+        "outputPath": "/home/jkmdroid/RiderProjects/Zowari/DataGenerator/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/jkmdroid/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/home/jkmdroid/RiderProjects/Zowari/Domain/Domain.csproj": {
+                "projectPath": "/home/jkmdroid/RiderProjects/Zowari/Domain/Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Bogus": {
+              "target": "Package",
+              "version": "[34.0.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.400/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "/home/jkmdroid/RiderProjects/Zowari/Domain/Domain.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -49,7 +112,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -58,7 +122,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.400/RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -95,13 +159,20 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -110,7 +181,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.400/RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -136,6 +207,9 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+              "/home/jkmdroid/RiderProjects/Zowari/DataGenerator/DataGenerator.csproj": {
+                "projectPath": "/home/jkmdroid/RiderProjects/Zowari/DataGenerator/DataGenerator.csproj"
+              },
               "/home/jkmdroid/RiderProjects/Zowari/Domain/Domain.csproj": {
                 "projectPath": "/home/jkmdroid/RiderProjects/Zowari/Domain/Domain.csproj"
               },
@@ -158,6 +232,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Bogus": {
+              "target": "Package",
+              "version": "[34.0.2, )"
+            },
             "Microsoft.AspNetCore.Identity": {
               "target": "Package",
               "version": "[2.2.0, )"
@@ -191,7 +269,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -200,7 +279,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.400/RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -249,7 +328,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -258,7 +338,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.400/RuntimeIdentifierGraph.json"
         }
       }
     }

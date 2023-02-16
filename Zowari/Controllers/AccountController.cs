@@ -85,13 +85,8 @@ public class AccountController : Controller
             ViewData["PageErrors"] = response.Messages;
             return View();
         }
-        var identity = new ClaimsIdentity(IdentityConstants.ApplicationScheme);
-        identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, response.Data.User.Id.ToString()));
-        identity.AddClaim(new Claim(ClaimTypes.Name, response.Data.User.FullName));
-        identity.AddClaim(new Claim(ClaimTypes.Email, response.Data.User.Email));
-        // identity.AddClaim(new Claim(ClaimTypes.Expiration, user.UserName));
-        await HttpContext.SignInAsync(IdentityConstants.ApplicationScheme, new ClaimsPrincipal(identity));
-
+        
+        await HttpContext.SignInAsync(IdentityConstants.ApplicationScheme, new ClaimsPrincipal(response.Data.Identity));
         return RedirectToLocalUrl(returnUrl);
     }
 

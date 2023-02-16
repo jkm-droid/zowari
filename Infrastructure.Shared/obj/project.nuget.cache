@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "T1qzt+THLXAm488rGqKo84pwyI16cb9Ys/5n62ikPvo9PGaRJEOI+GOYZouGrt3xpnKoBsZmeiHmsbWApylWIg==",
+  "dgSpecHash": "hEwUkpyl4TlFOf7lFXY87HehZX5vBKMnbMe4TsZgorg/6AV1Hw4gffRxMxS8f0Lw7sEC2mOvM1kIYYe/K1Q5lQ==",
   "success": true,
   "projectFilePath": "/home/jkmdroid/RiderProjects/Zowari/Infrastructure.Shared/Infrastructure.Shared.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/home/jkmdroid/.nuget/packages/microsoft.aspnetcore.http.abstractions/2.2.0/microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+    "/home/jkmdroid/.nuget/packages/microsoft.aspnetcore.http.features/2.2.0/microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
+    "/home/jkmdroid/.nuget/packages/microsoft.extensions.primitives/2.2.0/microsoft.extensions.primitives.2.2.0.nupkg.sha512",
+    "/home/jkmdroid/.nuget/packages/system.memory/4.5.1/system.memory.4.5.1.nupkg.sha512",
+    "/home/jkmdroid/.nuget/packages/system.runtime.compilerservices.unsafe/4.5.1/system.runtime.compilerservices.unsafe.4.5.1.nupkg.sha512",
+    "/home/jkmdroid/.nuget/packages/system.text.encodings.web/4.5.0/system.text.encodings.web.4.5.0.nupkg.sha512"
+  ],
   "logs": []
 }

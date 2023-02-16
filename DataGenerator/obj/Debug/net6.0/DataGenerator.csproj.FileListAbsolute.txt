@@ -1,0 +1,15 @@
+/home/jkmdroid/RiderProjects/Zowari/DataGenerator/bin/Debug/net6.0/DataGenerator.deps.json
+/home/jkmdroid/RiderProjects/Zowari/DataGenerator/bin/Debug/net6.0/DataGenerator.dll
+/home/jkmdroid/RiderProjects/Zowari/DataGenerator/bin/Debug/net6.0/DataGenerator.pdb
+/home/jkmdroid/RiderProjects/Zowari/DataGenerator/bin/Debug/net6.0/Domain.dll
+/home/jkmdroid/RiderProjects/Zowari/DataGenerator/bin/Debug/net6.0/Domain.pdb
+/home/jkmdroid/RiderProjects/Zowari/DataGenerator/obj/Debug/net6.0/DataGenerator.csproj.AssemblyReference.cache
+/home/jkmdroid/RiderProjects/Zowari/DataGenerator/obj/Debug/net6.0/DataGenerator.GeneratedMSBuildEditorConfig.editorconfig
+/home/jkmdroid/RiderProjects/Zowari/DataGenerator/obj/Debug/net6.0/DataGenerator.AssemblyInfoInputs.cache
+/home/jkmdroid/RiderProjects/Zowari/DataGenerator/obj/Debug/net6.0/DataGenerator.AssemblyInfo.cs
+/home/jkmdroid/RiderProjects/Zowari/DataGenerator/obj/Debug/net6.0/DataGenerator.csproj.CoreCompileInputs.cache
+/home/jkmdroid/RiderProjects/Zowari/DataGenerator/obj/Debug/net6.0/DataGenerator.csproj.CopyComplete
+/home/jkmdroid/RiderProjects/Zowari/DataGenerator/obj/Debug/net6.0/DataGenerator.dll
+/home/jkmdroid/RiderProjects/Zowari/DataGenerator/obj/Debug/net6.0/ref/DataGenerator.dll
+/home/jkmdroid/RiderProjects/Zowari/DataGenerator/obj/Debug/net6.0/DataGenerator.pdb
+/home/jkmdroid/RiderProjects/Zowari/DataGenerator/obj/Debug/net6.0/refint/DataGenerator.dll

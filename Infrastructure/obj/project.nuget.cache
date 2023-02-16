@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "jwo0FhNB0IYnEw4aZZyt9PDL+U2QSQKCYmNktLd46DrK3xtBTvR4sVfy/K7Py+LyS3rTdiei8giQsuEqFz8FsA==",
+  "dgSpecHash": "Xk7TQ5cdvy+s/JQi1tBFx5c2SiooFB0INDsm0LolunzBzTStixtx2Degh/OZb0DWRXpM/I4O1LgSzCHaloeaUg==",
   "success": true,
   "projectFilePath": "/home/jkmdroid/RiderProjects/Zowari/Infrastructure/Infrastructure.csproj",
   "expectedPackageFiles": [
+    "/home/jkmdroid/.nuget/packages/bogus/34.0.2/bogus.34.0.2.nupkg.sha512",
     "/home/jkmdroid/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/home/jkmdroid/.nuget/packages/microsoft.aspnetcore.authentication/2.2.0/microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "/home/jkmdroid/.nuget/packages/microsoft.aspnetcore.authentication.abstractions/2.2.0/microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

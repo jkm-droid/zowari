@@ -41,14 +41,11 @@ internal sealed class UserRegistrationCommandHandler : IRequestHandler<UserRegis
             return await Result<string>.FailAsync($"Email {request.UserRegistrationRequest.Email} is already registered.");
         }
 
-        var fullName =
-            $"{request.UserRegistrationRequest.FirstName.Trim()} {request.UserRegistrationRequest.LastName.Trim()}";
         var user = new User
         {
             UserName = request.UserRegistrationRequest.Username.Trim(),
             NormalizedUserName = request.UserRegistrationRequest.Username.Trim().ToUpper(),
             Email = request.UserRegistrationRequest.Email.Trim(),
-            FullName = fullName,
             IsActive = false,
         };
         //register the user

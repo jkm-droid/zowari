@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "uHsrrOI6F5cvKyo5IwpI1Ystr+DrsIkdCmYjBjhnjKUzNokKw6Gk5+09oKnyZDKZTltZM/f9c7O9tV8ITrUbgg==",
+  "dgSpecHash": "BlkJsjFZh+lpSgLa6cQfKhvZOLum8dcLhH6PEeSnMWH7n4TqSxBgZ6LXkwekzSQeYZcKkKCZg7u4d5a3KenrfQ==",
   "success": true,
   "projectFilePath": "/home/jkmdroid/RiderProjects/Zowari/Application/Application.csproj",
   "expectedPackageFiles": [
+    "/home/jkmdroid/.nuget/packages/bogus/34.0.2/bogus.34.0.2.nupkg.sha512",
     "/home/jkmdroid/.nuget/packages/mediatr/10.0.1/mediatr.10.0.1.nupkg.sha512",
     "/home/jkmdroid/.nuget/packages/mediatr.contracts/1.0.1/mediatr.contracts.1.0.1.nupkg.sha512",
     "/home/jkmdroid/.nuget/packages/microsoft.aspnetcore.authentication/2.2.0/microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",

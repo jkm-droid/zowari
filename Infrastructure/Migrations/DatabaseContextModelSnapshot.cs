@@ -246,6 +246,32 @@ namespace Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ForumLists");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("1404dde0-45cc-4438-9fd8-03e0ed5d6d16"),
+                            CreatedOn = new DateTimeOffset(new DateTime(2023, 2, 16, 20, 9, 30, 812, DateTimeKind.Unspecified).AddTicks(3260), new TimeSpan(0, 3, 0, 0, 0)),
+                            Description = "Hello world forum",
+                            LastModifiedOn = new DateTimeOffset(new DateTime(2023, 2, 16, 20, 9, 30, 812, DateTimeKind.Unspecified).AddTicks(3293), new TimeSpan(0, 3, 0, 0, 0)),
+                            Title = "Hello"
+                        },
+                        new
+                        {
+                            Id = new Guid("620c985b-dcd8-499b-91f7-32ee5498822e"),
+                            CreatedOn = new DateTimeOffset(new DateTime(2023, 2, 16, 20, 9, 30, 812, DateTimeKind.Unspecified).AddTicks(3321), new TimeSpan(0, 3, 0, 0, 0)),
+                            Description = "World politics forum",
+                            LastModifiedOn = new DateTimeOffset(new DateTime(2023, 2, 16, 20, 9, 30, 812, DateTimeKind.Unspecified).AddTicks(3322), new TimeSpan(0, 3, 0, 0, 0)),
+                            Title = "World politics"
+                        },
+                        new
+                        {
+                            Id = new Guid("f390a27d-dbd5-4254-9001-ec0848854d4d"),
+                            CreatedOn = new DateTimeOffset(new DateTime(2023, 2, 16, 20, 9, 30, 812, DateTimeKind.Unspecified).AddTicks(3337), new TimeSpan(0, 3, 0, 0, 0)),
+                            Description = "Nature forum",
+                            LastModifiedOn = new DateTimeOffset(new DateTime(2023, 2, 16, 20, 9, 30, 812, DateTimeKind.Unspecified).AddTicks(3338), new TimeSpan(0, 3, 0, 0, 0)),
+                            Title = "Nature"
+                        });
                 });
 
             modelBuilder.Entity("Domain.Entities.Identity.Role", b =>
@@ -293,21 +319,41 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("f021def2-6a08-457f-9611-1b972d67c5a9"),
-                            ConcurrencyStamp = "9b07f3fc-598f-44ab-acae-ab94b49c2479",
-                            CreatedOn = new DateTimeOffset(new DateTime(2022, 7, 17, 10, 25, 19, 899, DateTimeKind.Unspecified).AddTicks(7576), new TimeSpan(0, 0, 0, 0, 0)),
+                            Id = new Guid("64fb3971-ae1e-4ee1-88e3-f84749b1fe66"),
+                            ConcurrencyStamp = "4fb63c0e-8b51-4e7e-a52e-2a29fced51f1",
+                            CreatedOn = new DateTimeOffset(new DateTime(2023, 2, 16, 17, 9, 30, 812, DateTimeKind.Unspecified).AddTicks(2853), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "Visitor role description",
-                            LastModifiedOn = new DateTimeOffset(new DateTime(2022, 7, 17, 10, 25, 19, 899, DateTimeKind.Unspecified).AddTicks(7577), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastModifiedOn = new DateTimeOffset(new DateTime(2023, 2, 16, 17, 9, 30, 812, DateTimeKind.Unspecified).AddTicks(2854), new TimeSpan(0, 0, 0, 0, 0)),
                             Name = "Visitor",
                             NormalizedName = "VISITOR"
                         },
                         new
                         {
-                            Id = new Guid("eedebddb-01da-49f6-a4a8-6307d098a8e2"),
-                            ConcurrencyStamp = "c14c7f54-8414-472e-acfe-912b81d74a48",
-                            CreatedOn = new DateTimeOffset(new DateTime(2022, 7, 17, 10, 25, 19, 899, DateTimeKind.Unspecified).AddTicks(7609), new TimeSpan(0, 0, 0, 0, 0)),
+                            Id = new Guid("fb9b764b-6248-4fa8-94d9-f8aba057fd12"),
+                            ConcurrencyStamp = "5a5989b8-bf29-4177-92fd-eda87767e410",
+                            CreatedOn = new DateTimeOffset(new DateTime(2023, 2, 16, 17, 9, 30, 812, DateTimeKind.Unspecified).AddTicks(2896), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "Administrator role description",
-                            LastModifiedOn = new DateTimeOffset(new DateTime(2022, 7, 17, 10, 25, 19, 899, DateTimeKind.Unspecified).AddTicks(7609), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastModifiedOn = new DateTimeOffset(new DateTime(2023, 2, 16, 17, 9, 30, 812, DateTimeKind.Unspecified).AddTicks(2896), new TimeSpan(0, 0, 0, 0, 0)),
+                            Name = "SuperAdministrator",
+                            NormalizedName = "ADMINISTRATOR"
+                        },
+                        new
+                        {
+                            Id = new Guid("aa3062aa-5f5d-4cce-b156-c6268148c03a"),
+                            ConcurrencyStamp = "f6012a1f-4da9-443e-ac3b-ff1daf960fa0",
+                            CreatedOn = new DateTimeOffset(new DateTime(2023, 2, 16, 17, 9, 30, 812, DateTimeKind.Unspecified).AddTicks(2918), new TimeSpan(0, 0, 0, 0, 0)),
+                            Description = "Basic role description",
+                            LastModifiedOn = new DateTimeOffset(new DateTime(2023, 2, 16, 17, 9, 30, 812, DateTimeKind.Unspecified).AddTicks(2918), new TimeSpan(0, 0, 0, 0, 0)),
+                            Name = "BasicUser",
+                            NormalizedName = "BASICUSER"
+                        },
+                        new
+                        {
+                            Id = new Guid("7f6afb52-c01b-4b36-b3c9-946ab09f3334"),
+                            ConcurrencyStamp = "b5a2bbfd-7a22-471f-a326-80d5884abc97",
+                            CreatedOn = new DateTimeOffset(new DateTime(2023, 2, 16, 17, 9, 30, 812, DateTimeKind.Unspecified).AddTicks(2936), new TimeSpan(0, 0, 0, 0, 0)),
+                            Description = "Administrator role description",
+                            LastModifiedOn = new DateTimeOffset(new DateTime(2023, 2, 16, 17, 9, 30, 812, DateTimeKind.Unspecified).AddTicks(2936), new TimeSpan(0, 0, 0, 0, 0)),
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });
@@ -339,10 +385,6 @@ namespace Infrastructure.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("boolean");
 
-                    b.Property<string>("FullName")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<bool>("IsActive")
                         .HasColumnType("boolean");
 
@@ -351,6 +393,9 @@ namespace Infrastructure.Migrations
 
                     b.Property<DateTimeOffset?>("LastModifiedOn")
                         .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Level")
+                        .HasColumnType("text");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("boolean");
@@ -374,6 +419,15 @@ namespace Infrastructure.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("boolean");
+
+                    b.Property<string>("ProfileUrl")
+                        .HasColumnType("text");
+
+                    b.Property<int?>("Rating")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("Score")
+                        .HasColumnType("integer");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("text");

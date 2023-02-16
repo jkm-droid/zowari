@@ -5,7 +5,6 @@
 /home/jkmdroid/RiderProjects/Zowari/Zowari/bin/Debug/net6.0/Zowari.deps.json
 /home/jkmdroid/RiderProjects/Zowari/Zowari/bin/Debug/net6.0/Zowari.runtimeconfig.json
 /home/jkmdroid/RiderProjects/Zowari/Zowari/bin/Debug/net6.0/Zowari.dll
-/home/jkmdroid/RiderProjects/Zowari/Zowari/bin/Debug/net6.0/ref/Zowari.dll
 /home/jkmdroid/RiderProjects/Zowari/Zowari/bin/Debug/net6.0/Zowari.pdb
 /home/jkmdroid/RiderProjects/Zowari/Zowari/bin/Debug/net6.0/AutoMapper.dll
 /home/jkmdroid/RiderProjects/Zowari/Zowari/bin/Debug/net6.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
@@ -41,7 +40,6 @@
 /home/jkmdroid/RiderProjects/Zowari/Zowari/bin/Debug/net6.0/Serilog.Settings.Configuration.dll
 /home/jkmdroid/RiderProjects/Zowari/Zowari/bin/Debug/net6.0/Serilog.Sinks.Console.dll
 /home/jkmdroid/RiderProjects/Zowari/Zowari/bin/Debug/net6.0/System.Security.Permissions.dll
-/home/jkmdroid/RiderProjects/Zowari/Zowari/bin/Debug/net6.0/runtimes/win/lib/net6.0/System.Diagnostics.EventLog.Messages.dll
 /home/jkmdroid/RiderProjects/Zowari/Zowari/bin/Debug/net6.0/Application.dll
 /home/jkmdroid/RiderProjects/Zowari/Zowari/bin/Debug/net6.0/Domain.dll
 /home/jkmdroid/RiderProjects/Zowari/Zowari/bin/Debug/net6.0/Infrastructure.dll
@@ -71,3 +69,7 @@
 /home/jkmdroid/RiderProjects/Zowari/Zowari/obj/Debug/net6.0/ref/Zowari.dll
 /home/jkmdroid/RiderProjects/Zowari/Zowari/obj/Debug/net6.0/Zowari.pdb
 /home/jkmdroid/RiderProjects/Zowari/Zowari/obj/Debug/net6.0/Zowari.genruntimeconfig.cache
+/home/jkmdroid/RiderProjects/Zowari/Zowari/bin/Debug/net6.0/Bogus.dll
+/home/jkmdroid/RiderProjects/Zowari/Zowari/bin/Debug/net6.0/DataGenerator.dll
+/home/jkmdroid/RiderProjects/Zowari/Zowari/bin/Debug/net6.0/DataGenerator.pdb
+/home/jkmdroid/RiderProjects/Zowari/Zowari/obj/Debug/net6.0/refint/Zowari.dll

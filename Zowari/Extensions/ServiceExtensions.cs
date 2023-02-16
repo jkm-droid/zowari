@@ -1,3 +1,5 @@
+using DataGenerator.Abstractions;
+using DataGenerator.Implementations;
 using Infrastructure.Abstractions;
 using Infrastructure.Context;
 using Infrastructure.Implementations;
@@ -8,6 +10,7 @@ using LoggerService.Implementations;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
+using Zowari.Services;
 
 namespace Zowari.Extensions;
 
@@ -93,6 +96,7 @@ public static class ServiceExtensions
     public static IServiceCollection ConfigureSharedInfrastructure(this IServiceCollection serviceCollection)
     {
         serviceCollection.AddTransient<ICurrentDateProvider, CurrentDateProvider>();
+        serviceCollection.AddTransient<IViewRenderService, ViewRenderService>();
 
         return serviceCollection;
     }

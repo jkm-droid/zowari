@@ -1,9 +1,11 @@
+using System.Security.Claims;
 using Domain.Boundary.Requests;
 using Domain.Boundary.Responses;
 using Domain.Entities.Identity;
 using Infrastructure.Abstractions;
 using Infrastructure.Shared.Wrapper;
 using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -50,10 +52,15 @@ internal sealed class UserLoginCommandHandler : IRequestHandler<UserLoginCommand
         {
             return await Result<UserLoginResponse>.FailAsync("Invalid credentials.");
         }
-
+        
+        var identity = new ClaimsIdentity(IdentityConstants.ApplicationScheme);
+        identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()));
+        identity.AddClaim(new Claim(ClaimTypes.Name, user.UserName));
+        identity.AddClaim(new Claim(ClaimTypes.Email, user.Email));
+        
         var response = new UserLoginResponse
         {
-            User = user,
+            Identity = identity,
             Message = "Logged in successfully"
         };
   

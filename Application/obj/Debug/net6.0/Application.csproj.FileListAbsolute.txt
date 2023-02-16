@@ -1,6 +1,5 @@
 /home/jkmdroid/RiderProjects/Zowari/Application/bin/Debug/net6.0/Application.deps.json
 /home/jkmdroid/RiderProjects/Zowari/Application/bin/Debug/net6.0/Application.dll
-/home/jkmdroid/RiderProjects/Zowari/Application/bin/Debug/net6.0/ref/Application.dll
 /home/jkmdroid/RiderProjects/Zowari/Application/bin/Debug/net6.0/Application.pdb
 /home/jkmdroid/RiderProjects/Zowari/Application/bin/Debug/net6.0/AutoMapper.dll
 /home/jkmdroid/RiderProjects/Zowari/Application/bin/Debug/net6.0/Domain.dll
@@ -21,3 +20,6 @@
 /home/jkmdroid/RiderProjects/Zowari/Application/obj/Debug/net6.0/Application.dll
 /home/jkmdroid/RiderProjects/Zowari/Application/obj/Debug/net6.0/ref/Application.dll
 /home/jkmdroid/RiderProjects/Zowari/Application/obj/Debug/net6.0/Application.pdb
+/home/jkmdroid/RiderProjects/Zowari/Application/bin/Debug/net6.0/DataGenerator.dll
+/home/jkmdroid/RiderProjects/Zowari/Application/bin/Debug/net6.0/DataGenerator.pdb
+/home/jkmdroid/RiderProjects/Zowari/Application/obj/Debug/net6.0/refint/Application.dll

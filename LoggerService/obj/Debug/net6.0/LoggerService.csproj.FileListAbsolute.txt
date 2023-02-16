@@ -1,6 +1,5 @@
 /home/jkmdroid/RiderProjects/Zowari/LoggerService/bin/Debug/net6.0/LoggerService.deps.json
 /home/jkmdroid/RiderProjects/Zowari/LoggerService/bin/Debug/net6.0/LoggerService.dll
-/home/jkmdroid/RiderProjects/Zowari/LoggerService/bin/Debug/net6.0/ref/LoggerService.dll
 /home/jkmdroid/RiderProjects/Zowari/LoggerService/bin/Debug/net6.0/LoggerService.pdb
 /home/jkmdroid/RiderProjects/Zowari/LoggerService/obj/Debug/net6.0/LoggerService.csproj.AssemblyReference.cache
 /home/jkmdroid/RiderProjects/Zowari/LoggerService/obj/Debug/net6.0/LoggerService.GeneratedMSBuildEditorConfig.editorconfig
@@ -10,3 +9,4 @@
 /home/jkmdroid/RiderProjects/Zowari/LoggerService/obj/Debug/net6.0/LoggerService.dll
 /home/jkmdroid/RiderProjects/Zowari/LoggerService/obj/Debug/net6.0/ref/LoggerService.dll
 /home/jkmdroid/RiderProjects/Zowari/LoggerService/obj/Debug/net6.0/LoggerService.pdb
+/home/jkmdroid/RiderProjects/Zowari/LoggerService/obj/Debug/net6.0/refint/LoggerService.dll

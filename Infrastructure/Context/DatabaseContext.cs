@@ -25,6 +25,7 @@ public class DatabaseContext : IdentityDbContext<User, Role, Guid>
     {
         base.OnModelCreating(builder);
         builder.ApplyConfiguration(new RoleConfiguration());
+        builder.ApplyConfiguration(new ForumConfiguration());
     }
     
     public DbSet<ForumList> ForumLists { get; set; }

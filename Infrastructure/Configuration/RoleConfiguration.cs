@@ -1,3 +1,4 @@
+using Domain.Constants;
 using Domain.Entities.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -11,17 +12,32 @@ public class RoleConfiguration : IEntityTypeConfiguration<Role>
         builder.HasData(
             new Role
             {
-                Id = Guid.NewGuid(),
+                Id = Guid.Parse(RoleIds.VisitorId),
                 Name = "Visitor",
                 NormalizedName = "VISITOR",
                 Description = "Visitor role description"
             },
             new Role
             {
-                Id = Guid.NewGuid(),
+                Id = Guid.Parse(RoleIds.SuperAdministratorId),
+                Name = "SuperAdministrator",
+                NormalizedName = "ADMINISTRATOR",
+                Description = "Administrator role description"
+            },
+            new Role
+            {
+                Id = Guid.Parse(RoleIds.BasicUserId),
+                Name = "BasicUser",
+                NormalizedName = "BASICUSER",
+                Description = "Basic role description"
+            },
+            new Role
+            {
+                Id = Guid.Parse(RoleIds.AdministratorId),
                 Name = "Administrator",
                 NormalizedName = "ADMINISTRATOR",
                 Description = "Administrator role description"
-            });
+            }
+            );
     }
 }

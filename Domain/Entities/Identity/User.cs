@@ -12,8 +12,12 @@ public class User : IdentityUser<Guid>,IBaseEntity
         CreatedOn = DateTimeOffset.UtcNow;
         LastModifiedOn = DateTimeOffset.UtcNow;
     }
-    public string FullName { get; set; }
-    public Boolean IsActive { get; set; }
+    public bool IsActive { get; set; }
+    
+    public string? ProfileUrl { get; set; }
+    public int? Score { get; set; }
+    public int? Rating { get; set; }
+    public string? Level { get; set; }
     public DateTimeOffset CreatedOn { get; set; }
     public Guid? CreatedBy { get; set; }
     public DateTimeOffset? LastModifiedOn { get; set; }
