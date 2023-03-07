@@ -1,4 +1,4 @@
-namespace EmailService.Configurations;
+namespace Core.EmailService.Configurations;
 
 public class EmailConfiguration
 {

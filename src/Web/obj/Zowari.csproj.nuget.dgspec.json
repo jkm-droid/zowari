@@ -92,7 +92,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "/home/jkmdroid/RiderProjects/Zowari/src/Logging/LoggerService.csproj": {
+                "projectPath": "/home/jkmdroid/RiderProjects/Zowari/src/Logging/LoggerService.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

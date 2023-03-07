@@ -1,4 +1,4 @@
-namespace Application.Boundary.Requests;
+namespace Application.Boundary.Requests.Identity;
 
 public class UserLoginRequest
 {

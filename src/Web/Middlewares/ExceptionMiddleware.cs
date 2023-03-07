@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using Infrastructure.Shared.Abstractions;
 using Infrastructure.Shared.Exceptions.CustomExceptions;
-using Infrastructure.Shared.Models;
+using Infrastructure.Shared.Exceptions.Models;
 using Newtonsoft.Json;
 using Zowari.Extensions;
 

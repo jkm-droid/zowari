@@ -1,4 +1,4 @@
-namespace Infrastructure.Shared.Models;
+namespace Infrastructure.Shared.Exceptions.Models;
 
 // <summary>
 /// Object that holds a single Validation Error for the business object

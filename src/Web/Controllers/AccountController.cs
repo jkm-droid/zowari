@@ -1,5 +1,6 @@
 using System.Security.Claims;
 using Application.Boundary.Requests;
+using Application.Boundary.Requests.Identity;
 using Application.Features.Identity.Commands;
 using Domain.Entities.Identity;
 using LoggerService.Abstractions;

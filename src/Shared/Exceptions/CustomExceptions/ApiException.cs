@@ -1,5 +1,5 @@
 using System.Net;
-using Infrastructure.Shared.Models;
+using Infrastructure.Shared.Exceptions.Models;
 
 namespace Infrastructure.Shared.Exceptions.CustomExceptions;
 

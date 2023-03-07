@@ -1,4 +1,4 @@
-using Infrastructure.Shared.Models;
+using Infrastructure.Shared.Exceptions.Models;
 using Microsoft.AspNetCore.Http;
 
 namespace Infrastructure.Shared.Exceptions.CustomExceptions;

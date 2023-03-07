@@ -1,0 +1,15 @@
+/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.EmailService/bin/Debug/net6.0/Core.EmailService.deps.json
+/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.EmailService/bin/Debug/net6.0/Core.EmailService.dll
+/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.EmailService/bin/Debug/net6.0/Core.EmailService.pdb
+/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.EmailService/bin/Debug/net6.0/LoggerService.dll
+/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.EmailService/bin/Debug/net6.0/LoggerService.pdb
+/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.EmailService/obj/Debug/net6.0/Core.EmailService.csproj.AssemblyReference.cache
+/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.EmailService/obj/Debug/net6.0/Core.EmailService.GeneratedMSBuildEditorConfig.editorconfig
+/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.EmailService/obj/Debug/net6.0/Core.EmailService.AssemblyInfoInputs.cache
+/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.EmailService/obj/Debug/net6.0/Core.EmailService.AssemblyInfo.cs
+/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.EmailService/obj/Debug/net6.0/Core.EmailService.csproj.CoreCompileInputs.cache
+/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.EmailService/obj/Debug/net6.0/Core.EmailService.csproj.CopyComplete
+/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.EmailService/obj/Debug/net6.0/Core.EmailService.dll
+/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.EmailService/obj/Debug/net6.0/refint/Core.EmailService.dll
+/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.EmailService/obj/Debug/net6.0/Core.EmailService.pdb
+/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.EmailService/obj/Debug/net6.0/ref/Core.EmailService.dll

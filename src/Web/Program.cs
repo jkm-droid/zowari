@@ -21,6 +21,7 @@ builder.Services.ConfigureLoggerService(builder.Configuration);
 builder.Services.ConfigureSharedInfrastructure();
 builder.Services.ConfigureIdentity();
 builder.Services.AddOptionConfigurations(builder.Configuration);
+builder.Services.ConfigureEmailService();
 
 builder.Services.AddAutoMapper(typeof(Program));
 

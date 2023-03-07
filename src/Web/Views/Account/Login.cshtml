@@ -1,4 +1,4 @@
-@model Application.Boundary.Requests.UserLoginRequest
+@model Application.Boundary.Requests.Identity.UserLoginRequest
 
 @{
     ViewBag.Title = "Zowari | Login";
@@ -30,6 +30,8 @@
                 <input type="submit" value="Sign Me In" class="btn btn-primary" />
             </div>
         </form>
+        
+         <a class="" asp-controller="Password" asp-action="ForgotPassword">Forgot Password</a>
     </div>
 </div>
 

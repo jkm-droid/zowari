@@ -1,5 +1,6 @@
 using System.Security.Claims;
 using Application.Boundary.Requests;
+using Application.Boundary.Requests.Identity;
 using Application.Boundary.Responses;
 using Domain.Entities.Identity;
 using Infrastructure.Abstractions;

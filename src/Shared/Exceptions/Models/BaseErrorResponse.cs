@@ -1,4 +1,4 @@
-namespace Infrastructure.Shared.Models;
+namespace Infrastructure.Shared.Exceptions.Models;
 
 public class BaseErrorResponse
 {

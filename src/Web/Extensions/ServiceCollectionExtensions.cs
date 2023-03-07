@@ -1,4 +1,5 @@
-using EmailService.Configurations;
+using Core.EmailService.Configurations;
+using Core.EmailService.Services;
 using Infrastructure.Abstractions;
 using Infrastructure.Context;
 using Infrastructure.Implementations;
@@ -8,6 +9,7 @@ using LoggerService.Abstractions;
 using LoggerService.Implementations;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using NETCore.MailKit.Core;
 using Serilog;
 using Zowari.Services;
 
@@ -97,6 +99,12 @@ public static class ServiceCollectionExtensions
         serviceCollection.AddTransient<ICurrentDateProvider, CurrentDateProvider>();
         serviceCollection.AddTransient<IViewRenderService, ViewRenderService>();
 
+        return serviceCollection;
+    }
+
+    internal static IServiceCollection ConfigureEmailService(this IServiceCollection serviceCollection)
+    {
+        serviceCollection.AddScoped<IEmailSenderService, EmailSenderService>();
         return serviceCollection;
     }
     

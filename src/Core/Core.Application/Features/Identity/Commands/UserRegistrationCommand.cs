@@ -1,4 +1,5 @@
 using Application.Boundary.Requests;
+using Application.Boundary.Requests.Identity;
 using Domain.Entities.Identity;
 using Infrastructure.Abstractions;
 using Infrastructure.Shared.Wrapper;

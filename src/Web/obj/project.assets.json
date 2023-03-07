@@ -1356,6 +1356,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "LoggerService": "1.0.0",
           "Microsoft.Extensions.Options": "6.0.0",
           "NETCore.MailKit": "2.1.0"
         },

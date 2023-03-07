@@ -116,12 +116,10 @@
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Serilog.Settings.Configuration.dll
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Serilog.Sinks.Console.dll
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/System.Security.Permissions.dll
-/home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Application.dll
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Domain.dll
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Infrastructure.dll
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Infrastructure.Shared.dll
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/LoggerService.dll
-/home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Application.pdb
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Domain.pdb
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/LoggerService.pdb
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Infrastructure.pdb
@@ -146,3 +144,11 @@
 /home/jkmdroid/RiderProjects/Zowari/src/Web/obj/Debug/net6.0/Zowari.pdb
 /home/jkmdroid/RiderProjects/Zowari/src/Web/obj/Debug/net6.0/Zowari.genruntimeconfig.cache
 /home/jkmdroid/RiderProjects/Zowari/src/Web/obj/Debug/net6.0/ref/Zowari.dll
+/home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/MailKit.dll
+/home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/MimeKit.dll
+/home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/NETCore.MailKit.dll
+/home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/BouncyCastle.Crypto.dll
+/home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Core.Application.dll
+/home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Core.EmailService.dll
+/home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Core.Application.pdb
+/home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Core.EmailService.pdb
