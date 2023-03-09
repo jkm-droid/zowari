@@ -16,10 +16,10 @@ public class EmailSenderService : IEmailSenderService
         _logger = logger;
         _emailConfiguration = emailConfiguration.Value;
     }
-    
-    public async Task SendEmailAsync(Message message)
+
+    public async Task SendEmailAsync(EmailMessageRequest emailMessageRequest)
     {
-        var email = CreateEmailMessage(message);
+        var email = CreateEmailMessage(emailMessageRequest);
         await SendAsync(email);
     }
 
@@ -29,7 +29,7 @@ public class EmailSenderService : IEmailSenderService
         {
             try
             {
-               await client.ConnectAsync(_emailConfiguration.SmtpServer, _emailConfiguration.Port, true);
+                await client.ConnectAsync(_emailConfiguration.SmtpServer, _emailConfiguration.Port, true);
                 client.AuthenticationMechanisms.Remove("XOAUTH2");
                 await client.AuthenticateAsync(_emailConfiguration.UserName, _emailConfiguration.Password);
 
@@ -47,15 +47,15 @@ public class EmailSenderService : IEmailSenderService
         }
     }
 
-    private MimeMessage CreateEmailMessage(Message message)
+    private MimeMessage CreateEmailMessage(EmailMessageRequest emailMessageRequest)
     {
         var emailMessage = new MimeMessage();
-        emailMessage.From.Add(new MailboxAddress(string.Empty,_emailConfiguration.From));
-        emailMessage.To.AddRange(message.To);
-        emailMessage.Subject = message.Subject;
+        emailMessage.From.Add(new MailboxAddress(string.Empty, _emailConfiguration.From));
+        emailMessage.To.AddRange(emailMessageRequest.To);
+        emailMessage.Subject = emailMessageRequest.Subject;
         emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Text)
         {
-            Text = message.Content
+            Text = emailMessageRequest.Content
         };
 
         return emailMessage;

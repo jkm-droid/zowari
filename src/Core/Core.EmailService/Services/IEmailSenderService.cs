@@ -2,5 +2,5 @@ namespace Core.EmailService.Services;
 
 public interface IEmailSenderService
 {
-    Task SendEmailAsync(Message message);
+    Task SendEmailAsync(EmailMessageRequest emailMessageRequest);
 }

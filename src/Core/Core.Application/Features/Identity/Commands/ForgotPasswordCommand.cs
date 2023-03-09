@@ -1,5 +1,7 @@
 using System.Security.Policy;
 using Application.Boundary.Requests.Identity;
+using Core.EmailService;
+using Core.EmailService.Services;
 using Domain.Entities.Identity;
 using Infrastructure.Shared.Wrapper;
 using MediatR;
@@ -21,10 +23,12 @@ public class ForgotPasswordCommand : IRequest<Result<string>>
 internal sealed class ForgotPasswordCommandHandler : IRequestHandler<ForgotPasswordCommand, Result<string>>
 {
     private readonly UserManager<User> _userManager;
+    private readonly IEmailSenderService _emailSenderService;
 
-    public ForgotPasswordCommandHandler(UserManager<User> userManager)
+    public ForgotPasswordCommandHandler(UserManager<User> userManager, IEmailSenderService emailSenderService)
     {
         _userManager = userManager;
+        _emailSenderService = emailSenderService;
     }
     public async Task<Result<string>> Handle(ForgotPasswordCommand request, CancellationToken cancellationToken)
     {
@@ -37,7 +41,13 @@ internal sealed class ForgotPasswordCommandHandler : IRequestHandler<ForgotPassw
         var resetToken = await _userManager.GeneratePasswordResetTokenAsync(userExists);
         var passResetUri = new Uri(string.Concat($"{request.PasswordRequest.Origin}/", "password/reset-password"));
         var resetPasswordUrl = QueryHelpers.AddQueryString(passResetUri.ToString(), "Token", resetToken);
-        
-        throw new NotImplementedException();
+        var email = new EmailMessageRequest(
+            new string[]{ request.PasswordRequest.Email},
+            "Reset password token",
+            resetPasswordUrl
+        );
+        await _emailSenderService.SendEmailAsync(email);
+
+        return await Result<string>.SuccessAsync("Password reset email sent");
     }
 }

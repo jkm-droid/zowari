@@ -1,4 +1,7 @@
 using Application.Boundary.Requests.Identity;
+using Application.Features.Identity.Commands;
+using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Zowari.Controllers;
@@ -6,7 +9,14 @@ namespace Zowari.Controllers;
 [Route("password")]
 public class PasswordController : Controller
 {
+    private readonly IMediator _mediator;
+
+    public PasswordController(IMediator mediator)
+    {
+        _mediator = mediator;
+    }
     [HttpGet("forgot-password")]
+    [AllowAnonymous]
     public ActionResult ForgotPassword()
     {
         return View();
@@ -14,7 +24,7 @@ public class PasswordController : Controller
 
     [HttpPost("forgot-password")]
     [ValidateAntiForgeryToken]
-    public ActionResult ForgotPasswordAsync([Bind("Email")] ForgotPasswordRequest passwordRequest)
+    public async Task<ActionResult> ForgotPasswordAsync([Bind("Email")] ForgotPasswordRequest passwordRequest)
     {
         if (!ModelState.IsValid)
         {
@@ -22,7 +32,13 @@ public class PasswordController : Controller
         }
 
         passwordRequest.Origin = Request.Headers["origin"];
+        var response = await _mediator.Send(new ForgotPasswordCommand(passwordRequest));
+        if (response.Succeeded)
+        {
+            return RedirectToAction(nameof(ForgotPasswordConfirmation));
+        }
 
+        ViewData["PageErrors"] = response.Messages;
         return RedirectToAction(nameof(ForgotPasswordConfirmation));
     }
 
@@ -33,15 +49,44 @@ public class PasswordController : Controller
     }
     
     [HttpGet("reset-password")]
-    public ActionResult ResetPassword()
+    [AllowAnonymous]
+    public ActionResult ResetPassword(string token, string email)
     {
-        return View();
+        var resetRequest = new ResetPasswordRequest
+        {
+            Password = string.Empty,
+            ConfirmPassword = string.Empty,
+            Email = email,
+            Token = token
+        };
+        return View(resetRequest);
     }  
     
     [HttpPost("reset-password")]
-    public ActionResult ResetPasswordAsync()
+    [AllowAnonymous]
+    [ValidateAntiForgeryToken]
+    public async Task<ActionResult> ResetPasswordAsync(ResetPasswordRequest resetRequest)
     {
-        throw new NotImplementedException();
+        if (!ModelState.IsValid)
+        {
+            return View(resetRequest);
+        }
+
+        var response = await _mediator.Send(new ResetPasswordCommand(resetRequest));
+        if (!response.Succeeded)
+        {
+            return RedirectToAction(nameof(ResetPasswordConfirmation));
+        }
+
+        ViewData["PageErrors"] = response.Messages;
+        return View(resetRequest);
+    }    
+    
+    [HttpGet("reset-password-confirmation")]
+    [AllowAnonymous]
+    public ActionResult ResetPasswordConfirmation()
+    {
+        return View();
     }
     
 }

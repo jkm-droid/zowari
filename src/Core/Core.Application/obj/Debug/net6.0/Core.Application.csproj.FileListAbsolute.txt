@@ -19,3 +19,5 @@
 /home/jkmdroid/RiderProjects/Zowari/src/Core/Core.Application/obj/Debug/net6.0/refint/Core.Application.dll
 /home/jkmdroid/RiderProjects/Zowari/src/Core/Core.Application/obj/Debug/net6.0/Core.Application.pdb
 /home/jkmdroid/RiderProjects/Zowari/src/Core/Core.Application/obj/Debug/net6.0/ref/Core.Application.dll
+/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.Application/bin/Debug/net6.0/Core.EmailService.dll
+/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.Application/bin/Debug/net6.0/Core.EmailService.pdb

@@ -26,6 +26,9 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+              "/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.EmailService/Core.EmailService.csproj": {
+                "projectPath": "/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.EmailService/Core.EmailService.csproj"
+              },
               "/home/jkmdroid/RiderProjects/Zowari/src/Infrastructure/Infrastructure.csproj": {
                 "projectPath": "/home/jkmdroid/RiderProjects/Zowari/src/Infrastructure/Infrastructure.csproj"
               }

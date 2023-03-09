@@ -1341,6 +1341,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "Core.EmailService": "1.0.0",
           "Infrastructure": "1.0.0",
           "MediatR": "10.0.1",
           "Microsoft.Extensions.Identity.Core": "6.0.6"

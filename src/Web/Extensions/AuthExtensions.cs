@@ -24,5 +24,8 @@ public static class AuthExtensions
                 })
             .AddEntityFrameworkStores<DatabaseContext>()
             .AddDefaultTokenProviders();
+
+        serviceCollection.Configure<DataProtectionTokenProviderOptions>(options =>
+            options.TokenLifespan = TimeSpan.FromHours(1));
     }
 }
