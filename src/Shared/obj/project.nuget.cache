@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "s/fFMws5Q6ESPdOWdOrqODqaRy9aw3Lv3lCw8/Cox4InSQ5Y9MTwgyc75NK6Yu6WuD+/+s83fV9n0SDE7ooLcw==",
+  "success": true,
+  "projectFilePath": "/home/jkmdroid/RiderProjects/Zowari/src/Shared/Infrastructure.Shared.csproj",
+  "expectedPackageFiles": [
+    "/home/jkmdroid/.nuget/packages/microsoft.aspnetcore.http.abstractions/2.2.0/microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+    "/home/jkmdroid/.nuget/packages/microsoft.aspnetcore.http.features/2.2.0/microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
+    "/home/jkmdroid/.nuget/packages/microsoft.extensions.primitives/2.2.0/microsoft.extensions.primitives.2.2.0.nupkg.sha512",
+    "/home/jkmdroid/.nuget/packages/system.memory/4.5.1/system.memory.4.5.1.nupkg.sha512",
+    "/home/jkmdroid/.nuget/packages/system.runtime.compilerservices.unsafe/4.5.1/system.runtime.compilerservices.unsafe.4.5.1.nupkg.sha512",
+    "/home/jkmdroid/.nuget/packages/system.text.encodings.web/4.5.0/system.text.encodings.web.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,546 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/jkmdroid/RiderProjects/Zowari/src/Web/Zowari.csproj": {}
+  },
+  "projects": {
+    "/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.Application/Core.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.Application/Core.Application.csproj",
+        "projectName": "Core.Application",
+        "projectPath": "/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.Application/Core.Application.csproj",
+        "packagesPath": "/home/jkmdroid/.nuget/packages/",
+        "outputPath": "/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.Application/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/jkmdroid/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.EmailService/Core.EmailService.csproj": {
+                "projectPath": "/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.EmailService/Core.EmailService.csproj"
+              },
+              "/home/jkmdroid/RiderProjects/Zowari/src/Infrastructure/Infrastructure.csproj": {
+                "projectPath": "/home/jkmdroid/RiderProjects/Zowari/src/Infrastructure/Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[10.0.1, )"
+            },
+            "Microsoft.Extensions.Identity.Core": {
+              "target": "Package",
+              "version": "[6.0.6, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.400/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.EmailService/Core.EmailService.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.EmailService/Core.EmailService.csproj",
+        "projectName": "Core.EmailService",
+        "projectPath": "/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.EmailService/Core.EmailService.csproj",
+        "packagesPath": "/home/jkmdroid/.nuget/packages/",
+        "outputPath": "/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.EmailService/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/jkmdroid/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/home/jkmdroid/RiderProjects/Zowari/src/Logging/LoggerService.csproj": {
+                "projectPath": "/home/jkmdroid/RiderProjects/Zowari/src/Logging/LoggerService.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "NETCore.MailKit": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.400/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/jkmdroid/RiderProjects/Zowari/src/Domain/Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/jkmdroid/RiderProjects/Zowari/src/Domain/Domain.csproj",
+        "projectName": "Domain",
+        "projectPath": "/home/jkmdroid/RiderProjects/Zowari/src/Domain/Domain.csproj",
+        "packagesPath": "/home/jkmdroid/.nuget/packages/",
+        "outputPath": "/home/jkmdroid/RiderProjects/Zowari/src/Domain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/jkmdroid/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Extensions.Identity.Stores": {
+              "target": "Package",
+              "version": "[6.0.6, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.400/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/jkmdroid/RiderProjects/Zowari/src/Infrastructure/Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/jkmdroid/RiderProjects/Zowari/src/Infrastructure/Infrastructure.csproj",
+        "projectName": "Infrastructure",
+        "projectPath": "/home/jkmdroid/RiderProjects/Zowari/src/Infrastructure/Infrastructure.csproj",
+        "packagesPath": "/home/jkmdroid/.nuget/packages/",
+        "outputPath": "/home/jkmdroid/RiderProjects/Zowari/src/Infrastructure/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/jkmdroid/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/home/jkmdroid/RiderProjects/Zowari/src/Domain/Domain.csproj": {
+                "projectPath": "/home/jkmdroid/RiderProjects/Zowari/src/Domain/Domain.csproj"
+              },
+              "/home/jkmdroid/RiderProjects/Zowari/src/Logging/LoggerService.csproj": {
+                "projectPath": "/home/jkmdroid/RiderProjects/Zowari/src/Logging/LoggerService.csproj"
+              },
+              "/home/jkmdroid/RiderProjects/Zowari/src/Shared/Infrastructure.Shared.csproj": {
+                "projectPath": "/home/jkmdroid/RiderProjects/Zowari/src/Shared/Infrastructure.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Bogus": {
+              "target": "Package",
+              "version": "[34.0.2, )"
+            },
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[6.0.6, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[6.0.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.400/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/jkmdroid/RiderProjects/Zowari/src/Logging/LoggerService.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/jkmdroid/RiderProjects/Zowari/src/Logging/LoggerService.csproj",
+        "projectName": "LoggerService",
+        "projectPath": "/home/jkmdroid/RiderProjects/Zowari/src/Logging/LoggerService.csproj",
+        "packagesPath": "/home/jkmdroid/.nuget/packages/",
+        "outputPath": "/home/jkmdroid/RiderProjects/Zowari/src/Logging/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/jkmdroid/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Extensions.Logging": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.400/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/jkmdroid/RiderProjects/Zowari/src/Shared/Infrastructure.Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/jkmdroid/RiderProjects/Zowari/src/Shared/Infrastructure.Shared.csproj",
+        "projectName": "Infrastructure.Shared",
+        "projectPath": "/home/jkmdroid/RiderProjects/Zowari/src/Shared/Infrastructure.Shared.csproj",
+        "packagesPath": "/home/jkmdroid/.nuget/packages/",
+        "outputPath": "/home/jkmdroid/RiderProjects/Zowari/src/Shared/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/jkmdroid/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.400/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/jkmdroid/RiderProjects/Zowari/src/Web/Zowari.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/jkmdroid/RiderProjects/Zowari/src/Web/Zowari.csproj",
+        "projectName": "Zowari",
+        "projectPath": "/home/jkmdroid/RiderProjects/Zowari/src/Web/Zowari.csproj",
+        "packagesPath": "/home/jkmdroid/.nuget/packages/",
+        "outputPath": "/home/jkmdroid/RiderProjects/Zowari/src/Web/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/jkmdroid/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.Application/Core.Application.csproj": {
+                "projectPath": "/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.Application/Core.Application.csproj"
+              },
+              "/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.EmailService/Core.EmailService.csproj": {
+                "projectPath": "/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.EmailService/Core.EmailService.csproj"
+              },
+              "/home/jkmdroid/RiderProjects/Zowari/src/Domain/Domain.csproj": {
+                "projectPath": "/home/jkmdroid/RiderProjects/Zowari/src/Domain/Domain.csproj"
+              },
+              "/home/jkmdroid/RiderProjects/Zowari/src/Logging/LoggerService.csproj": {
+                "projectPath": "/home/jkmdroid/RiderProjects/Zowari/src/Logging/LoggerService.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[11.0.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[11.1.2, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[11.1.0, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[10.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.6, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
+            "Serilog.Exceptions": {
+              "target": "Package",
+              "version": "[8.3.0, )"
+            },
+            "Serilog.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Serilog.Settings.Configuration": {
+              "target": "Package",
+              "version": "[3.3.0, )"
+            },
+            "Serilog.Sinks.Console": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.400/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+/home/jkmdroid/RiderProjects/Zowari/src/Core/EmailService/bin/Debug/net6.0/EmailService.deps.json
+/home/jkmdroid/RiderProjects/Zowari/src/Core/EmailService/bin/Debug/net6.0/EmailService.dll
+/home/jkmdroid/RiderProjects/Zowari/src/Core/EmailService/bin/Debug/net6.0/EmailService.pdb
+/home/jkmdroid/RiderProjects/Zowari/src/Core/EmailService/obj/Debug/net6.0/EmailService.csproj.AssemblyReference.cache
+/home/jkmdroid/RiderProjects/Zowari/src/Core/EmailService/obj/Debug/net6.0/EmailService.GeneratedMSBuildEditorConfig.editorconfig
+/home/jkmdroid/RiderProjects/Zowari/src/Core/EmailService/obj/Debug/net6.0/EmailService.AssemblyInfoInputs.cache
+/home/jkmdroid/RiderProjects/Zowari/src/Core/EmailService/obj/Debug/net6.0/EmailService.AssemblyInfo.cs
+/home/jkmdroid/RiderProjects/Zowari/src/Core/EmailService/obj/Debug/net6.0/EmailService.csproj.CoreCompileInputs.cache
+/home/jkmdroid/RiderProjects/Zowari/src/Core/EmailService/obj/Debug/net6.0/EmailService.dll
+/home/jkmdroid/RiderProjects/Zowari/src/Core/EmailService/obj/Debug/net6.0/refint/EmailService.dll
+/home/jkmdroid/RiderProjects/Zowari/src/Core/EmailService/obj/Debug/net6.0/EmailService.pdb
+/home/jkmdroid/RiderProjects/Zowari/src/Core/EmailService/obj/Debug/net6.0/ref/EmailService.dll
