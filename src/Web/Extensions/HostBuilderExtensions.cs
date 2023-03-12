@@ -15,7 +15,7 @@ public static class HostBuilderExtensions
             .Build();
         
         Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(configuration).CreateLogger();
-        SerilogHostBuilderExtensions.UseSerilog(hostBuilder);
+        hostBuilder.UseSerilog();
         
         return hostBuilder;
     }

@@ -10,7 +10,7 @@
                     title="Welcome">Welcome @User.Identity?.Name!</a>
             </li>
             <li class="nav-item">
-                <form class="form-inline" asp-controller="Account" asp-action="Logout">
+                <form class="form-inline" asp-controller="Authentication" asp-action="Logout">
                     <button type="submit" class="nav-link btn btn-link text-info">Logout</button>
                 </form>
             </li>
@@ -18,11 +18,11 @@
     else
     {
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-controller="Account"
+            <a class="nav-link text-dark" asp-controller="Authentication"
                asp-action="Register">Register</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-controller="Account"
+            <a class="nav-link text-dark" asp-controller="Authentication"
                asp-action="Login">Login</a>
         </li>
     }

@@ -12,19 +12,23 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Zowari.Controllers;
 
-public class AccountController : Controller
+public class AuthenticationController : Controller
 {
     private readonly IMediator _mediator;
     private readonly ILoggerManager _logger;
     private readonly SignInManager<User> _signInManager;
 
-    public AccountController(IMediator mediator, ILoggerManager logger, SignInManager<User> signInManager)
+    public AuthenticationController(IMediator mediator, ILoggerManager logger, SignInManager<User> signInManager)
     {
         _mediator = mediator;
         _logger = logger;
         _signInManager = signInManager;
     }
     
+    /// <summary>
+    /// Show registration form
+    /// </summary>
+    /// <returns></returns>
     [AllowAnonymous]
     [HttpGet]
     public IActionResult Register()
@@ -36,10 +40,15 @@ public class AccountController : Controller
         return View();
     }
     
+    /// <summary>
+    /// Register new user
+    /// </summary>
+    /// <param name="userRegistrationRequest"></param>
+    /// <returns></returns>
     [AllowAnonymous]
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Register(UserRegistrationRequest userRegistrationRequest)
+    public async Task<IActionResult> RegisterAsync(UserRegistrationRequest userRegistrationRequest)
     {
         if (!ModelState.IsValid)
         {
@@ -54,6 +63,11 @@ public class AccountController : Controller
         return View();
     }
 
+    /// <summary>
+    /// Show login form
+    /// </summary>
+    /// <param name="returnUrl"></param>
+    /// <returns></returns>
     [AllowAnonymous]
     [HttpGet]
     public IActionResult Login(string? returnUrl = null)
@@ -70,10 +84,16 @@ public class AccountController : Controller
         });
     }
 
+    /// <summary>
+    /// Process login request
+    /// </summary>
+    /// <param name="userLoginRequest"></param>
+    /// <param name="returnUrl"></param>
+    /// <returns></returns>
     [AllowAnonymous]
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Login([Bind("Username","Password")] UserLoginRequest userLoginRequest,string? returnUrl = null)
+    public async Task<IActionResult> LoginAsync([Bind("Username","Password")] UserLoginRequest userLoginRequest,string? returnUrl = null)
     {
         if (!ModelState.IsValid)
         {
@@ -91,6 +111,10 @@ public class AccountController : Controller
         return RedirectToLocalUrl(returnUrl);
     }
 
+    /// <summary>
+    /// Log out user
+    /// </summary>
+    /// <returns></returns>
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> LogOut()

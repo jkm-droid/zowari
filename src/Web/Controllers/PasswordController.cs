@@ -15,6 +15,11 @@ public class PasswordController : Controller
     {
         _mediator = mediator;
     }
+
+    /// <summary>
+    /// Show forgot password page
+    /// </summary>
+    /// <returns></returns>
     [HttpGet("forgot-password")]
     [AllowAnonymous]
     public ActionResult ForgotPassword()
@@ -22,6 +27,11 @@ public class PasswordController : Controller
         return View();
     }
 
+    /// <summary>
+    /// Process the forgot password request
+    /// </summary>
+    /// <param name="passwordRequest"></param>
+    /// <returns></returns>
     [HttpPost("forgot-password")]
     [ValidateAntiForgeryToken]
     public async Task<ActionResult> ForgotPasswordAsync([Bind("Email")] ForgotPasswordRequest passwordRequest)
@@ -33,21 +43,33 @@ public class PasswordController : Controller
 
         passwordRequest.Origin = Request.Headers["origin"];
         var response = await _mediator.Send(new ForgotPasswordCommand(passwordRequest));
-        if (response.Succeeded)
+        if (response.Succeeded || response.Messages.Contains("Email not found"))
         {
-            return RedirectToAction(nameof(ForgotPasswordConfirmation));
+            ViewBag.Email = passwordRequest.Email;
+            return View("ForgotPasswordConfirmation");
         }
 
         ViewData["PageErrors"] = response.Messages;
-        return RedirectToAction(nameof(ForgotPasswordConfirmation));
+        return View(passwordRequest);
     }
 
+    /// <summary>
+    /// Forgot password confirmation page
+    /// </summary>
+    /// <returns></returns>
     [HttpGet]
     public ActionResult ForgotPasswordConfirmation()
     {
+        ViewData["email"] = ViewBag.Email;
         return View();
     }
-    
+
+    /// <summary>
+    /// Show reset password page
+    /// </summary>
+    /// <param name="token"></param>
+    /// <param name="email"></param>
+    /// <returns></returns>
     [HttpGet("reset-password")]
     [AllowAnonymous]
     public ActionResult ResetPassword(string token, string email)
@@ -60,8 +82,13 @@ public class PasswordController : Controller
             Token = token
         };
         return View(resetRequest);
-    }  
-    
+    }
+
+    /// <summary>
+    /// Process reset password request
+    /// </summary>
+    /// <param name="resetRequest"></param>
+    /// <returns></returns>
     [HttpPost("reset-password")]
     [AllowAnonymous]
     [ValidateAntiForgeryToken]
@@ -73,20 +100,23 @@ public class PasswordController : Controller
         }
 
         var response = await _mediator.Send(new ResetPasswordCommand(resetRequest));
-        if (!response.Succeeded)
+        if (response.Succeeded)
         {
             return RedirectToAction(nameof(ResetPasswordConfirmation));
         }
 
         ViewData["PageErrors"] = response.Messages;
         return View(resetRequest);
-    }    
-    
+    }
+
+    /// <summary>
+    /// Reset password confirmation page
+    /// </summary>
+    /// <returns></returns>
     [HttpGet("reset-password-confirmation")]
     [AllowAnonymous]
     public ActionResult ResetPasswordConfirmation()
     {
         return View();
     }
-    
 }
