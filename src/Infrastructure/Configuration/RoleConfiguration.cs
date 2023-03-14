@@ -7,6 +7,8 @@ namespace Infrastructure.Configuration;
 
 public class RoleConfiguration : IEntityTypeConfiguration<Role>
 {
+    private readonly DateTimeOffset _defaultCreateOn = new(2023, 01, 01, 00, 00, 00, TimeSpan.Zero);
+
     public void Configure(EntityTypeBuilder<Role> builder)
     {
         builder.HasData(
@@ -15,28 +17,36 @@ public class RoleConfiguration : IEntityTypeConfiguration<Role>
                 Id = Guid.Parse(RoleIds.VisitorId),
                 Name = "Visitor",
                 NormalizedName = "VISITOR",
-                Description = "Visitor role description"
+                Description = "Visitor role description",
+                CreatedOn = _defaultCreateOn,
+                LastModifiedOn = _defaultCreateOn
             },
             new Role
             {
                 Id = Guid.Parse(RoleIds.SuperAdministratorId),
                 Name = "SuperAdministrator",
                 NormalizedName = "SUPER_ADMINISTRATOR",
-                Description = "Administrator role description"
+                Description = "Administrator role description",
+                CreatedOn = _defaultCreateOn,
+                LastModifiedOn = _defaultCreateOn
             },
             new Role
             {
                 Id = Guid.Parse(RoleIds.BasicUserId),
                 Name = "BasicUser",
                 NormalizedName = "BASIC_USER",
-                Description = "Basic role description"
+                Description = "Basic role description",
+                CreatedOn = _defaultCreateOn,
+                LastModifiedOn = _defaultCreateOn
             },
             new Role
             {
                 Id = Guid.Parse(RoleIds.AdministratorId),
                 Name = "Administrator",
                 NormalizedName = "ADMINISTRATOR",
-                Description = "Administrator role description"
+                Description = "Administrator role description",
+                CreatedOn = _defaultCreateOn,
+                LastModifiedOn = _defaultCreateOn
             }
             );
     }

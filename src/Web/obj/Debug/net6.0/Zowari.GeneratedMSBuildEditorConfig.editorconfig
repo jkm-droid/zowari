@@ -15,16 +15,16 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /home/jkmdroid/RiderProjects/Zowari/src/Web
 build_property._RazorSourceGeneratorDebug = 
 
-[/home/jkmdroid/RiderProjects/Zowari/src/Web/Views/Account/Login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
+[/home/jkmdroid/RiderProjects/Zowari/src/Web/Views/Authentication/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXV0aGVudGljYXRpb24vTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/jkmdroid/RiderProjects/Zowari/src/Web/Views/Account/LogOut.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Mb2dPdXQuY3NodG1s
+[/home/jkmdroid/RiderProjects/Zowari/src/Web/Views/Authentication/LogOut.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXV0aGVudGljYXRpb24vTG9nT3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/jkmdroid/RiderProjects/Zowari/src/Web/Views/Account/Register.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9SZWdpc3Rlci5jc2h0bWw=
+[/home/jkmdroid/RiderProjects/Zowari/src/Web/Views/Authentication/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXV0aGVudGljYXRpb24vUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/home/jkmdroid/RiderProjects/Zowari/src/Web/Views/Home/Index.cshtml]

@@ -20,13 +20,6 @@ public class DatabaseContext : IdentityDbContext<User, Role, Guid>
     {
         _currentDateProvider = currentDateProvider;
     }
-
-    protected override void OnModelCreating(ModelBuilder builder)
-    {
-        base.OnModelCreating(builder);
-        builder.ApplyConfiguration(new RoleConfiguration());
-        builder.ApplyConfiguration(new ForumConfiguration());
-    }
     
     public DbSet<ForumList> ForumLists { get; set; }
     public DbSet<Category> Categories { get; set; }
@@ -37,6 +30,27 @@ public class DatabaseContext : IdentityDbContext<User, Role, Guid>
     public DbSet<BookMark> BookMarks { get; set; }
     public DbSet<Country> Countries { get; set; }
     public DbSet<Activity> Activities { get; set; }
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        base.OnModelCreating(builder);
+
+        #region Seeds
+
+        builder.ApplyConfiguration(new RoleConfiguration());
+        builder.ApplyConfiguration(new ForumConfiguration());
+
+        #endregion
+
+        builder.Entity<ForumList>(entity =>
+        {
+            entity.Property(e => e.Title).IsRequired();
+        });
+
+        builder.Entity<BookMark>(entity =>
+        {
+            entity.Property(e => e.UserId).IsRequired();
+        });
+    }
 
     public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
     {

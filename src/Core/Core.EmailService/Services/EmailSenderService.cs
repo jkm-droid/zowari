@@ -50,7 +50,7 @@ public class EmailSenderService : IEmailSenderService
     private MimeMessage CreateEmailMessage(EmailMessageRequest emailMessageRequest)
     {
         var emailMessage = new MimeMessage();
-        emailMessage.From.Add(new MailboxAddress(string.Empty, _emailConfiguration.From));
+        emailMessage.From.Add(new MailboxAddress(_emailConfiguration.Name, _emailConfiguration.From));
         emailMessage.To.AddRange(emailMessageRequest.To);
         emailMessage.Subject = emailMessageRequest.Subject;
         emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Text)
