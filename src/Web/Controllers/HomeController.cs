@@ -16,6 +16,8 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        //show list of available forums
+        //show the latest topics
         return View();
     }
 

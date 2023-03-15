@@ -1,6 +1,6 @@
 using System.Security.Claims;
 
-namespace Application.Boundary.Responses;
+namespace Application.Boundary.Responses.Identity;
 
 public class UserLoginResponse
 {

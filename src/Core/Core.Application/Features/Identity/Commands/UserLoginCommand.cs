@@ -2,6 +2,7 @@ using System.Security.Claims;
 using Application.Boundary.Requests;
 using Application.Boundary.Requests.Identity;
 using Application.Boundary.Responses;
+using Application.Boundary.Responses.Identity;
 using Domain.Entities.Identity;
 using Infrastructure.Abstractions;
 using Infrastructure.Shared.Wrapper;
