@@ -1,0 +1,11 @@
+@model Infrastructure.Shared.Wrapper.Result<Infrastructure.Shared.Paging.PagedResponse<Application.Boundary.Responses.Topics.TopicResponse>>
+
+<div>
+    @foreach (var topic in Model.Data.Data.ToList())
+    {
+        <h3>@topic.Author</h3>
+    }
+</div>
+<div id="paginationDiv" class="mt-6">
+    @await Html.PartialAsync("_PagingPartial", Model.Data.PagingMetaData).ConfigureAwait(false)
+</div>

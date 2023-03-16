@@ -1,4 +1,4 @@
-namespace Application.Boundary.QueryParams
+namespace Infrastructure.Shared.Paging
 {
   public class PagedList<T> : List<T>
   {
@@ -16,10 +16,9 @@ namespace Application.Boundary.QueryParams
 
     public PagingMetaData MetaData { get; set; }
 
-    public static PagedList<T> ToPagedList(List<T> source, int pageNumber, int pageSize)
+    public static PagedList<T> ToPagedList(List<T> source,int count, int pageNumber, int pageSize)
     {
-      int count = source.Count();
-      var items = source.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+      var items = source.ToList();
 
       return new PagedList<T>(items, count, pageNumber, pageSize);
     }

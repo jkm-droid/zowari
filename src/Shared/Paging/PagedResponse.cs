@@ -1,6 +1,4 @@
-using Application.Boundary.QueryParams;
-
-namespace Application.Boundary.Responses.Shared
+namespace Infrastructure.Shared.Paging
 {
   public class PagedResponse<TResponse>
   {

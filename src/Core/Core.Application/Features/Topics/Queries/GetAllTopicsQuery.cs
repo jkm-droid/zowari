@@ -1,10 +1,10 @@
 using Application.Boundary.QueryParams;
-using Application.Boundary.Responses.Shared;
 using Application.Boundary.Responses.Topics;
 using Application.Factories;
 using Domain.Entities;
 using Infrastructure.Abstractions;
 using Infrastructure.Extensions;
+using Infrastructure.Shared.Paging;
 using Infrastructure.Shared.Wrapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -43,7 +43,9 @@ internal sealed class
                 .ToTopicResponse()
                 .ToListAsync(cancellationToken);
 
-            var pagedList = PagedList<TopicResponse>.ToPagedList(topicRecords, request.QueryParameters.PageNumber,
+            var recordsCount = await query.CountAsync(cancellationToken);
+            
+            var pagedList = PagedList<TopicResponse>.ToPagedList(topicRecords,recordsCount, request.QueryParameters.PageNumber,
                 request.QueryParameters.PageSize);
         
             var response = new PagedResponse<TopicResponse>

@@ -1,4 +1,4 @@
-namespace Application.Boundary.QueryParams
+namespace Infrastructure.Shared.Paging
 {
   public class PagingMetaData
   {
