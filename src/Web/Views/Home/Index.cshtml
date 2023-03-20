@@ -2,10 +2,110 @@
     ViewData["Title"] = "Zowari | Home";
 }
 
-<div class="text-center">
-    <p><a asp-controller="Forum" asp-action="Index">Forums</a></p>
-    
-    <div id="transactionsDiv">
+<div class="">
+    <p>
+        <a asp-controller="Forum" asp-action="Index">Forums</a>
+    </p>
+
+    <div id="forumsListDiv">
+        @await Html.PartialAsync("_ForumsListPartial").ConfigureAwait(false)
+    </div>
+
+    <div id="latestTopicsDiv">
         @await Html.PartialAsync("_LatestTopicsPartial").ConfigureAwait(false)
-      </div>
+    </div>
 </div>
+
+
+@section Scripts {
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+      addPageClickListeners();
+      addSearchClickListener();
+      addPeriodFromDataPickerListener();
+      addPeriodToDataPickerListener();
+    });
+
+    function addPageClickListeners() {
+      const url = new URL(window.location);
+
+      url.searchParams.set('pageSize', '10');
+      url.searchParams.set('pageNumber', $('#CurrentPage').val());
+      url.searchParams.set('SearchTerm', $('#search-term').val());
+      url.searchParams.set('PeriodFrom', $('#PeriodFrom').val());
+      url.searchParams.set('PeriodTo', $('#PeriodTo').val());
+      window.history.pushState({}, '', url);
+      $(".page-number > a").click(function() {
+        let params = getQueryParams();
+        params.currentPage = parseInt($(this).find("input:first").val());
+
+        getView(params.currentPage, params.searchTerm, params.periodFrom, params.periodTo);
+
+      });
+    }
+
+    function addSearchClickListener() {
+      $('#search-button').on('click',
+        function(e) {
+          e.preventDefault();
+          let params = getQueryParams();
+          params.currentPage = parseInt($(this).find("input:first").val());
+
+          getView(params.currentPage, params.searchTerm, params.periodFrom, params.periodTo);
+        });
+    }
+
+    function addPeriodFromDataPickerListener() {
+      $('#PeriodFrom').change(function() {
+        let params = getQueryParams();
+        params.currentPage = parseInt($(this).find("input:first").val());
+
+        getView(params.currentPage, params.searchTerm, params.periodFrom, params.periodTo);
+      });
+    }
+
+    function addPeriodToDataPickerListener() {
+      $('#PeriodTo').change(function() {
+        let params = getQueryParams();
+        params.currentPage = parseInt($(this).find("input:first").val());
+
+        getView(params.currentPage, params.searchTerm, params.periodFrom, params.periodTo);
+      });
+    }
+
+    function getQueryParams() {
+      return {
+        currentPage: $('#CurrentPage').val(),
+        searchTerm: $('#search-term').val(),
+        periodFrom: $('#PeriodFrom').val(),
+        periodTo: $('#PeriodTo').val()
+      };
+    }
+
+    function getView(pageNumber, searchTerm, periodFrom, periodTo) {
+      if (isNaN(pageNumber) || pageNumber === "undefined") {
+        pageNumber = 1;
+      }
+      $.ajax({
+        url: '@Url.Action("LatestTopicsPartial", "Home")',
+        type: 'GET',
+        data: {
+          "pageNumber": pageNumber ?? 1,
+          "pageSize": 10,
+          "searchTerm": searchTerm,
+          "PeriodFrom": periodFrom,
+          "PeriodTo": periodTo,
+          "name": "",
+          "description": ""
+        },
+        success: function(data) {
+          $("#latestTopicsDiv").html(data);
+          addPageClickListeners();
+        }
+      });
+    }
+
+  </script>
+
+}

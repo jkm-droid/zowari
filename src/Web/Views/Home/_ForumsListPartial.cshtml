@@ -1,0 +1,13 @@
+@model Zowari.Models.ViewModels.LatestTopicsForumsViewModel
+
+<div>
+      @foreach (var forum in Model.ForumResponse.ToList())
+      {
+            <div class="row col-md-12">
+                  <div class="col-md-8">
+                        <h6 class="">@forum.Title</h6>
+                  </div>
+                  <hr>
+            </div>
+      }
+</div>

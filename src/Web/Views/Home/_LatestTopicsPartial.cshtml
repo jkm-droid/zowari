@@ -1,11 +1,19 @@
-@model Infrastructure.Shared.Wrapper.Result<Infrastructure.Shared.Paging.PagedResponse<Application.Boundary.Responses.Topics.TopicResponse>>
+@model Zowari.Models.ViewModels.LatestTopicsForumsViewModel
 
 <div>
-    @foreach (var topic in Model.Data.Data.ToList())
+    @foreach (var topic in Model.TopicResponse.Data.ToList())
     {
-        <h3>@topic.Author</h3>
+        <div class="row col-md-12">
+            <div class="col-md-8">
+                <img style="float: left; margin-right: 10px;" src="/profile_pictures/blank.profile.picture.png"
+                     alt="" width="60" height="60">
+                <h6 class="">@topic.Body.Trim()</h6>
+            </div>
+            
+            <hr>
+        </div>
     }
 </div>
 <div id="paginationDiv" class="mt-6">
-    @await Html.PartialAsync("_PagingPartial", Model.Data.PagingMetaData).ConfigureAwait(false)
+    @await Html.PartialAsync("_PagingPartial", Model.TopicResponse.PagingMetaData).ConfigureAwait(false)
 </div>

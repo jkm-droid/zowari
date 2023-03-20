@@ -7,23 +7,23 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.Forum.Queries;
 
-public class GetForumsQuery : IRequest<Result<List<ForumResponse>>>
+public class GetAllForumsQuery : IRequest<Result<List<ForumResponse>>>
 {
-    public GetForumsQuery()
+    public GetAllForumsQuery()
     {
         
     }
 }
 
-internal sealed class GetForumsQueryHandler : IRequestHandler<GetForumsQuery, Result<List<ForumResponse>>>
+internal sealed class GetAllForumsQueryHandler : IRequestHandler<GetAllForumsQuery, Result<List<ForumResponse>>>
 {
     private readonly IRepositoryManager _repository;
 
-    public GetForumsQueryHandler(IRepositoryManager repository)
+    public GetAllForumsQueryHandler(IRepositoryManager repository)
     {
         _repository = repository;
     }
-    public async Task<Result<List<ForumResponse>>> Handle(GetForumsQuery request, CancellationToken cancellationToken)
+    public async Task<Result<List<ForumResponse>>> Handle(GetAllForumsQuery request, CancellationToken cancellationToken)
     {
         var forums = await _repository.DbContext().ForumLists.OrderBy(f => f.CreatedOn)
             .ToForumLists()

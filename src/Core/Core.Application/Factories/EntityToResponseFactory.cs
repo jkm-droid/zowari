@@ -26,6 +26,7 @@ public static class EntityToResponseFactory
             Body = topic.Body,
             Author = topic.Author,
             Slug = topic.Slug,
+            CreatedOn = topic.CreatedOn,
             MessagesResponses = null,
             BookmarksResponses = null
         });

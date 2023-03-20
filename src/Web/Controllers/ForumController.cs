@@ -23,7 +23,7 @@ public class ForumController : Controller
     [HttpGet]
     public async Task<ActionResult<Result<List<ForumResponse>>>> Index()
     {
-        var forums = await _mediator.Send(new GetForumsQuery());
+        var forums = await _mediator.Send(new GetAllForumsQuery());
         return View(forums);
     }
 }

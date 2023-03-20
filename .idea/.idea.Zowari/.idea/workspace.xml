@@ -5,60 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1acdc9d7-b462-46b4-afcb-b26a975fbb73" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Core/Core.Application/Features/Test/Commands/GenerateFakeDataCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Web/Controllers/PaginationController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Web/Controllers/TestController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Web/Views/Home/_LatestTopicsPartial.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Web/Views/Shared/_PagingPartial.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Web/Views/Test/Index.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Web/Models/ViewModels/LatestTopicsForumsViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Web/Views/Home/_ForumsListPartial.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Zowari/.idea/dataSources/79fd7d61-2b3f-4180-a59a-cded3fe3a2f5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Zowari/.idea/dataSources/79fd7d61-2b3f-4180-a59a-cded3fe3a2f5.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Zowari/.idea/dataSources/79fd7d61-2b3f-4180-a59a-cded3fe3a2f5/storage_v2/_src_/database/zowari.Nv-C1g/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Zowari/.idea/dataSources/79fd7d61-2b3f-4180-a59a-cded3fe3a2f5/storage_v2/_src_/database/zowari.Nv-C1g/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Zowari/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Zowari/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/Boundary/QueryParams/PagedList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Paging/PagedList.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/Boundary/QueryParams/PagingMetaData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Paging/PagingMetaData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/Boundary/Responses/Shared/PagedResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Paging/PagedResponse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/Features/Topics/Queries/GetAllTopicsQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/Features/Topics/Queries/GetAllTopicsQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/Boundary/Responses/Topics/TopicResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/Boundary/Responses/Topics/TopicResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/Factories/EntityToResponseFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/Factories/EntityToResponseFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/Features/Forum/Queries/GetForumsQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/Features/Forum/Queries/GetAllForumsQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/Features/Test/Commands/GenerateFakeDataCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/Features/Test/Commands/GenerateFakeDataCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/bin/Debug/net6.0/Core.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/bin/Debug/net6.0/Core.Application.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/bin/Debug/net6.0/Core.Application.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/bin/Debug/net6.0/Core.Application.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/bin/Debug/net6.0/Infrastructure.Shared.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/bin/Debug/net6.0/Infrastructure.Shared.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/bin/Debug/net6.0/Infrastructure.Shared.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/bin/Debug/net6.0/Infrastructure.Shared.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/bin/Debug/net6.0/Infrastructure.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/bin/Debug/net6.0/Infrastructure.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/bin/Debug/net6.0/Infrastructure.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/bin/Debug/net6.0/Infrastructure.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/obj/Debug/net6.0/Core.Application.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/obj/Debug/net6.0/Core.Application.csproj.AssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/obj/Debug/net6.0/Core.Application.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/obj/Debug/net6.0/Core.Application.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/obj/Debug/net6.0/Core.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/obj/Debug/net6.0/Core.Application.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/obj/Debug/net6.0/Core.Application.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/obj/Debug/net6.0/Core.Application.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/obj/Debug/net6.0/ref/Core.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/obj/Debug/net6.0/ref/Core.Application.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/obj/Debug/net6.0/refint/Core.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/obj/Debug/net6.0/refint/Core.Application.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/bin/Debug/net6.0/Infrastructure.Shared.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/bin/Debug/net6.0/Infrastructure.Shared.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/bin/Debug/net6.0/Infrastructure.Shared.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/bin/Debug/net6.0/Infrastructure.Shared.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/bin/Debug/net6.0/Infrastructure.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/bin/Debug/net6.0/Infrastructure.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/bin/Debug/net6.0/Infrastructure.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/bin/Debug/net6.0/Infrastructure.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/obj/Debug/net6.0/Infrastructure.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/obj/Debug/net6.0/Infrastructure.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/obj/Debug/net6.0/Infrastructure.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/obj/Debug/net6.0/Infrastructure.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/obj/Debug/net6.0/Infrastructure.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/obj/Debug/net6.0/Infrastructure.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/obj/Debug/net6.0/Infrastructure.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/obj/Debug/net6.0/Infrastructure.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/obj/Debug/net6.0/ref/Infrastructure.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/obj/Debug/net6.0/ref/Infrastructure.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/obj/Debug/net6.0/refint/Infrastructure.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/obj/Debug/net6.0/refint/Infrastructure.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/bin/Debug/net6.0/Infrastructure.Shared.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/bin/Debug/net6.0/Infrastructure.Shared.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/bin/Debug/net6.0/Infrastructure.Shared.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/bin/Debug/net6.0/Infrastructure.Shared.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/obj/Debug/net6.0/Infrastructure.Shared.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/obj/Debug/net6.0/Infrastructure.Shared.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/obj/Debug/net6.0/Infrastructure.Shared.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/obj/Debug/net6.0/Infrastructure.Shared.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/obj/Debug/net6.0/Infrastructure.Shared.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/obj/Debug/net6.0/Infrastructure.Shared.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/obj/Debug/net6.0/ref/Infrastructure.Shared.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/obj/Debug/net6.0/ref/Infrastructure.Shared.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/obj/Debug/net6.0/refint/Infrastructure.Shared.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/obj/Debug/net6.0/refint/Infrastructure.Shared.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Web/Controllers/ForumController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Controllers/ForumController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Web/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Controllers/HomeController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Web/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Views/Home/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Views/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Web/Views/Home/_LatestTopicsPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Views/Home/_LatestTopicsPartial.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Web/Views/Shared/_PagingPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Views/Shared/_PagingPartial.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Web/bin/Debug/net6.0/Core.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/bin/Debug/net6.0/Core.Application.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Web/bin/Debug/net6.0/Core.Application.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/bin/Debug/net6.0/Core.Application.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/bin/Debug/net6.0/Infrastructure.Shared.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/bin/Debug/net6.0/Infrastructure.Shared.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/bin/Debug/net6.0/Infrastructure.Shared.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/bin/Debug/net6.0/Infrastructure.Shared.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/bin/Debug/net6.0/Infrastructure.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/bin/Debug/net6.0/Infrastructure.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/bin/Debug/net6.0/Infrastructure.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/bin/Debug/net6.0/Infrastructure.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Web/bin/Debug/net6.0/Zowari.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/bin/Debug/net6.0/Zowari.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Web/bin/Debug/net6.0/Zowari.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/bin/Debug/net6.0/Zowari.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Web/obj/Debug/net6.0/Zowari.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/obj/Debug/net6.0/Zowari.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Web/obj/Debug/net6.0/Zowari.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/obj/Debug/net6.0/Zowari.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/obj/Debug/net6.0/Zowari.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/obj/Debug/net6.0/Zowari.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Web/obj/Debug/net6.0/Zowari.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/obj/Debug/net6.0/Zowari.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Web/obj/Debug/net6.0/Zowari.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/obj/Debug/net6.0/Zowari.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Web/obj/Debug/net6.0/ref/Zowari.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/obj/Debug/net6.0/ref/Zowari.dll" afterDir="false" />
@@ -196,7 +169,9 @@
       <workItem from="1678630056034" duration="7796000" />
       <workItem from="1678811504406" duration="9018000" />
       <workItem from="1678899686972" duration="5742000" />
-      <workItem from="1678987605609" duration="5133000" />
+      <workItem from="1678987605609" duration="5759000" />
+      <workItem from="1679125824504" duration="6778000" />
+      <workItem from="1679326818487" duration="3203000" />
     </task>
     <servers />
   </component>
@@ -262,19 +237,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/Core/Core.Application/Features/Test/Commands/GenerateFakeDataCommand.cs</url>
-          <line>46</line>
-          <properties documentPath="$PROJECT_DIR$/src/Core/Core.Application/Features/Test/Commands/GenerateFakeDataCommand.cs" initialLine="46" containingFunctionPresentation="method 'Handle'">
-            <startOffsets>
-              <option value="1821" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1872" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

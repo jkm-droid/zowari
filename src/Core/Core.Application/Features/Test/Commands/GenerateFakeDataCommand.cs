@@ -38,9 +38,9 @@ internal sealed class GenerateFakeDataCommandHandler : IRequestHandler<GenerateF
 
         var fakeTopics = new Faker<Topic>()
             .RuleFor(t => t.CategoryId, f => f.PickRandom(fakeCategories.Select(fc => fc.Id)))
-            .RuleFor(t => t.Body, f => f.Random.Words(100))
+            .RuleFor(t => t.Body, f => f.Random.Words(10))
             .RuleFor(t => t.Author, f => f.Person.FullName)
-            .RuleFor(t => t.Slug, f => f.Random.Words(100).Replace(" ", "-").ToLower())
+            .RuleFor(t => t.Slug, f => f.Random.Words(10).Replace(" ", "-").ToLower())
             .Generate(300);
         
         await _repository.DbContext().Topics.AddRangeAsync(fakeTopics, cancellationToken);

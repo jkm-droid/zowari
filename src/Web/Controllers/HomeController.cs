@@ -1,10 +1,12 @@
 ﻿using System.Diagnostics;
 using Application.Boundary.QueryParams;
+using Application.Features.Forum.Queries;
 using Application.Features.Topics.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Zowari.Models;
+using Zowari.Models.ViewModels;
 
 namespace Zowari.Controllers;
 
@@ -22,19 +24,41 @@ public class HomeController : Controller
     [HttpGet("")]
     public async Task<IActionResult> Index(TopicQueryParameters parameters)
     {
-        //show list of available forums
         //show the latest topics
         var topicsResponse = await _mediator.Send(new GetAllTopicsQuery(parameters));
-        return View(topicsResponse);
+        //show list of available forums
+        var forumsResponse = await _mediator.Send(new GetAllForumsQuery());
+
+        var latestTopicsForums = new LatestTopicsForumsViewModel
+        {
+            TopicResponse = topicsResponse.Data,
+            ForumResponse = forumsResponse.Data
+        };
+        return View(latestTopicsForums);
     }
 
+    [HttpGet("forums-list")]
+    public async Task<IActionResult> ForumListPartial()
+    {
+        //show all forums in partial view
+        var forumsResponse = await _mediator.Send(new GetAllForumsQuery());
+        var forums = new LatestTopicsForumsViewModel
+        {
+            ForumResponse = forumsResponse.Data
+        };
+        return PartialView("_ForumsListPartial", forums);
+    }
+    
     [HttpGet("latest-topics-list")]
     public async Task<IActionResult> LatestTopicsPartial(TopicQueryParameters parameters)
     {
-        //show list of available forums
-        //show the latest topics
+        //show the latest topics in partial view
         var topicsResponse = await _mediator.Send(new GetAllTopicsQuery(parameters));
-        return PartialView("_LatestTopicsPartial", topicsResponse);
+        var latestTopics = new LatestTopicsForumsViewModel
+        {
+            TopicResponse = topicsResponse.Data
+        };
+        return PartialView("_LatestTopicsPartial", latestTopics);
     }
 
     [Authorize]
