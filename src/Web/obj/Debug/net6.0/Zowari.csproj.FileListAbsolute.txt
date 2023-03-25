@@ -75,6 +75,8 @@
 /home/jkmdroid/RiderProjects/Zowari/Zowari/obj/Debug/net6.0/refint/Zowari.dll
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/appsettings.Development.json
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/appsettings.json
+/home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/package-lock.json
+/home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/package.json
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Zowari.staticwebassets.runtime.json
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Zowari
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Zowari.deps.json
@@ -88,6 +90,7 @@
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/FluentValidation.AspNetCore.dll
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/FluentValidation.DependencyInjectionExtensions.dll
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Humanizer.dll
+/home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/MailKit.dll
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/MediatR.dll
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/MediatR.Contracts.dll
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/MediatR.Extensions.Microsoft.DependencyInjection.dll
@@ -106,9 +109,12 @@
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Microsoft.Extensions.Hosting.dll
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Microsoft.Extensions.Identity.Core.dll
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Microsoft.Extensions.Identity.Stores.dll
+/home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/MimeKit.dll
+/home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/NETCore.MailKit.dll
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Newtonsoft.Json.dll
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Npgsql.dll
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+/home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/BouncyCastle.Crypto.dll
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Serilog.dll
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Serilog.Exceptions.dll
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Serilog.Extensions.Hosting.dll
@@ -116,10 +122,14 @@
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Serilog.Settings.Configuration.dll
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Serilog.Sinks.Console.dll
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/System.Security.Permissions.dll
+/home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Core.Application.dll
+/home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Core.EmailService.dll
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Domain.dll
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Infrastructure.dll
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Infrastructure.Shared.dll
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/LoggerService.dll
+/home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Core.Application.pdb
+/home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Core.EmailService.pdb
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Domain.pdb
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/LoggerService.pdb
 /home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Infrastructure.pdb
@@ -144,11 +154,3 @@
 /home/jkmdroid/RiderProjects/Zowari/src/Web/obj/Debug/net6.0/Zowari.pdb
 /home/jkmdroid/RiderProjects/Zowari/src/Web/obj/Debug/net6.0/Zowari.genruntimeconfig.cache
 /home/jkmdroid/RiderProjects/Zowari/src/Web/obj/Debug/net6.0/ref/Zowari.dll
-/home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/MailKit.dll
-/home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/MimeKit.dll
-/home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/NETCore.MailKit.dll
-/home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/BouncyCastle.Crypto.dll
-/home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Core.Application.dll
-/home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Core.EmailService.dll
-/home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Core.Application.pdb
-/home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/Core.EmailService.pdb
