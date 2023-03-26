@@ -30,7 +30,6 @@ namespace Infrastructure.Migrations
                         .HasColumnName("ActivityId");
 
                     b.Property<string>("ActivityBody")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<Guid?>("CreatedBy")
@@ -45,7 +44,12 @@ namespace Infrastructure.Migrations
                     b.Property<DateTimeOffset?>("LastModifiedOn")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Activities");
                 });
@@ -69,10 +73,10 @@ namespace Infrastructure.Migrations
                     b.Property<DateTimeOffset?>("LastModifiedOn")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<Guid?>("MessageId")
+                    b.Property<Guid>("MessageId")
                         .HasColumnType("uuid");
 
-                    b.Property<Guid?>("TopicId")
+                    b.Property<Guid>("TopicId")
                         .HasColumnType("uuid");
 
                     b.Property<Guid>("UserId")
@@ -103,7 +107,6 @@ namespace Infrastructure.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<Guid>("ForumId")
@@ -116,11 +119,9 @@ namespace Infrastructure.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Slug")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -138,11 +139,9 @@ namespace Infrastructure.Migrations
                         .HasColumnName("CommentId");
 
                     b.Property<string>("Author")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Body")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<Guid?>("CreatedBy")
@@ -163,9 +162,14 @@ namespace Infrastructure.Migrations
                     b.Property<Guid>("MessageId")
                         .HasColumnType("uuid");
 
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
                     b.HasKey("Id");
 
                     b.HasIndex("MessageId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Comments");
                 });
@@ -184,11 +188,9 @@ namespace Infrastructure.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Iso")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Iso3")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<Guid?>("LastModifiedBy")
@@ -198,11 +200,9 @@ namespace Infrastructure.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NiceName")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int>("NumCode")
@@ -230,7 +230,6 @@ namespace Infrastructure.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<Guid?>("LastModifiedBy")
@@ -250,26 +249,26 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("c3ea7f05-9a77-4c73-992f-a98da7be742f"),
-                            CreatedOn = new DateTimeOffset(new DateTime(2023, 2, 16, 20, 26, 43, 815, DateTimeKind.Unspecified).AddTicks(8316), new TimeSpan(0, 3, 0, 0, 0)),
-                            Description = "Hello world forum",
-                            LastModifiedOn = new DateTimeOffset(new DateTime(2023, 2, 16, 20, 26, 43, 815, DateTimeKind.Unspecified).AddTicks(8355), new TimeSpan(0, 3, 0, 0, 0)),
+                            Id = new Guid("627f0415-285b-4ad7-9bd7-a0f004094cab"),
+                            CreatedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            Description = "Software Development",
+                            LastModifiedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Title = "Hello"
                         },
                         new
                         {
-                            Id = new Guid("ab25ffd5-426c-46a4-9de0-461d4307c63f"),
-                            CreatedOn = new DateTimeOffset(new DateTime(2023, 2, 16, 20, 26, 43, 815, DateTimeKind.Unspecified).AddTicks(8377), new TimeSpan(0, 3, 0, 0, 0)),
+                            Id = new Guid("618f0db7-64b1-4c8a-8ebb-23f687be3776"),
+                            CreatedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "World politics forum",
-                            LastModifiedOn = new DateTimeOffset(new DateTime(2023, 2, 16, 20, 26, 43, 815, DateTimeKind.Unspecified).AddTicks(8378), new TimeSpan(0, 3, 0, 0, 0)),
-                            Title = "World politics"
+                            LastModifiedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
+                            Title = "World Politics"
                         },
                         new
                         {
-                            Id = new Guid("dea2373f-ea10-417f-81b8-55267180e0af"),
-                            CreatedOn = new DateTimeOffset(new DateTime(2023, 2, 16, 20, 26, 43, 815, DateTimeKind.Unspecified).AddTicks(8393), new TimeSpan(0, 3, 0, 0, 0)),
+                            Id = new Guid("2e48d11f-102d-45e0-8c93-a0b87426d0fa"),
+                            CreatedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "Nature forum",
-                            LastModifiedOn = new DateTimeOffset(new DateTime(2023, 2, 16, 20, 26, 43, 815, DateTimeKind.Unspecified).AddTicks(8394), new TimeSpan(0, 3, 0, 0, 0)),
+                            LastModifiedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Title = "Nature"
                         });
                 });
@@ -291,7 +290,6 @@ namespace Infrastructure.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<Guid?>("LastModifiedBy")
@@ -320,40 +318,40 @@ namespace Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("64fb3971-ae1e-4ee1-88e3-f84749b1fe66"),
-                            ConcurrencyStamp = "5d331868-9447-422f-824c-64bada4ac955",
-                            CreatedOn = new DateTimeOffset(new DateTime(2023, 2, 16, 17, 26, 43, 815, DateTimeKind.Unspecified).AddTicks(7836), new TimeSpan(0, 0, 0, 0, 0)),
+                            ConcurrencyStamp = "077abf20-805c-4c6b-8699-9ac6a796e729",
+                            CreatedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "Visitor role description",
-                            LastModifiedOn = new DateTimeOffset(new DateTime(2023, 2, 16, 17, 26, 43, 815, DateTimeKind.Unspecified).AddTicks(7837), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastModifiedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Name = "Visitor",
                             NormalizedName = "VISITOR"
                         },
                         new
                         {
                             Id = new Guid("fb9b764b-6248-4fa8-94d9-f8aba057fd12"),
-                            ConcurrencyStamp = "7854ed9e-7b1a-4e28-84ce-670da03f3ef6",
-                            CreatedOn = new DateTimeOffset(new DateTime(2023, 2, 16, 17, 26, 43, 815, DateTimeKind.Unspecified).AddTicks(7883), new TimeSpan(0, 0, 0, 0, 0)),
+                            ConcurrencyStamp = "3b953f63-aecb-4576-a3b9-3bc5e0e53645",
+                            CreatedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "Administrator role description",
-                            LastModifiedOn = new DateTimeOffset(new DateTime(2023, 2, 16, 17, 26, 43, 815, DateTimeKind.Unspecified).AddTicks(7884), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastModifiedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Name = "SuperAdministrator",
                             NormalizedName = "SUPER_ADMINISTRATOR"
                         },
                         new
                         {
                             Id = new Guid("aa3062aa-5f5d-4cce-b156-c6268148c03a"),
-                            ConcurrencyStamp = "09a32aab-0cd3-402f-a3ce-0d324063468c",
-                            CreatedOn = new DateTimeOffset(new DateTime(2023, 2, 16, 17, 26, 43, 815, DateTimeKind.Unspecified).AddTicks(7901), new TimeSpan(0, 0, 0, 0, 0)),
+                            ConcurrencyStamp = "93ed04c6-957c-4f85-8f4e-45e453c412db",
+                            CreatedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "Basic role description",
-                            LastModifiedOn = new DateTimeOffset(new DateTime(2023, 2, 16, 17, 26, 43, 815, DateTimeKind.Unspecified).AddTicks(7902), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastModifiedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Name = "BasicUser",
                             NormalizedName = "BASIC_USER"
                         },
                         new
                         {
                             Id = new Guid("7f6afb52-c01b-4b36-b3c9-946ab09f3334"),
-                            ConcurrencyStamp = "f8c97c77-a4eb-4081-a0d9-060229f17017",
-                            CreatedOn = new DateTimeOffset(new DateTime(2023, 2, 16, 17, 26, 43, 815, DateTimeKind.Unspecified).AddTicks(7920), new TimeSpan(0, 0, 0, 0, 0)),
+                            ConcurrencyStamp = "12cdd92b-8b56-40f3-9773-46b5866be919",
+                            CreatedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "Administrator role description",
-                            LastModifiedOn = new DateTimeOffset(new DateTime(2023, 2, 16, 17, 26, 43, 815, DateTimeKind.Unspecified).AddTicks(7920), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastModifiedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });
@@ -395,7 +393,9 @@ namespace Infrastructure.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Level")
-                        .HasColumnType("text");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("text")
+                        .HasDefaultValue("Level 0");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("boolean");
@@ -421,13 +421,19 @@ namespace Infrastructure.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<string>("ProfileUrl")
-                        .HasColumnType("text");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("text")
+                        .HasDefaultValue("False");
 
-                    b.Property<int?>("Rating")
-                        .HasColumnType("integer");
+                    b.Property<int>("Rating")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasDefaultValue(0);
 
-                    b.Property<int?>("Score")
-                        .HasColumnType("integer");
+                    b.Property<int>("Score")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasDefaultValue(0);
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("text");
@@ -473,9 +479,14 @@ namespace Infrastructure.Migrations
                     b.Property<Guid>("MessageId")
                         .HasColumnType("uuid");
 
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
                     b.HasKey("Id");
 
                     b.HasIndex("MessageId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Likes");
                 });
@@ -488,11 +499,9 @@ namespace Infrastructure.Migrations
                         .HasColumnName("MessageId");
 
                     b.Property<string>("Author")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Body")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<Guid?>("CreatedBy")
@@ -510,9 +519,14 @@ namespace Infrastructure.Migrations
                     b.Property<Guid>("TopicId")
                         .HasColumnType("uuid");
 
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
                     b.HasKey("Id");
 
                     b.HasIndex("TopicId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Messages");
                 });
@@ -537,11 +551,9 @@ namespace Infrastructure.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Slug")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("TagId");
@@ -557,11 +569,9 @@ namespace Infrastructure.Migrations
                         .HasColumnName("TopicId");
 
                     b.Property<string>("Author")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Body")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<Guid>("CategoryId")
@@ -580,12 +590,16 @@ namespace Infrastructure.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Slug")
-                        .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Topics");
                 });
@@ -718,10 +732,10 @@ namespace Infrastructure.Migrations
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>");
 
-                    b.Property<Guid>("RoleId1")
+                    b.Property<Guid?>("RoleId1")
                         .HasColumnType("uuid");
 
-                    b.Property<Guid>("UserId1")
+                    b.Property<Guid?>("UserId1")
                         .HasColumnType("uuid");
 
                     b.Property<Guid>("UserRoleId")
@@ -734,21 +748,40 @@ namespace Infrastructure.Migrations
                     b.HasDiscriminator().HasValue("UserRole");
                 });
 
+            modelBuilder.Entity("Domain.Entities.Activity", b =>
+                {
+                    b.HasOne("Domain.Entities.Identity.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Domain.Entities.BookMark", b =>
                 {
-                    b.HasOne("Domain.Entities.Message", null)
+                    b.HasOne("Domain.Entities.Message", "Message")
                         .WithMany("BookMarks")
-                        .HasForeignKey("MessageId");
+                        .HasForeignKey("MessageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("Domain.Entities.Topic", null)
+                    b.HasOne("Domain.Entities.Topic", "Topic")
                         .WithMany("BookMarks")
-                        .HasForeignKey("TopicId");
+                        .HasForeignKey("TopicId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Domain.Entities.Identity.User", "User")
                         .WithMany("BookMarks")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Message");
+
+                    b.Navigation("Topic");
 
                     b.Navigation("User");
                 });
@@ -772,7 +805,15 @@ namespace Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Domain.Entities.Identity.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Message");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Domain.Entities.Like", b =>
@@ -783,7 +824,15 @@ namespace Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Domain.Entities.Identity.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Message");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Domain.Entities.Message", b =>
@@ -794,7 +843,15 @@ namespace Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Domain.Entities.Identity.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Topic");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Domain.Entities.Topic", b =>
@@ -805,7 +862,15 @@ namespace Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Domain.Entities.Identity.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Category");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -878,15 +943,11 @@ namespace Infrastructure.Migrations
                 {
                     b.HasOne("Domain.Entities.Identity.Role", "Role")
                         .WithMany("UserRoles")
-                        .HasForeignKey("RoleId1")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("RoleId1");
 
                     b.HasOne("Domain.Entities.Identity.User", "User")
                         .WithMany("UserRoles")
-                        .HasForeignKey("UserId1")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId1");
 
                     b.Navigation("Role");
 

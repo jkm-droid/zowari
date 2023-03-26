@@ -1,0 +1,12 @@
+@model Infrastructure.Shared.Wrapper.Result<List<Core.Application.Boundary.Responses.Forums.ForumResponse>>
+
+@{
+    Layout = null;
+    var forums = Model.Data;
+}
+<div>
+    @foreach (var forum in forums)
+    {
+        <div>@forum.Title</div>
+    }
+</div>

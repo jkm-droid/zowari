@@ -1,5 +1,5 @@
-using Application.Boundary.Requests.Identity;
-using Application.Features.Identity.Commands;
+using Core.Application.Boundary.Requests.Identity;
+using Core.Application.Features.Identity.Commands;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

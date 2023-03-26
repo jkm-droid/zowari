@@ -1,3 +1,4 @@
+using Domain.Constants;
 using Domain.Contracts;
 using Domain.Entities;
 using Domain.Entities.Identity;
@@ -20,13 +21,6 @@ public class DatabaseContext : IdentityDbContext<User, Role, Guid>
     {
         _currentDateProvider = currentDateProvider;
     }
-
-    protected override void OnModelCreating(ModelBuilder builder)
-    {
-        base.OnModelCreating(builder);
-        builder.ApplyConfiguration(new RoleConfiguration());
-        builder.ApplyConfiguration(new ForumConfiguration());
-    }
     
     public DbSet<ForumList> ForumLists { get; set; }
     public DbSet<Category> Categories { get; set; }
@@ -37,6 +31,55 @@ public class DatabaseContext : IdentityDbContext<User, Role, Guid>
     public DbSet<BookMark> BookMarks { get; set; }
     public DbSet<Country> Countries { get; set; }
     public DbSet<Activity> Activities { get; set; }
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        base.OnModelCreating(builder);
+
+        #region Seeds
+
+        builder.ApplyConfiguration(new RoleConfiguration());
+        builder.ApplyConfiguration(new ForumConfiguration());
+
+        #endregion
+
+        builder.Entity<User>(entity =>
+        {
+            entity.Property(e => e.ProfileUrl).HasDefaultValue(false);
+            entity.Property(e => e.Score).HasDefaultValue(0);
+            entity.Property(e => e.Rating).HasDefaultValue(0);
+            entity.Property(e => e.Level).HasDefaultValue(UserLevelConstants.NewUser);
+        });
+        
+        builder.Entity<ForumList>(entity =>
+        {
+            entity.Property(e => e.Title).IsRequired();
+        });
+
+        builder.Entity<BookMark>(entity =>
+        {
+            entity.Property(e => e.UserId).IsRequired();
+        });
+        
+        builder.Entity<Topic>(entity =>
+        {
+            entity.Property(e => e.UserId).IsRequired();
+        }); 
+        
+        builder.Entity<Comment>(entity =>
+        {
+            entity.Property(e => e.UserId).IsRequired();
+        });
+        
+        builder.Entity<Message>(entity =>
+        {
+            entity.Property(e => e.UserId).IsRequired();
+        });  
+        
+        builder.Entity<Activity>(entity =>
+        {
+            entity.Property(e => e.UserId).IsRequired();
+        });
+    }
 
     public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
     {

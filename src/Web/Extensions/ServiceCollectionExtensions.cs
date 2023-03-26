@@ -1,3 +1,4 @@
+using Core.Application.Assembly;
 using Core.EmailService.Configurations;
 using Core.EmailService.Services;
 using Infrastructure.Abstractions;
@@ -55,7 +56,7 @@ public static class ServiceCollectionExtensions
     }
     public static void ConfigureMediatr(this IServiceCollection serviceCollection)
     {
-        serviceCollection.AddMediatR(typeof(Application.Assembly.AssemblyReference).Assembly);
+        serviceCollection.AddMediatR(typeof(AssemblyReference).Assembly);
     }
     
     public static IServiceCollection ConfigureDatabase(this IServiceCollection servicesCollection,

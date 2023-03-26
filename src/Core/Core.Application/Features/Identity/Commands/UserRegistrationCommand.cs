@@ -1,5 +1,4 @@
-using Application.Boundary.Requests;
-using Application.Boundary.Requests.Identity;
+using Core.Application.Boundary.Requests.Identity;
 using Domain.Entities.Identity;
 using Infrastructure.Abstractions;
 using Infrastructure.Shared.Wrapper;
@@ -8,7 +7,7 @@ using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-namespace Application.Features.Identity.Commands;
+namespace Core.Application.Features.Identity.Commands;
 
 public class UserRegistrationCommand : IRequest<Result<string>>
 {

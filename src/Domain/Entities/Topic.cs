@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Domain.Contracts;
+using Domain.Entities.Identity;
 
 namespace Domain.Entities;
 
@@ -18,6 +19,9 @@ public class Topic: BaseEntity
     public ICollection<Message> Messages { get; set; }
     public ICollection<BookMark> BookMarks { get; set; }
     public virtual ICollection<Tag> Tags { get; set; }
+    public Guid UserId { get; set; }
+    [ForeignKey(nameof(UserId))]
+    public User User { get; set; }
     public Guid CategoryId { get; set; }
     [ForeignKey(nameof(CategoryId))]
     public Category Category { get; set; }
