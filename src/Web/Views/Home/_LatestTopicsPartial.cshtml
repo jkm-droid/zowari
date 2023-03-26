@@ -3,15 +3,22 @@
 <div class="grid">
     @foreach (var topic in Model.TopicResponse.Data.ToList())
     {
-        <div class="col-start-1 col-end-3 ...">02</div>
-        <div class="col-start-2 col-span-4">
-            <div class="p-5 bg-white rounded shadow-md">
-                <p class="text-black-600">@topic.Body</p>
-                <span>@topic.Author</span><span class="ml-2 text-gray-600">@topic.CreatedOn</span>
+        <div class="col-start-1 col-end-5 col-span-8">
+            <div class="p-5 bg-white">
+                <img src="images/profile_images/rick_and_morty.jpg" style="height: 50px; width: 50px;" class="float-left h-auto max-w-full rounded-full border border-indigo-600" alt=""/>
+                <p class="text-black-600 ml-2">@topic.Body</p>
+                <span class="text-sm">@topic.Author</span><span class="ml-2 text-gray-600 text-sm">@topic.CreatedOn</span>
             </div>
         </div>
-        
-        <hr>
+        <div class="p-5 col-start-5 col-end-6 col-span-2 text-center">
+            <span>58</span>
+            <p>Replies</p>
+        </div>
+        <div class="p-5 col-start-6 col-end-7 col-span-2 text-center">
+            <span>58</span>
+            <p>Views</p>
+        </div>
+        <hr class="col-span-12">
     }
 </div>
 
