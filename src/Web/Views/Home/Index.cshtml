@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Zowari | Home";
+    ViewData["Title"] = "Home";
 }
 
 <div class="">
@@ -7,9 +7,9 @@
         <a asp-controller="Forum" asp-action="Index">Forums</a>
     </p>
 
-    <div id="forumsListDiv">
-        @await Html.PartialAsync("_ForumsListPartial").ConfigureAwait(false)
-    </div>
+    @* <div id="forumsListDiv"> *@
+    @*     @await Html.PartialAsync("_ForumsListPartial").ConfigureAwait(false) *@
+    @* </div> *@
 
     <div id="latestTopicsDiv">
         @await Html.PartialAsync("_LatestTopicsPartial").ConfigureAwait(false)

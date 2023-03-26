@@ -1,3 +1,4 @@
+using Domain.Constants;
 using Domain.Contracts;
 using Domain.Entities;
 using Domain.Entities.Identity;
@@ -41,12 +42,40 @@ public class DatabaseContext : IdentityDbContext<User, Role, Guid>
 
         #endregion
 
+        builder.Entity<User>(entity =>
+        {
+            entity.Property(e => e.ProfileUrl).HasDefaultValue(false);
+            entity.Property(e => e.Score).HasDefaultValue(0);
+            entity.Property(e => e.Rating).HasDefaultValue(0);
+            entity.Property(e => e.Level).HasDefaultValue(UserLevelConstants.NewUser);
+        });
+        
         builder.Entity<ForumList>(entity =>
         {
             entity.Property(e => e.Title).IsRequired();
         });
 
         builder.Entity<BookMark>(entity =>
+        {
+            entity.Property(e => e.UserId).IsRequired();
+        });
+        
+        builder.Entity<Topic>(entity =>
+        {
+            entity.Property(e => e.UserId).IsRequired();
+        }); 
+        
+        builder.Entity<Comment>(entity =>
+        {
+            entity.Property(e => e.UserId).IsRequired();
+        });
+        
+        builder.Entity<Message>(entity =>
+        {
+            entity.Property(e => e.UserId).IsRequired();
+        });  
+        
+        builder.Entity<Activity>(entity =>
         {
             entity.Property(e => e.UserId).IsRequired();
         });

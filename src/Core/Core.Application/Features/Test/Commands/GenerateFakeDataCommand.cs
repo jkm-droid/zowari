@@ -26,6 +26,10 @@ internal sealed class GenerateFakeDataCommandHandler : IRequestHandler<GenerateF
             .Select(c=>c.Id)
             .ToListAsync(cancellationToken);
 
+        var userIds = await _repository.DbContext().Users
+            .Select(u => u.Id)
+            .ToListAsync(cancellationToken);
+
         var fakeCategories = new Faker<Category>()
             .RuleFor(c => c.Id, f => Guid.NewGuid())
             .RuleFor(c => c.ForumId, f => f.PickRandom(forumIds))
@@ -40,6 +44,7 @@ internal sealed class GenerateFakeDataCommandHandler : IRequestHandler<GenerateF
             .RuleFor(t => t.CategoryId, f => f.PickRandom(fakeCategories.Select(fc => fc.Id)))
             .RuleFor(t => t.Body, f => f.Random.Words(10))
             .RuleFor(t => t.Author, f => f.Person.FullName)
+            .RuleFor(t => t.UserId, f => f.PickRandom(userIds))
             .RuleFor(t => t.Slug, f => f.Random.Words(10).Replace(" ", "-").ToLower())
             .Generate(300);
         

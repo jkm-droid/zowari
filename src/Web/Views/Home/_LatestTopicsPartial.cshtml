@@ -1,13 +1,20 @@
 @model Zowari.Models.ViewModels.LatestTopicsForumsViewModel
 
-<div>
+<div class="grid">
     @foreach (var topic in Model.TopicResponse.Data.ToList())
     {
-        <div class="col-sm-12">
-           
+        <div class="col-start-1 col-end-3 ...">02</div>
+        <div class="col-start-2 col-span-4">
+            <div class="p-5 bg-white rounded shadow-md">
+                <p class="text-black-600">@topic.Body</p>
+                <span>@topic.Author</span><span class="ml-2 text-gray-600">@topic.CreatedOn</span>
+            </div>
         </div>
+        
+        <hr>
     }
 </div>
-<div id="paginationDiv" class="mt-6">
+
+<div id="paginationDiv">
     @await Html.PartialAsync("_PagingPartial", Model.TopicResponse.PagingMetaData).ConfigureAwait(false)
 </div>

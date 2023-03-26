@@ -44,7 +44,12 @@ namespace Infrastructure.Migrations
                     b.Property<DateTimeOffset?>("LastModifiedOn")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Activities");
                 });
@@ -157,9 +162,14 @@ namespace Infrastructure.Migrations
                     b.Property<Guid>("MessageId")
                         .HasColumnType("uuid");
 
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
                     b.HasKey("Id");
 
                     b.HasIndex("MessageId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Comments");
                 });
@@ -239,26 +249,26 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("9e1ac412-8b1b-4cdd-8e80-d9356523f673"),
-                            CreatedOn = new DateTimeOffset(new DateTime(2023, 3, 14, 21, 5, 18, 291, DateTimeKind.Unspecified).AddTicks(3985), new TimeSpan(0, 3, 0, 0, 0)),
+                            Id = new Guid("6f56b2dd-69c4-4104-b73f-4891257a83de"),
+                            CreatedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "Hello world forum",
-                            LastModifiedOn = new DateTimeOffset(new DateTime(2023, 3, 14, 21, 5, 18, 291, DateTimeKind.Unspecified).AddTicks(4034), new TimeSpan(0, 3, 0, 0, 0)),
+                            LastModifiedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Title = "Hello"
                         },
                         new
                         {
-                            Id = new Guid("e922cb47-1910-4870-8567-d4ab92f89d40"),
-                            CreatedOn = new DateTimeOffset(new DateTime(2023, 3, 14, 21, 5, 18, 291, DateTimeKind.Unspecified).AddTicks(4060), new TimeSpan(0, 3, 0, 0, 0)),
+                            Id = new Guid("64b70674-1d33-49c0-a8f6-1aed5e780edb"),
+                            CreatedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "World politics forum",
-                            LastModifiedOn = new DateTimeOffset(new DateTime(2023, 3, 14, 21, 5, 18, 291, DateTimeKind.Unspecified).AddTicks(4062), new TimeSpan(0, 3, 0, 0, 0)),
+                            LastModifiedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Title = "World politics"
                         },
                         new
                         {
-                            Id = new Guid("25c6e48c-b635-4291-b7dd-b679390dd437"),
-                            CreatedOn = new DateTimeOffset(new DateTime(2023, 3, 14, 21, 5, 18, 291, DateTimeKind.Unspecified).AddTicks(4078), new TimeSpan(0, 3, 0, 0, 0)),
+                            Id = new Guid("028237be-54aa-432d-8b2a-95467170fc31"),
+                            CreatedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "Nature forum",
-                            LastModifiedOn = new DateTimeOffset(new DateTime(2023, 3, 14, 21, 5, 18, 291, DateTimeKind.Unspecified).AddTicks(4079), new TimeSpan(0, 3, 0, 0, 0)),
+                            LastModifiedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Title = "Nature"
                         });
                 });
@@ -308,40 +318,40 @@ namespace Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("64fb3971-ae1e-4ee1-88e3-f84749b1fe66"),
-                            ConcurrencyStamp = "2901169b-59eb-4ff3-89a2-dfaa25941fdb",
-                            CreatedOn = new DateTimeOffset(new DateTime(2023, 3, 14, 18, 5, 18, 291, DateTimeKind.Unspecified).AddTicks(3425), new TimeSpan(0, 0, 0, 0, 0)),
+                            ConcurrencyStamp = "48732a76-85a1-4e70-bfc2-8120d7d4706f",
+                            CreatedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "Visitor role description",
-                            LastModifiedOn = new DateTimeOffset(new DateTime(2023, 3, 14, 18, 5, 18, 291, DateTimeKind.Unspecified).AddTicks(3426), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastModifiedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Name = "Visitor",
                             NormalizedName = "VISITOR"
                         },
                         new
                         {
                             Id = new Guid("fb9b764b-6248-4fa8-94d9-f8aba057fd12"),
-                            ConcurrencyStamp = "5d803063-8db2-4623-b8e1-2971ed0fcb0b",
-                            CreatedOn = new DateTimeOffset(new DateTime(2023, 3, 14, 18, 5, 18, 291, DateTimeKind.Unspecified).AddTicks(3463), new TimeSpan(0, 0, 0, 0, 0)),
+                            ConcurrencyStamp = "83391883-e2cf-4f2d-bcb1-43037eede4bc",
+                            CreatedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "Administrator role description",
-                            LastModifiedOn = new DateTimeOffset(new DateTime(2023, 3, 14, 18, 5, 18, 291, DateTimeKind.Unspecified).AddTicks(3463), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastModifiedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Name = "SuperAdministrator",
                             NormalizedName = "SUPER_ADMINISTRATOR"
                         },
                         new
                         {
                             Id = new Guid("aa3062aa-5f5d-4cce-b156-c6268148c03a"),
-                            ConcurrencyStamp = "2fedb932-10a8-4372-a02f-9c28e1a5d320",
-                            CreatedOn = new DateTimeOffset(new DateTime(2023, 3, 14, 18, 5, 18, 291, DateTimeKind.Unspecified).AddTicks(3491), new TimeSpan(0, 0, 0, 0, 0)),
+                            ConcurrencyStamp = "8bbeb29a-2e94-4ef4-90f6-900ec33ef89f",
+                            CreatedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "Basic role description",
-                            LastModifiedOn = new DateTimeOffset(new DateTime(2023, 3, 14, 18, 5, 18, 291, DateTimeKind.Unspecified).AddTicks(3492), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastModifiedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Name = "BasicUser",
                             NormalizedName = "BASIC_USER"
                         },
                         new
                         {
                             Id = new Guid("7f6afb52-c01b-4b36-b3c9-946ab09f3334"),
-                            ConcurrencyStamp = "15006bad-7152-4dc6-bf24-7e1d3cfd2976",
-                            CreatedOn = new DateTimeOffset(new DateTime(2023, 3, 14, 18, 5, 18, 291, DateTimeKind.Unspecified).AddTicks(3512), new TimeSpan(0, 0, 0, 0, 0)),
+                            ConcurrencyStamp = "84bf6c35-d8e9-4252-ab4f-29a071885939",
+                            CreatedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "Administrator role description",
-                            LastModifiedOn = new DateTimeOffset(new DateTime(2023, 3, 14, 18, 5, 18, 291, DateTimeKind.Unspecified).AddTicks(3512), new TimeSpan(0, 0, 0, 0, 0)),
+                            LastModifiedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });
@@ -383,7 +393,9 @@ namespace Infrastructure.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Level")
-                        .HasColumnType("text");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("text")
+                        .HasDefaultValue("Level 0");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("boolean");
@@ -409,13 +421,19 @@ namespace Infrastructure.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<string>("ProfileUrl")
-                        .HasColumnType("text");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("text")
+                        .HasDefaultValue("False");
 
                     b.Property<int?>("Rating")
-                        .HasColumnType("integer");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasDefaultValue(0);
 
                     b.Property<int?>("Score")
-                        .HasColumnType("integer");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasDefaultValue(0);
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("text");
@@ -461,9 +479,14 @@ namespace Infrastructure.Migrations
                     b.Property<Guid>("MessageId")
                         .HasColumnType("uuid");
 
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
                     b.HasKey("Id");
 
                     b.HasIndex("MessageId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Likes");
                 });
@@ -496,9 +519,14 @@ namespace Infrastructure.Migrations
                     b.Property<Guid>("TopicId")
                         .HasColumnType("uuid");
 
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
                     b.HasKey("Id");
 
                     b.HasIndex("TopicId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Messages");
                 });
@@ -564,9 +592,14 @@ namespace Infrastructure.Migrations
                     b.Property<string>("Slug")
                         .HasColumnType("text");
 
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Topics");
                 });
@@ -715,6 +748,17 @@ namespace Infrastructure.Migrations
                     b.HasDiscriminator().HasValue("UserRole");
                 });
 
+            modelBuilder.Entity("Domain.Entities.Activity", b =>
+                {
+                    b.HasOne("Domain.Entities.Identity.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Domain.Entities.BookMark", b =>
                 {
                     b.HasOne("Domain.Entities.Message", "Message")
@@ -761,7 +805,15 @@ namespace Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Domain.Entities.Identity.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Message");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Domain.Entities.Like", b =>
@@ -772,7 +824,15 @@ namespace Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Domain.Entities.Identity.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Message");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Domain.Entities.Message", b =>
@@ -783,7 +843,15 @@ namespace Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Domain.Entities.Identity.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Topic");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Domain.Entities.Topic", b =>
@@ -794,7 +862,15 @@ namespace Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Domain.Entities.Identity.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Category");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
