@@ -3,6 +3,7 @@ using System;
 using Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20230326191412_RemoveNullablesFromUserTable")]
+    partial class RemoveNullablesFromUserTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -249,23 +251,23 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("627f0415-285b-4ad7-9bd7-a0f004094cab"),
+                            Id = new Guid("35d6c2f7-4b31-4b2a-9354-1c4d37f740bf"),
                             CreatedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            Description = "Software Development",
+                            Description = "Hello world forum",
                             LastModifiedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Title = "Hello"
                         },
                         new
                         {
-                            Id = new Guid("618f0db7-64b1-4c8a-8ebb-23f687be3776"),
+                            Id = new Guid("dc33bfc1-f3c9-4be2-8f63-9b208c6652e8"),
                             CreatedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "World politics forum",
                             LastModifiedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            Title = "World Politics"
+                            Title = "World politics"
                         },
                         new
                         {
-                            Id = new Guid("2e48d11f-102d-45e0-8c93-a0b87426d0fa"),
+                            Id = new Guid("37b666df-9316-4774-8230-2b1e0f074db5"),
                             CreatedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "Nature forum",
                             LastModifiedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
@@ -318,7 +320,7 @@ namespace Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("64fb3971-ae1e-4ee1-88e3-f84749b1fe66"),
-                            ConcurrencyStamp = "077abf20-805c-4c6b-8699-9ac6a796e729",
+                            ConcurrencyStamp = "fd2acc59-b442-4b2a-8318-f3ec70116dbd",
                             CreatedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "Visitor role description",
                             LastModifiedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
@@ -328,7 +330,7 @@ namespace Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("fb9b764b-6248-4fa8-94d9-f8aba057fd12"),
-                            ConcurrencyStamp = "3b953f63-aecb-4576-a3b9-3bc5e0e53645",
+                            ConcurrencyStamp = "f29e237d-58bf-4422-8693-8579dd26606e",
                             CreatedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "Administrator role description",
                             LastModifiedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
@@ -338,7 +340,7 @@ namespace Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("aa3062aa-5f5d-4cce-b156-c6268148c03a"),
-                            ConcurrencyStamp = "93ed04c6-957c-4f85-8f4e-45e453c412db",
+                            ConcurrencyStamp = "da5fdcbf-d149-4306-8032-a6c32783749e",
                             CreatedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "Basic role description",
                             LastModifiedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
@@ -348,7 +350,7 @@ namespace Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("7f6afb52-c01b-4b36-b3c9-946ab09f3334"),
-                            ConcurrencyStamp = "12cdd92b-8b56-40f3-9773-46b5866be919",
+                            ConcurrencyStamp = "a1a4c3bf-967b-4d63-8b64-57bd44a5d090",
                             CreatedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "Administrator role description",
                             LastModifiedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),

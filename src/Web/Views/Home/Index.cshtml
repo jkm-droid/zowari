@@ -2,18 +2,39 @@
     ViewData["Title"] = "Home";
 }
 
-<div class="">
-    <p>
-        <a asp-controller="Forum" asp-action="Index">Forums</a>
-    </p>
+<div class="flex mt-2 justify-center items-center">
+    <a asp-controller="Forum" asp-action="Index"
+       class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white 
+rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 
+dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+        Forums
+    </a>
+    <a asp-controller="Forum" asp-action="Index"
+       class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white 
+                                                 rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 
+                                                 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+        Categories
+    </a>
 
-    @* <div id="forumsListDiv"> *@
-    @*     @await Html.PartialAsync("_ForumsListPartial").ConfigureAwait(false) *@
-    @* </div> *@
+    <a asp-controller="Forum" asp-action="Index" class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white 
+                                                 rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 
+                                                 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Top Topics</a>
+    <form class="w-64 mb-2 ml-2">
+        <label for="searchTerm" class="sr-only">Search</label>
+        <div class="relative w-full">
+            <input type="search" id="searchTerm" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" placeholder="Search" required>
+            <button type="submit" id="searchButton" class="absolute top-0 right-0 p-2.5 text-sm font-medium text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+                <span class="sr-only">Search</span>
+            </button>
+        </div>
+    </form>
+</div>
 
-    <div id="latestTopicsDiv">
-        @await Html.PartialAsync("_LatestTopicsPartial").ConfigureAwait(false)
-    </div>
+<div id="latestTopicsDiv">
+    @await Html.PartialAsync("_LatestTopicsPartial").ConfigureAwait(false)
 </div>
 
 
@@ -32,7 +53,7 @@
 
       url.searchParams.set('pageSize', '10');
       url.searchParams.set('pageNumber', $('#CurrentPage').val());
-      url.searchParams.set('SearchTerm', $('#search-term').val());
+      url.searchParams.set('SearchTerm', $('#searchTerm').val());
       url.searchParams.set('PeriodFrom', $('#PeriodFrom').val());
       url.searchParams.set('PeriodTo', $('#PeriodTo').val());
       window.history.pushState({}, '', url);
@@ -46,14 +67,14 @@
     }
 
     function addSearchClickListener() {
-      $('#search-button').on('click',
-        function(e) {
-          e.preventDefault();
-          let params = getQueryParams();
-          params.currentPage = parseInt($(this).find("input:first").val());
-
-          getView(params.currentPage, params.searchTerm, params.periodFrom, params.periodTo);
-        });
+      $('#searchButton').on('click',
+      function(e) {
+        e.preventDefault();
+        let params = getQueryParams();
+        params.currentPage = parseInt($(this).find("input:first").val());
+      
+        getView(params.currentPage, params.searchTerm, params.periodFrom, params.periodTo);
+      });
     }
 
     function addPeriodFromDataPickerListener() {
@@ -77,7 +98,7 @@
     function getQueryParams() {
       return {
         currentPage: $('#CurrentPage').val(),
-        searchTerm: $('#search-term').val(),
+        searchTerm: $('#searchTerm').val(),
         periodFrom: $('#PeriodFrom').val(),
         periodTo: $('#PeriodTo').val()
       };

@@ -1,4 +1,4 @@
-using Application.Features.Test.Commands;
+using Core.Application.Features.Test.Commands;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

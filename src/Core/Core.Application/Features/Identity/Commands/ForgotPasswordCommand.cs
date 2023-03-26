@@ -1,6 +1,5 @@
-using System.Security.Policy;
-using Application.Boundary.Requests.Identity;
-using Core.EmailService;
+using Core.Application.Boundary.Requests.Identity;
+using Core.EmailService.Requests;
 using Core.EmailService.Services;
 using Domain.Entities.Identity;
 using Infrastructure.Shared.Wrapper;
@@ -9,7 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 
-namespace Application.Features.Identity.Commands;
+namespace Core.Application.Features.Identity.Commands;
 
 public class ForgotPasswordCommand : IRequest<Result<string>>
 {

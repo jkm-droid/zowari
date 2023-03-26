@@ -1,4 +1,4 @@
-namespace Application.Boundary.Responses.Likes;
+namespace Core.Application.Boundary.Responses.Likes;
 
 public class LikeResponse
 {

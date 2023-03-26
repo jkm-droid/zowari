@@ -1,6 +1,6 @@
 using MimeKit;
 
-namespace Core.EmailService;
+namespace Core.EmailService.Requests;
 
 public class EmailMessageRequest
 {

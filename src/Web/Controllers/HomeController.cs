@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
-using Application.Boundary.QueryParams;
-using Application.Features.Forum.Queries;
-using Application.Features.Topics.Queries;
+using Core.Application.Boundary.QueryParams;
+using Core.Application.Features.Forum.Queries;
+using Core.Application.Features.Topics.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

@@ -1,4 +1,4 @@
-namespace Application.Boundary.Responses.Bookmarks;
+namespace Core.Application.Boundary.Responses.Bookmarks;
 
 public class BookmarkResponse
 {

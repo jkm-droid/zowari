@@ -1,4 +1,4 @@
-namespace Application.Boundary.QueryParams;
+namespace Core.Application.Boundary.QueryParams;
 
 public class TopicQueryParameters : RequestParameters
 {

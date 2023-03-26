@@ -1,11 +1,11 @@
-using Application.Boundary.Responses.Forums;
-using Application.Factories;
+using Core.Application.Boundary.Responses.Forums;
+using Core.Application.Factories;
 using Infrastructure.Abstractions;
 using Infrastructure.Shared.Wrapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace Application.Features.Forum.Queries;
+namespace Core.Application.Features.Forum.Queries;
 
 public class GetAllForumsQuery : IRequest<Result<List<ForumResponse>>>
 {

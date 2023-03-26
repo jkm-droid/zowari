@@ -1,4 +1,4 @@
-namespace Application.Boundary.Responses.Comments;
+namespace Core.Application.Boundary.Responses.Comments;
 
 public class CommentResponse
 {

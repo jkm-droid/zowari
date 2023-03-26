@@ -1,5 +1,5 @@
-using Application.Boundary.Responses.Forums;
-using Application.Boundary.Responses.Topics;
+using Core.Application.Boundary.Responses.Forums;
+using Core.Application.Boundary.Responses.Topics;
 using Infrastructure.Shared.Paging;
 
 namespace Zowari.Models.ViewModels;

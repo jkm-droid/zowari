@@ -5,7 +5,7 @@ using Infrastructure.Shared.Wrapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace Application.Features.Test.Commands;
+namespace Core.Application.Features.Test.Commands;
 
 public class GenerateFakeDataCommand : IRequest<Result<string>>
 {

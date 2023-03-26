@@ -1,4 +1,3 @@
-using Application.Boundary.QueryParams;
 using Infrastructure.Shared.Paging;
 using Microsoft.AspNetCore.Mvc;
 

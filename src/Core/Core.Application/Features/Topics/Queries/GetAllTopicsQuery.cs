@@ -1,6 +1,6 @@
-using Application.Boundary.QueryParams;
-using Application.Boundary.Responses.Topics;
-using Application.Factories;
+using Core.Application.Boundary.QueryParams;
+using Core.Application.Boundary.Responses.Topics;
+using Core.Application.Factories;
 using Domain.Entities;
 using Infrastructure.Abstractions;
 using Infrastructure.Extensions;
@@ -9,7 +9,7 @@ using Infrastructure.Shared.Wrapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace Application.Features.Topics.Queries;
+namespace Core.Application.Features.Topics.Queries;
 
 public class GetAllTopicsQuery : IRequest<Result<PagedResponse<TopicResponse>>>
 {
@@ -36,6 +36,7 @@ internal sealed class
         {
             var query = _repository.Entity<Topic>()
                 .FilterRoleRecords(request.QueryParameters.SearchTerm)
+                .Include(t=>t.User)
                 .TrackChanges(false);
 
             var topicRecords = await query

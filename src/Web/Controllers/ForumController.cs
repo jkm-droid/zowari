@@ -1,5 +1,5 @@
-using Application.Boundary.Responses.Forums;
-using Application.Features.Forum.Queries;
+using Core.Application.Boundary.Responses.Forums;
+using Core.Application.Features.Forum.Queries;
 using Infrastructure.Shared.Wrapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

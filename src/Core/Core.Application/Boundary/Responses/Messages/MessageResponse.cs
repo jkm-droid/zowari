@@ -1,8 +1,8 @@
-using Application.Boundary.Responses.Bookmarks;
-using Application.Boundary.Responses.Comments;
-using Application.Boundary.Responses.Likes;
+using Core.Application.Boundary.Responses.Bookmarks;
+using Core.Application.Boundary.Responses.Comments;
+using Core.Application.Boundary.Responses.Likes;
 
-namespace Application.Boundary.Responses.Messages;
+namespace Core.Application.Boundary.Responses.Messages;
 
 public class MessageResponse
 {

@@ -1,6 +1,6 @@
-using Application.Boundary.Responses.Topics;
+using Core.Application.Boundary.Responses.Topics;
 
-namespace Application.Boundary.Responses.Categories;
+namespace Core.Application.Boundary.Responses.Categories;
 
 public class CategoryResponse
 {

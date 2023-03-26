@@ -1,9 +1,9 @@
-using Application.Boundary.Responses.Categories;
-using Application.Boundary.Responses.Forums;
-using Application.Boundary.Responses.Topics;
+using Core.Application.Boundary.Responses;
+using Core.Application.Boundary.Responses.Forums;
+using Core.Application.Boundary.Responses.Topics;
 using Domain.Entities;
 
-namespace Application.Factories;
+namespace Core.Application.Factories;
 
 public static class EntityToResponseFactory
 {
@@ -24,7 +24,15 @@ public static class EntityToResponseFactory
         {
             Id = topic.Id,
             Body = topic.Body,
-            Author = topic.Author,
+            AuthorResponse = new AuthorResponse
+            {
+                UserId = topic.User.Id,
+                AuthorName = topic.User.UserName,
+                ProfileUrl = topic.User.ProfileUrl,
+                Score = topic.User.Score,
+                Rating = topic.User.Rating,
+                Level = topic.User.Level
+            },
             Slug = topic.Slug,
             CreatedOn = topic.CreatedOn,
             MessagesResponses = null,

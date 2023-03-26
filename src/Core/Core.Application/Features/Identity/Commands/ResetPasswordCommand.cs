@@ -1,12 +1,12 @@
-using Application.Boundary.Requests.Identity;
-using Core.EmailService;
+using Core.Application.Boundary.Requests.Identity;
+using Core.EmailService.Requests;
 using Core.EmailService.Services;
 using Domain.Entities.Identity;
 using Infrastructure.Shared.Wrapper;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 
-namespace Application.Features.Identity.Commands;
+namespace Core.Application.Features.Identity.Commands;
 
 public class ResetPasswordCommand : IRequest<Result<string>>
 {

@@ -1,8 +1,6 @@
 using System.Security.Claims;
-using Application.Boundary.Requests;
-using Application.Boundary.Requests.Identity;
-using Application.Boundary.Responses;
-using Application.Boundary.Responses.Identity;
+using Core.Application.Boundary.Requests.Identity;
+using Core.Application.Boundary.Responses.Identity;
 using Domain.Entities.Identity;
 using Infrastructure.Abstractions;
 using Infrastructure.Shared.Wrapper;
@@ -10,7 +8,7 @@ using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-namespace Application.Features.Identity.Commands;
+namespace Core.Application.Features.Identity.Commands;
 
 public class UserLoginCommand : IRequest<Result<UserLoginResponse>>
 {

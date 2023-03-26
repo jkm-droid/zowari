@@ -1,4 +1,5 @@
 using Core.EmailService.Configurations;
+using Core.EmailService.Requests;
 using LoggerService.Abstractions;
 using MailKit.Net.Smtp;
 using Microsoft.Extensions.Options;

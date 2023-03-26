@@ -12,23 +12,23 @@ public class ForumConfiguration : IEntityTypeConfiguration<ForumList>
         builder.HasData(
             new ForumList
             {
-                Id = Guid.NewGuid(),
+                Id = Guid.Parse("627f0415-285b-4ad7-9bd7-a0f004094cab"),
                 Title = "Hello",
-                Description =  "Hello world forum",
+                Description =  "Software Development",
                 CreatedOn = _defaultCreateOn,
                 LastModifiedOn = _defaultCreateOn
             },
             new ForumList
             {
-                Id = Guid.NewGuid(),
-                Title = "World politics",
+                Id = Guid.Parse("618f0db7-64b1-4c8a-8ebb-23f687be3776"),
+                Title = "World Politics",
                 Description =  "World politics forum",
                 CreatedOn = _defaultCreateOn,
                 LastModifiedOn = _defaultCreateOn
             },
             new ForumList
             {
-                Id = Guid.NewGuid(),
+                Id = Guid.Parse("2e48d11f-102d-45e0-8c93-a0b87426d0fa"),
                 Title = "Nature",
                 Description =  "Nature forum",
                 CreatedOn = _defaultCreateOn,

@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Application.Boundary.Requests.Identity;
+namespace Core.Application.Boundary.Requests.Identity;
 
 public class UserRegistrationRequest
 {

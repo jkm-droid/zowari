@@ -1,6 +1,6 @@
-using Application.Boundary.Responses.Categories;
+using Core.Application.Boundary.Responses.Categories;
 
-namespace Application.Boundary.Responses.Forums;
+namespace Core.Application.Boundary.Responses.Forums;
 
 public class ForumResponse
 {
