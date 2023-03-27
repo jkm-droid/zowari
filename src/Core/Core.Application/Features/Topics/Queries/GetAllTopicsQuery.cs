@@ -35,7 +35,7 @@ internal sealed class
         try
         {
             var query = _repository.Entity<Topic>()
-                .FilterRoleRecords(request.QueryParameters.SearchTerm)
+                .FilterTopicRecords(request.QueryParameters.SearchTerm)
                 .Include(t=>t.User)
                 .TrackChanges(false);
 

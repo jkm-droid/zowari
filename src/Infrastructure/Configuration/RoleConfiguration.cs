@@ -14,7 +14,7 @@ public class RoleConfiguration : IEntityTypeConfiguration<Role>
         builder.HasData(
             new Role
             {
-                Id = Guid.Parse(RoleIds.VisitorId),
+                Id = Guid.Parse(RoleIdConstants.VisitorId),
                 Name = "Visitor",
                 NormalizedName = "VISITOR",
                 Description = "Visitor role description",
@@ -23,7 +23,7 @@ public class RoleConfiguration : IEntityTypeConfiguration<Role>
             },
             new Role
             {
-                Id = Guid.Parse(RoleIds.SuperAdministratorId),
+                Id = Guid.Parse(RoleIdConstants.SuperAdministratorId),
                 Name = "SuperAdministrator",
                 NormalizedName = "SUPER_ADMINISTRATOR",
                 Description = "Administrator role description",
@@ -32,7 +32,7 @@ public class RoleConfiguration : IEntityTypeConfiguration<Role>
             },
             new Role
             {
-                Id = Guid.Parse(RoleIds.BasicUserId),
+                Id = Guid.Parse(RoleIdConstants.BasicUserId),
                 Name = "BasicUser",
                 NormalizedName = "BASIC_USER",
                 Description = "Basic role description",
@@ -41,7 +41,7 @@ public class RoleConfiguration : IEntityTypeConfiguration<Role>
             },
             new Role
             {
-                Id = Guid.Parse(RoleIds.AdministratorId),
+                Id = Guid.Parse(RoleIdConstants.AdministratorId),
                 Name = "Administrator",
                 NormalizedName = "ADMINISTRATOR",
                 Description = "Administrator role description",

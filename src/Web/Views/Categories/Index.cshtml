@@ -1,13 +1,10 @@
-﻿@{
-    ViewData["Title"] = "Home";
+@{
+    Layout = "_Layout";
 }
 
-<partial name="_HeaderPartial"/>
-
-<div id="latestTopicsDiv">
-    @await Html.PartialAsync("_LatestTopicsPartial").ConfigureAwait(false)
+<div id="categoriesDiv">
+    @await Html.PartialAsync("_CategoriesPartial").ConfigureAwait(false)
 </div>
-
 
 @section Scripts {
 

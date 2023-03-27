@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Zowari.Controllers;
-
+[Route("authentication")]
 public class AuthenticationController : Controller
 {
     private readonly IMediator _mediator;
@@ -29,7 +29,7 @@ public class AuthenticationController : Controller
     /// </summary>
     /// <returns></returns>
     [AllowAnonymous]
-    [HttpGet]
+    [HttpGet("register")]
     public IActionResult Register()
     {
         if (_signInManager.IsSignedIn(User))
@@ -68,7 +68,7 @@ public class AuthenticationController : Controller
     /// <param name="returnUrl"></param>
     /// <returns></returns>
     [AllowAnonymous]
-    [HttpGet]
+    [HttpGet("login")]
     public IActionResult Login(string? returnUrl = null)
     {
         if (_signInManager.IsSignedIn(User))

@@ -63,16 +63,19 @@ public class DatabaseContext : IdentityDbContext<User, Role, Guid>
         builder.Entity<Topic>(entity =>
         {
             entity.Property(e => e.UserId).IsRequired();
+            entity.Property(e => e.Title).IsRequired();
         }); 
         
         builder.Entity<Comment>(entity =>
         {
             entity.Property(e => e.UserId).IsRequired();
+            entity.Property(e => e.Body).IsRequired();
         });
         
         builder.Entity<Message>(entity =>
         {
             entity.Property(e => e.UserId).IsRequired();
+            entity.Property(e => e.Body).IsRequired();
         });  
         
         builder.Entity<Activity>(entity =>
