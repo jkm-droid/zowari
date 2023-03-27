@@ -77,7 +77,7 @@
         pageNumber = 1;
       }
       $.ajax({
-        url: '@Url.Action("LatestTopicsPartial", "Home")',
+        url: '@Url.Action("CategoriesPartial", "Categories")',
         type: 'GET',
         data: {
           "pageNumber": pageNumber ?? 1,
@@ -89,7 +89,7 @@
           "description": ""
         },
         success: function(data) {
-          $("#latestTopicsDiv").html(data);
+          $("#categoriesDiv").html(data);
           addPageClickListeners();
         }
       });
