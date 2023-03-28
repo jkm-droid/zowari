@@ -16,6 +16,6 @@ public class TestController : Controller
     public async Task<IActionResult> Index()
     {
         var response = await _mediator.Send(new GenerateFakeDataCommand());
-        return View(response);
+        return View();
     }
 }

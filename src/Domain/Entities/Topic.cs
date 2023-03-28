@@ -23,7 +23,7 @@ public class Topic: BaseEntity
     public Guid UserId { get; set; }
     [ForeignKey(nameof(UserId))]
     public User User { get; set; }
-    public Guid CategoryId { get; set; }
     [ForeignKey(nameof(CategoryId))]
+    public string CategoryId { get; set; }
     public Category Category { get; set; }
 }

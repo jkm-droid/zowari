@@ -95,9 +95,8 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Domain.Entities.Category", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid")
+                    b.Property<string>("Id")
+                        .HasColumnType("text")
                         .HasColumnName("CategoryId");
 
                     b.Property<Guid?>("CreatedBy")
@@ -319,7 +318,7 @@ namespace Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("64fb3971-ae1e-4ee1-88e3-f84749b1fe66"),
-                            ConcurrencyStamp = "88ceb082-ff88-47c2-ab7d-d1ce7186b704",
+                            ConcurrencyStamp = "4ea4e803-2745-4515-8707-ca0097b33400",
                             CreatedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "Visitor role description",
                             LastModifiedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
@@ -329,7 +328,7 @@ namespace Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("fb9b764b-6248-4fa8-94d9-f8aba057fd12"),
-                            ConcurrencyStamp = "968601e9-4517-4d72-a7f3-ecdf97004c9a",
+                            ConcurrencyStamp = "d9a69c40-7754-4c3c-96f0-69c757ef2f0a",
                             CreatedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "Administrator role description",
                             LastModifiedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
@@ -339,7 +338,7 @@ namespace Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("aa3062aa-5f5d-4cce-b156-c6268148c03a"),
-                            ConcurrencyStamp = "3d0099ee-1472-49be-889c-af6787552ed9",
+                            ConcurrencyStamp = "1a15c38c-9c24-48ad-96d8-d17ee3611307",
                             CreatedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "Basic role description",
                             LastModifiedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
@@ -349,7 +348,7 @@ namespace Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("7f6afb52-c01b-4b36-b3c9-946ab09f3334"),
-                            ConcurrencyStamp = "aa2ccca8-78fd-43b4-bd32-755284d33518",
+                            ConcurrencyStamp = "a09f3de5-c695-4002-a577-325697c42128",
                             CreatedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
                             Description = "Administrator role description",
                             LastModifiedOn = new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
@@ -576,8 +575,8 @@ namespace Infrastructure.Migrations
                     b.Property<string>("Body")
                         .HasColumnType("text");
 
-                    b.Property<Guid>("CategoryId")
-                        .HasColumnType("uuid");
+                    b.Property<string>("CategoryId")
+                        .HasColumnType("text");
 
                     b.Property<Guid?>("CreatedBy")
                         .HasColumnType("uuid");
@@ -868,8 +867,7 @@ namespace Infrastructure.Migrations
                     b.HasOne("Domain.Entities.Category", "Category")
                         .WithMany("Topics")
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("Domain.Entities.Identity.User", "User")
                         .WithMany()
