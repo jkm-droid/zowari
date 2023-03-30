@@ -41,7 +41,7 @@ internal sealed class GenerateFakeDataCommandHandler : IRequestHandler<GenerateF
         var fakeCategories = new Faker<Category>()
             .RuleFor(c => c.Id, f => f.Random.AlphaNumeric(15).ToUpper())
             .RuleFor(c => c.ForumId, f => f.PickRandom(forumIds))
-            .RuleFor(c => c.Title, f => f.Lorem.Sentence(5))
+            .RuleFor(c => c.Title, f => f.Random.Word())
             .RuleFor(c => c.Slug, f => f.Random.Words(5).Replace(" ", "-").ToLower())
             .RuleFor(c => c.Description, f => f.Lorem.Sentence(20))
             .Generate(50);

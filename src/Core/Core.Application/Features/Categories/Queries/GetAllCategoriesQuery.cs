@@ -31,8 +31,9 @@ internal sealed class
     {
         _repository = repository;
     }
-    
-    public async Task<Result<PagedResponse<CategoryResponse>>> Handle(GetAllCategoriesQuery request, CancellationToken cancellationToken)
+
+    public async Task<Result<PagedResponse<CategoryResponse>>> Handle(GetAllCategoriesQuery request,
+        CancellationToken cancellationToken)
     {
         try
         {
@@ -46,10 +47,11 @@ internal sealed class
                 .ToListAsync(cancellationToken);
 
             var recordsCount = await query.CountAsync(cancellationToken);
-            
-            var pagedList = PagedList<CategoryResponse>.ToPagedList(categoryRecords,recordsCount, request.QueryParameters.PageNumber,
+
+            var pagedList = PagedList<CategoryResponse>.ToPagedList(categoryRecords, recordsCount,
+                request.QueryParameters.PageNumber,
                 request.QueryParameters.PageSize);
-        
+            //TODO Get tags that are similar to the category
             var response = new PagedResponse<CategoryResponse>
             {
                 PagingMetaData = pagedList.MetaData,

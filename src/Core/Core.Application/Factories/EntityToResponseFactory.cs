@@ -49,10 +49,10 @@ public static class EntityToResponseFactory
     {
         return categories.Select(c => new CategoryResponse
         {
-            Id = default,
-            Title = null,
-            Description = null,
-            Slug = null,
+            Id = c.Id,
+            Title = c.Title,
+            Description = c.Description,
+            Slug = c.Slug,
             TopicsResponses = null,
             ForumId = default
         });

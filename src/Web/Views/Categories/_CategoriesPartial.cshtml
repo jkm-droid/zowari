@@ -4,16 +4,25 @@
     @foreach (var category in Model.Data.Data.ToList())
     {
         <div class="rounded overflow-hidden shadow-lg">
-            <img class="w-full" src="/mountain.jpg" alt="Mountain">
             <div class="px-6 py-4">
-                <div class="font-bold text-xl mb-2">Mountain</div>
+                <div class="font-bold text-md text-black-600 mb-2">@category.Title</div>
                 <p class="text-gray-700 text-base">
+                    @category.Description
                 </p>
             </div>
             <div class="px-6 pt-4 pb-2">
                 <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
                 <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
                 <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
+            </div>
+            <div class="px-6 mb-2">
+                <button
+                    type="button"
+                    class="inline-block rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
+                    data-te-ripple-init
+                    data-te-ripple-color="light">
+                    Button
+                </button>
             </div>
         </div>
     }
