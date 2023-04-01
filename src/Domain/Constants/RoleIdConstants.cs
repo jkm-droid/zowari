@@ -1,6 +1,6 @@
 namespace Domain.Constants;
 
-public static class RoleIds
+public static class RoleIdConstants
 {
     public const string VisitorId = "64fb3971-ae1e-4ee1-88e3-f84749b1fe66";
     public const string AdministratorId = "7f6afb52-c01b-4b36-b3c9-946ab09f3334";

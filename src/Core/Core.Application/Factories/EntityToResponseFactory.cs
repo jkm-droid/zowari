@@ -1,4 +1,5 @@
 using Core.Application.Boundary.Responses;
+using Core.Application.Boundary.Responses.Categories;
 using Core.Application.Boundary.Responses.Forums;
 using Core.Application.Boundary.Responses.Topics;
 using Domain.Entities;
@@ -34,9 +35,40 @@ public static class EntityToResponseFactory
                 Level = topic.User.Level
             },
             Slug = topic.Slug,
-            CreatedOn = topic.CreatedOn,
-            MessagesResponses = null,
-            BookmarksResponses = null
+            TopicStats = new TopicStatsResponse
+            {
+                Replies = topic.Messages.Count,
+                Views = topic.Views,
+                LastReplyDate = default
+            },
+            CreatedOn = topic.CreatedOn
         });
+    }
+
+    public static IQueryable<CategoryResponse> ToCategoryResponse(this IQueryable<Category> categories)
+    {
+        return categories.Select(c => new CategoryResponse
+        {
+            Id = c.Id,
+            Title = c.Title,
+            Description = c.Description,
+            Slug = c.Slug,
+            TopicCount = c.Topics.Count,
+            TopicsResponses = null,
+            ForumId = default
+        });
+    }
+
+    public static TopicResponse TopicResponse(this Topic topic)
+    {
+        return new TopicResponse
+        {
+            Id = default,
+            Body = null,
+            AuthorResponse = null,
+            TopicStats = null,
+            Slug = null,
+            CreatedOn = default
+        };
     }
 }

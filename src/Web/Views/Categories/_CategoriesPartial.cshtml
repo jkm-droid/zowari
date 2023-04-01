@@ -1,0 +1,35 @@
+@model Infrastructure.Shared.Wrapper.Result<Infrastructure.Shared.Paging.PagedResponse<Core.Application.Boundary.Responses.Categories.CategoryResponse>>
+
+<div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+    @foreach (var category in Model.Data.Data.ToList())
+    {
+        <div class="rounded overflow-hidden shadow-lg">
+            <div class="px-6 py-4">
+                <div class="w-full grid grid-cols-2 mb-2 gap-2">
+                   <span class="col-start-1 col-end-4 justify-start items-start font-bold text-md text-black-600">@category.Title</span>
+                   <span class="col-start-4 col-end-6 justify-end items-end text-sm">Threads - @category.TopicCount</span>
+                </div>
+                <p class="text-gray-700 text-base w-full">
+                    @category.Description
+                </p>
+            </div>
+            <div class="px-6 pt-4 pb-2">
+                <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+                <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+                <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
+            </div>
+            <div class="px-6 mb-2">
+                <button
+                    class="px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal  transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
+                    data-te-ripple-init
+                    data-te-ripple-color="light">
+                    <svg class="h-8 w-8 text-red-500" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z"/> <path d="M12 20l-7 -7a4 4 0 0 1 6.5 -6a.9 .9 0 0 0 1 0a4 4 0 0 1 6.5 6l-7 7"/></svg>
+                </button>
+            </div>
+        </div>
+    }
+</div>
+
+<div id="paginationDiv">
+    @await Html.PartialAsync("_PagingPartial", Model.Data.PagingMetaData).ConfigureAwait(false)
+</div>

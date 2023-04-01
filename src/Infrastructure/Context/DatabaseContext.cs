@@ -55,25 +55,35 @@ public class DatabaseContext : IdentityDbContext<User, Role, Guid>
             entity.Property(e => e.Title).IsRequired();
         });
 
+        builder.Entity<Category>()
+            .HasMany(c => c.Topics)
+            .WithOne(c => c.Category)
+            .OnDelete(DeleteBehavior.SetNull);
+
+        builder.Entity<Topic>(entity =>
+        {
+            entity.Property(e => e.UserId).IsRequired();
+            entity.Property(e => e.Title).IsRequired();
+        });
+
+        builder.Entity<Message>(entity =>
+        {
+            entity.Property(e => e.UserId).IsRequired();
+            entity.Property(e => e.TopicId).IsRequired();
+            entity.Property(e => e.Body).IsRequired();
+        });  
+        
+        builder.Entity<Comment>(entity =>
+        {
+            entity.Property(e => e.MessageId).IsRequired();
+            entity.Property(e => e.UserId).IsRequired();
+            entity.Property(e => e.Body).IsRequired();
+        });
+        
         builder.Entity<BookMark>(entity =>
         {
             entity.Property(e => e.UserId).IsRequired();
         });
-        
-        builder.Entity<Topic>(entity =>
-        {
-            entity.Property(e => e.UserId).IsRequired();
-        }); 
-        
-        builder.Entity<Comment>(entity =>
-        {
-            entity.Property(e => e.UserId).IsRequired();
-        });
-        
-        builder.Entity<Message>(entity =>
-        {
-            entity.Property(e => e.UserId).IsRequired();
-        });  
         
         builder.Entity<Activity>(entity =>
         {

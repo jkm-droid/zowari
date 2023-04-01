@@ -6,32 +6,16 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Infrastructure.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class InitialProjectMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "Activities",
-                columns: table => new
-                {
-                    ActivityId = table.Column<Guid>(type: "uuid", nullable: false),
-                    ActivityBody = table.Column<string>(type: "text", nullable: false),
-                    CreatedOn = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
-                    CreatedBy = table.Column<Guid>(type: "uuid", nullable: true),
-                    LastModifiedOn = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
-                    LastModifiedBy = table.Column<Guid>(type: "uuid", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Activities", x => x.ActivityId);
-                });
-
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    Description = table.Column<string>(type: "text", nullable: false),
+                    Description = table.Column<string>(type: "text", nullable: true),
                     CreatedOn = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
                     CreatedBy = table.Column<Guid>(type: "uuid", nullable: true),
                     LastModifiedOn = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
@@ -51,10 +35,10 @@ namespace Infrastructure.Migrations
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     IsActive = table.Column<bool>(type: "boolean", nullable: false),
-                    ProfileUrl = table.Column<string>(type: "text", nullable: true),
-                    Score = table.Column<int>(type: "integer", nullable: true),
-                    Rating = table.Column<int>(type: "integer", nullable: true),
-                    Level = table.Column<string>(type: "text", nullable: true),
+                    ProfileUrl = table.Column<string>(type: "text", nullable: true, defaultValue: "False"),
+                    Score = table.Column<int>(type: "integer", nullable: false, defaultValue: 0),
+                    Rating = table.Column<int>(type: "integer", nullable: false, defaultValue: 0),
+                    Level = table.Column<string>(type: "text", nullable: true, defaultValue: "Level 0"),
                     CreatedOn = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
                     CreatedBy = table.Column<Guid>(type: "uuid", nullable: true),
                     LastModifiedOn = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
@@ -84,10 +68,10 @@ namespace Infrastructure.Migrations
                 columns: table => new
                 {
                     CountryId = table.Column<Guid>(type: "uuid", nullable: false),
-                    Iso = table.Column<string>(type: "text", nullable: false),
-                    Name = table.Column<string>(type: "text", nullable: false),
-                    NiceName = table.Column<string>(type: "text", nullable: false),
-                    Iso3 = table.Column<string>(type: "text", nullable: false),
+                    Iso = table.Column<string>(type: "text", nullable: true),
+                    Name = table.Column<string>(type: "text", nullable: true),
+                    NiceName = table.Column<string>(type: "text", nullable: true),
+                    Iso3 = table.Column<string>(type: "text", nullable: true),
                     NumCode = table.Column<int>(type: "integer", nullable: false),
                     PhoneCode = table.Column<int>(type: "integer", nullable: false),
                     CreatedOn = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
@@ -106,7 +90,7 @@ namespace Infrastructure.Migrations
                 {
                     ForumId = table.Column<Guid>(type: "uuid", nullable: false),
                     Title = table.Column<string>(type: "text", nullable: false),
-                    Description = table.Column<string>(type: "text", nullable: false),
+                    Description = table.Column<string>(type: "text", nullable: true),
                     CreatedOn = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
                     CreatedBy = table.Column<Guid>(type: "uuid", nullable: true),
                     LastModifiedOn = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
@@ -122,8 +106,8 @@ namespace Infrastructure.Migrations
                 columns: table => new
                 {
                     TagId = table.Column<Guid>(type: "uuid", nullable: false),
-                    Name = table.Column<string>(type: "text", nullable: false),
-                    Slug = table.Column<string>(type: "text", nullable: false),
+                    Name = table.Column<string>(type: "text", nullable: true),
+                    Slug = table.Column<string>(type: "text", nullable: true),
                     CreatedOn = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
                     CreatedBy = table.Column<Guid>(type: "uuid", nullable: true),
                     LastModifiedOn = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
@@ -151,6 +135,29 @@ namespace Infrastructure.Migrations
                         name: "FK_AspNetRoleClaims_AspNetRoles_RoleId",
                         column: x => x.RoleId,
                         principalTable: "AspNetRoles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Activities",
+                columns: table => new
+                {
+                    ActivityId = table.Column<Guid>(type: "uuid", nullable: false),
+                    ActivityBody = table.Column<string>(type: "text", nullable: true),
+                    UserId = table.Column<Guid>(type: "uuid", nullable: false),
+                    CreatedOn = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
+                    CreatedBy = table.Column<Guid>(type: "uuid", nullable: true),
+                    LastModifiedOn = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
+                    LastModifiedBy = table.Column<Guid>(type: "uuid", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Activities", x => x.ActivityId);
+                    table.ForeignKey(
+                        name: "FK_Activities_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -220,8 +227,7 @@ namespace Infrastructure.Migrations
                         name: "FK_AspNetUserRoles_AspNetRoles_RoleId1",
                         column: x => x.RoleId1,
                         principalTable: "AspNetRoles",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_AspNetUserRoles_AspNetUsers_UserId",
                         column: x => x.UserId,
@@ -232,8 +238,7 @@ namespace Infrastructure.Migrations
                         name: "FK_AspNetUserRoles_AspNetUsers_UserId1",
                         column: x => x.UserId1,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -260,10 +265,10 @@ namespace Infrastructure.Migrations
                 name: "Categories",
                 columns: table => new
                 {
-                    CategoryId = table.Column<Guid>(type: "uuid", nullable: false),
-                    Title = table.Column<string>(type: "text", nullable: false),
-                    Description = table.Column<string>(type: "text", nullable: false),
-                    Slug = table.Column<string>(type: "text", nullable: false),
+                    CategoryId = table.Column<string>(type: "text", nullable: false),
+                    Title = table.Column<string>(type: "text", nullable: true),
+                    Description = table.Column<string>(type: "text", nullable: true),
+                    Slug = table.Column<string>(type: "text", nullable: true),
                     ForumId = table.Column<Guid>(type: "uuid", nullable: false),
                     CreatedOn = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
                     CreatedBy = table.Column<Guid>(type: "uuid", nullable: true),
@@ -286,10 +291,13 @@ namespace Infrastructure.Migrations
                 columns: table => new
                 {
                     TopicId = table.Column<Guid>(type: "uuid", nullable: false),
-                    Body = table.Column<string>(type: "text", nullable: false),
-                    Author = table.Column<string>(type: "text", nullable: false),
-                    Slug = table.Column<string>(type: "text", nullable: false),
-                    CategoryId = table.Column<Guid>(type: "uuid", nullable: false),
+                    Title = table.Column<string>(type: "text", nullable: false),
+                    Body = table.Column<string>(type: "text", nullable: true),
+                    Author = table.Column<string>(type: "text", nullable: true),
+                    Slug = table.Column<string>(type: "text", nullable: true),
+                    Views = table.Column<int>(type: "integer", nullable: false),
+                    UserId = table.Column<Guid>(type: "uuid", nullable: false),
+                    CategoryId = table.Column<string>(type: "text", nullable: true),
                     CreatedOn = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
                     CreatedBy = table.Column<Guid>(type: "uuid", nullable: true),
                     LastModifiedOn = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
@@ -299,11 +307,17 @@ namespace Infrastructure.Migrations
                 {
                     table.PrimaryKey("PK_Topics", x => x.TopicId);
                     table.ForeignKey(
+                        name: "FK_Topics_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
                         name: "FK_Topics_Categories_CategoryId",
                         column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "CategoryId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.SetNull);
                 });
 
             migrationBuilder.CreateTable(
@@ -312,7 +326,8 @@ namespace Infrastructure.Migrations
                 {
                     MessageId = table.Column<Guid>(type: "uuid", nullable: false),
                     Body = table.Column<string>(type: "text", nullable: false),
-                    Author = table.Column<string>(type: "text", nullable: false),
+                    Author = table.Column<string>(type: "text", nullable: true),
+                    UserId = table.Column<Guid>(type: "uuid", nullable: false),
                     TopicId = table.Column<Guid>(type: "uuid", nullable: false),
                     CreatedOn = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
                     CreatedBy = table.Column<Guid>(type: "uuid", nullable: true),
@@ -322,6 +337,12 @@ namespace Infrastructure.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Messages", x => x.MessageId);
+                    table.ForeignKey(
+                        name: "FK_Messages_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Messages_Topics_TopicId",
                         column: x => x.TopicId,
@@ -360,8 +381,8 @@ namespace Infrastructure.Migrations
                 {
                     BookMarkId = table.Column<Guid>(type: "uuid", nullable: false),
                     UserId = table.Column<Guid>(type: "uuid", nullable: false),
-                    MessageId = table.Column<Guid>(type: "uuid", nullable: true),
-                    TopicId = table.Column<Guid>(type: "uuid", nullable: true),
+                    TopicId = table.Column<Guid>(type: "uuid", nullable: false),
+                    MessageId = table.Column<Guid>(type: "uuid", nullable: false),
                     CreatedOn = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
                     CreatedBy = table.Column<Guid>(type: "uuid", nullable: true),
                     LastModifiedOn = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
@@ -380,12 +401,14 @@ namespace Infrastructure.Migrations
                         name: "FK_BookMarks_Messages_MessageId",
                         column: x => x.MessageId,
                         principalTable: "Messages",
-                        principalColumn: "MessageId");
+                        principalColumn: "MessageId",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_BookMarks_Topics_TopicId",
                         column: x => x.TopicId,
                         principalTable: "Topics",
-                        principalColumn: "TopicId");
+                        principalColumn: "TopicId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -394,8 +417,9 @@ namespace Infrastructure.Migrations
                 {
                     CommentId = table.Column<Guid>(type: "uuid", nullable: false),
                     Body = table.Column<string>(type: "text", nullable: false),
-                    Author = table.Column<string>(type: "text", nullable: false),
+                    Author = table.Column<string>(type: "text", nullable: true),
                     Likes = table.Column<int>(type: "integer", nullable: false),
+                    UserId = table.Column<Guid>(type: "uuid", nullable: false),
                     MessageId = table.Column<Guid>(type: "uuid", nullable: false),
                     CreatedOn = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
                     CreatedBy = table.Column<Guid>(type: "uuid", nullable: true),
@@ -405,6 +429,12 @@ namespace Infrastructure.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Comments", x => x.CommentId);
+                    table.ForeignKey(
+                        name: "FK_Comments_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Comments_Messages_MessageId",
                         column: x => x.MessageId,
@@ -418,6 +448,7 @@ namespace Infrastructure.Migrations
                 columns: table => new
                 {
                     LikeId = table.Column<Guid>(type: "uuid", nullable: false),
+                    UserId = table.Column<Guid>(type: "uuid", nullable: false),
                     MessageId = table.Column<Guid>(type: "uuid", nullable: false),
                     CreatedOn = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
                     CreatedBy = table.Column<Guid>(type: "uuid", nullable: true),
@@ -427,6 +458,12 @@ namespace Infrastructure.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Likes", x => x.LikeId);
+                    table.ForeignKey(
+                        name: "FK_Likes_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Likes_Messages_MessageId",
                         column: x => x.MessageId,
@@ -440,10 +477,10 @@ namespace Infrastructure.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "CreatedBy", "CreatedOn", "Description", "LastModifiedBy", "LastModifiedOn", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { new Guid("64fb3971-ae1e-4ee1-88e3-f84749b1fe66"), "5d331868-9447-422f-824c-64bada4ac955", null, new DateTimeOffset(new DateTime(2023, 2, 16, 17, 26, 43, 815, DateTimeKind.Unspecified).AddTicks(7836), new TimeSpan(0, 0, 0, 0, 0)), "Visitor role description", null, new DateTimeOffset(new DateTime(2023, 2, 16, 17, 26, 43, 815, DateTimeKind.Unspecified).AddTicks(7837), new TimeSpan(0, 0, 0, 0, 0)), "Visitor", "VISITOR" },
-                    { new Guid("7f6afb52-c01b-4b36-b3c9-946ab09f3334"), "f8c97c77-a4eb-4081-a0d9-060229f17017", null, new DateTimeOffset(new DateTime(2023, 2, 16, 17, 26, 43, 815, DateTimeKind.Unspecified).AddTicks(7920), new TimeSpan(0, 0, 0, 0, 0)), "Administrator role description", null, new DateTimeOffset(new DateTime(2023, 2, 16, 17, 26, 43, 815, DateTimeKind.Unspecified).AddTicks(7920), new TimeSpan(0, 0, 0, 0, 0)), "Administrator", "ADMINISTRATOR" },
-                    { new Guid("aa3062aa-5f5d-4cce-b156-c6268148c03a"), "09a32aab-0cd3-402f-a3ce-0d324063468c", null, new DateTimeOffset(new DateTime(2023, 2, 16, 17, 26, 43, 815, DateTimeKind.Unspecified).AddTicks(7901), new TimeSpan(0, 0, 0, 0, 0)), "Basic role description", null, new DateTimeOffset(new DateTime(2023, 2, 16, 17, 26, 43, 815, DateTimeKind.Unspecified).AddTicks(7902), new TimeSpan(0, 0, 0, 0, 0)), "BasicUser", "BASIC_USER" },
-                    { new Guid("fb9b764b-6248-4fa8-94d9-f8aba057fd12"), "7854ed9e-7b1a-4e28-84ce-670da03f3ef6", null, new DateTimeOffset(new DateTime(2023, 2, 16, 17, 26, 43, 815, DateTimeKind.Unspecified).AddTicks(7883), new TimeSpan(0, 0, 0, 0, 0)), "Administrator role description", null, new DateTimeOffset(new DateTime(2023, 2, 16, 17, 26, 43, 815, DateTimeKind.Unspecified).AddTicks(7884), new TimeSpan(0, 0, 0, 0, 0)), "SuperAdministrator", "SUPER_ADMINISTRATOR" }
+                    { new Guid("64fb3971-ae1e-4ee1-88e3-f84749b1fe66"), "4ea4e803-2745-4515-8707-ca0097b33400", null, new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "Visitor role description", null, new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "Visitor", "VISITOR" },
+                    { new Guid("7f6afb52-c01b-4b36-b3c9-946ab09f3334"), "a09f3de5-c695-4002-a577-325697c42128", null, new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "Administrator role description", null, new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "Administrator", "ADMINISTRATOR" },
+                    { new Guid("aa3062aa-5f5d-4cce-b156-c6268148c03a"), "1a15c38c-9c24-48ad-96d8-d17ee3611307", null, new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "Basic role description", null, new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "BasicUser", "BASIC_USER" },
+                    { new Guid("fb9b764b-6248-4fa8-94d9-f8aba057fd12"), "d9a69c40-7754-4c3c-96f0-69c757ef2f0a", null, new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "Administrator role description", null, new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "SuperAdministrator", "SUPER_ADMINISTRATOR" }
                 });
 
             migrationBuilder.InsertData(
@@ -451,10 +488,15 @@ namespace Infrastructure.Migrations
                 columns: new[] { "ForumId", "CreatedBy", "CreatedOn", "Description", "LastModifiedBy", "LastModifiedOn", "Title" },
                 values: new object[,]
                 {
-                    { new Guid("ab25ffd5-426c-46a4-9de0-461d4307c63f"), null, new DateTimeOffset(new DateTime(2023, 2, 16, 20, 26, 43, 815, DateTimeKind.Unspecified).AddTicks(8377), new TimeSpan(0, 3, 0, 0, 0)), "World politics forum", null, new DateTimeOffset(new DateTime(2023, 2, 16, 20, 26, 43, 815, DateTimeKind.Unspecified).AddTicks(8378), new TimeSpan(0, 3, 0, 0, 0)), "World politics" },
-                    { new Guid("c3ea7f05-9a77-4c73-992f-a98da7be742f"), null, new DateTimeOffset(new DateTime(2023, 2, 16, 20, 26, 43, 815, DateTimeKind.Unspecified).AddTicks(8316), new TimeSpan(0, 3, 0, 0, 0)), "Hello world forum", null, new DateTimeOffset(new DateTime(2023, 2, 16, 20, 26, 43, 815, DateTimeKind.Unspecified).AddTicks(8355), new TimeSpan(0, 3, 0, 0, 0)), "Hello" },
-                    { new Guid("dea2373f-ea10-417f-81b8-55267180e0af"), null, new DateTimeOffset(new DateTime(2023, 2, 16, 20, 26, 43, 815, DateTimeKind.Unspecified).AddTicks(8393), new TimeSpan(0, 3, 0, 0, 0)), "Nature forum", null, new DateTimeOffset(new DateTime(2023, 2, 16, 20, 26, 43, 815, DateTimeKind.Unspecified).AddTicks(8394), new TimeSpan(0, 3, 0, 0, 0)), "Nature" }
+                    { new Guid("2e48d11f-102d-45e0-8c93-a0b87426d0fa"), null, new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "Nature forum", null, new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "Nature" },
+                    { new Guid("618f0db7-64b1-4c8a-8ebb-23f687be3776"), null, new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "World politics forum", null, new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "World Politics" },
+                    { new Guid("627f0415-285b-4ad7-9bd7-a0f004094cab"), null, new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "Software Development", null, new DateTimeOffset(new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "Hello" }
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Activities_UserId",
+                table: "Activities",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -529,14 +571,29 @@ namespace Infrastructure.Migrations
                 column: "MessageId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Comments_UserId",
+                table: "Comments",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Likes_MessageId",
                 table: "Likes",
                 column: "MessageId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Likes_UserId",
+                table: "Likes",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Messages_TopicId",
                 table: "Messages",
                 column: "TopicId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Messages_UserId",
+                table: "Messages",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_TagTopic_TopicsId",
@@ -547,6 +604,11 @@ namespace Infrastructure.Migrations
                 name: "IX_Topics_CategoryId",
                 table: "Topics",
                 column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Topics_UserId",
+                table: "Topics",
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -588,9 +650,6 @@ namespace Infrastructure.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
                 name: "Messages");
 
             migrationBuilder.DropTable(
@@ -598,6 +657,9 @@ namespace Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "Topics");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
                 name: "Categories");

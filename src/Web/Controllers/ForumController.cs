@@ -3,6 +3,7 @@ using Core.Application.Features.Forum.Queries;
 using Infrastructure.Shared.Wrapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Zowari.Models.ViewModels;
 
 namespace Zowari.Controllers;
 

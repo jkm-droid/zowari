@@ -1,0 +1,119 @@
+@{
+    ViewData["Title"] = "Categories";
+}
+<div class="p-10">
+    <div class="mb-2 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-5">
+        <div class="justify-start items-start">Categories</div>
+        <div class="justify-end items-end ">
+            <form class="ml-2">
+                <label for="searchTerm" class="sr-only">Search</label>
+                <div class="relative w-full">
+                    <input type="search" id="searchTerm" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" placeholder="Search categories..." required>
+                    <button type="submit" id="searchButton" class="absolute top-0 right-0 p-2.5 text-sm font-medium text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                        <span class="sr-only">Search</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="categoriesDiv" class="mt-2">
+        @await Html.PartialAsync("_CategoriesPartial").ConfigureAwait(false)
+    </div>
+</div>
+
+@section Scripts {
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+      addPageClickListeners();
+      addSearchClickListener();
+      addPeriodFromDataPickerListener();
+      addPeriodToDataPickerListener();
+    });
+
+    function addPageClickListeners() {
+      const url = new URL(window.location);
+
+      url.searchParams.set('pageSize', '10');
+      url.searchParams.set('pageNumber', $('#CurrentPage').val());
+      url.searchParams.set('SearchTerm', $('#searchTerm').val());
+      url.searchParams.set('PeriodFrom', $('#PeriodFrom').val());
+      url.searchParams.set('PeriodTo', $('#PeriodTo').val());
+      window.history.pushState({}, '', url);
+      $(".page-number > a").click(function() {
+        let params = getQueryParams();
+        params.currentPage = parseInt($(this).find("input:first").val());
+
+        getView(params.currentPage, params.searchTerm, params.periodFrom, params.periodTo);
+
+      });
+    }
+
+    function addSearchClickListener() {
+      $('#searchButton').on('click',
+      function(e) {
+        e.preventDefault();
+        let params = getQueryParams();
+        params.currentPage = parseInt($(this).find("input:first").val());
+      
+        getView(params.currentPage, params.searchTerm, params.periodFrom, params.periodTo);
+      });
+    }
+
+    function addPeriodFromDataPickerListener() {
+      $('#PeriodFrom').change(function() {
+        let params = getQueryParams();
+        params.currentPage = parseInt($(this).find("input:first").val());
+
+        getView(params.currentPage, params.searchTerm, params.periodFrom, params.periodTo);
+      });
+    }
+
+    function addPeriodToDataPickerListener() {
+      $('#PeriodTo').change(function() {
+        let params = getQueryParams();
+        params.currentPage = parseInt($(this).find("input:first").val());
+
+        getView(params.currentPage, params.searchTerm, params.periodFrom, params.periodTo);
+      });
+    }
+
+    function getQueryParams() {
+      return {
+        currentPage: $('#CurrentPage').val(),
+        searchTerm: $('#searchTerm').val(),
+        periodFrom: $('#PeriodFrom').val(),
+        periodTo: $('#PeriodTo').val()
+      };
+    }
+
+    function getView(pageNumber, searchTerm, periodFrom, periodTo) {
+      if (isNaN(pageNumber) || pageNumber === "undefined") {
+        pageNumber = 1;
+      }
+      $.ajax({
+        url: '@Url.Action("CategoriesPartial", "Categories")',
+        type: 'GET',
+        data: {
+          "pageNumber": pageNumber ?? 1,
+          "pageSize": 10,
+          "searchTerm": searchTerm,
+          "PeriodFrom": periodFrom,
+          "PeriodTo": periodTo,
+          "name": "",
+          "description": ""
+        },
+        success: function(data) {
+          $("#categoriesDiv").html(data);
+          addPageClickListeners();
+        }
+      });
+    }
+
+  </script>
+
+}

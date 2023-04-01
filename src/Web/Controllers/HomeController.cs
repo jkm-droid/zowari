@@ -21,7 +21,7 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-    [HttpGet("")]
+    [HttpGet]
     public async Task<IActionResult> Index(TopicQueryParameters parameters)
     {
         //show the latest topics
@@ -36,7 +36,7 @@ public class HomeController : Controller
         };
         return View(latestTopicsForums);
     }
-
+    
     [HttpGet("forums-list")]
     public async Task<IActionResult> ForumListPartial()
     {
