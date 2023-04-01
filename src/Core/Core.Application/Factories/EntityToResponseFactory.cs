@@ -53,8 +53,22 @@ public static class EntityToResponseFactory
             Title = c.Title,
             Description = c.Description,
             Slug = c.Slug,
+            TopicCount = c.Topics.Count,
             TopicsResponses = null,
             ForumId = default
         });
+    }
+
+    public static TopicResponse TopicResponse(this Topic topic)
+    {
+        return new TopicResponse
+        {
+            Id = default,
+            Body = null,
+            AuthorResponse = null,
+            TopicStats = null,
+            Slug = null,
+            CreatedOn = default
+        };
     }
 }

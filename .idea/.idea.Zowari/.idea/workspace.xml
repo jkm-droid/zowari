@@ -5,18 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1acdc9d7-b462-46b4-afcb-b26a975fbb73" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Core/Core.Application/Features/Topics/Queries/GetSingleTopicQuery.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Zowari/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Zowari/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/Boundary/Responses/Categories/CategoryResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/Boundary/Responses/Categories/CategoryResponse.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/Factories/EntityToResponseFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/Factories/EntityToResponseFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/Features/Categories/Queries/GetAllCategoriesQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/Features/Categories/Queries/GetAllCategoriesQuery.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/Features/Test/Commands/GenerateFakeDataCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/Features/Test/Commands/GenerateFakeDataCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/bin/Debug/net6.0/Core.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/bin/Debug/net6.0/Core.Application.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/bin/Debug/net6.0/Core.Application.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/bin/Debug/net6.0/Core.Application.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/obj/Debug/net6.0/Core.Application.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/obj/Debug/net6.0/Core.Application.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/obj/Debug/net6.0/Core.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/obj/Debug/net6.0/Core.Application.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/obj/Debug/net6.0/Core.Application.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/obj/Debug/net6.0/Core.Application.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/obj/Debug/net6.0/ref/Core.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/obj/Debug/net6.0/ref/Core.Application.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/obj/Debug/net6.0/refint/Core.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/obj/Debug/net6.0/refint/Core.Application.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Web/Controllers/TopicController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Controllers/TopicController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Web/Views/Categories/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Views/Categories/Index.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Web/Views/Categories/_CategoriesPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Views/Categories/_CategoriesPartial.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Web/Views/Home/_LatestTopicsPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Views/Home/_LatestTopicsPartial.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Web/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Views/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Web/Views/Topic/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Views/Topic/Index.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Web/bin/Debug/net6.0/Core.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/bin/Debug/net6.0/Core.Application.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Web/bin/Debug/net6.0/Core.Application.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/bin/Debug/net6.0/Core.Application.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Web/bin/Debug/net6.0/Zowari.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/bin/Debug/net6.0/Zowari.dll" afterDir="false" />
@@ -24,6 +29,8 @@
       <change beforePath="$PROJECT_DIR$/src/Web/obj/Debug/net6.0/Zowari.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/obj/Debug/net6.0/Zowari.csproj.AssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Web/obj/Debug/net6.0/Zowari.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/obj/Debug/net6.0/Zowari.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Web/obj/Debug/net6.0/Zowari.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/obj/Debug/net6.0/Zowari.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Web/obj/Debug/net6.0/ref/Zowari.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/obj/Debug/net6.0/ref/Zowari.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Web/obj/Debug/net6.0/refint/Zowari.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/obj/Debug/net6.0/refint/Zowari.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Web/obj/staticwebassets.pack.sentinel" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/obj/staticwebassets.pack.sentinel" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Web/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/wwwroot/css/site.css" afterDir="false" />
     </list>
@@ -183,7 +190,10 @@
       <workItem from="1679855221892" duration="15638000" />
       <workItem from="1679939765438" duration="6048000" />
       <workItem from="1680019152112" duration="8308000" />
-      <workItem from="1680193136331" duration="4630000" />
+      <workItem from="1680193136331" duration="5627000" />
+      <workItem from="1680280520323" duration="5256000" />
+      <workItem from="1680290899870" duration="1203000" />
+      <workItem from="1680370002767" duration="10525000" />
     </task>
     <servers />
   </component>
