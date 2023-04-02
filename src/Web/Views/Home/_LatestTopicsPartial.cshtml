@@ -10,7 +10,7 @@
                     <span class='absolute top-0 left-3 h-3 w-3 rounded-full bg-green-500 ring ring-white'></span>
                 </button>
                 <p class="text-black-600 ml-2">
-                    <a asp-controller="Topic" asp-action="Index" asp-route-topicId="@topic.Id" asp-route-slug="@topic.Slug" >
+                    <a asp-controller="Topic" asp-action="Index" asp-route-topicId="@topic.TopicId" asp-route-slug="@topic.Slug">
                         @topic.Body
                     </a>
                 </p>

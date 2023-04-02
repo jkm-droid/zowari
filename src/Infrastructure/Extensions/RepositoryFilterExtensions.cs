@@ -26,6 +26,16 @@ namespace Infrastructure.Extensions
         )
       );
     }
+    public static IQueryable<Message> FilterMessageRecords(this IQueryable<Message> messages,
+      string searchTerm)
+    {
+      return messages.Where(message =>
+        (searchTerm == null ||
+         message.Body.ToLower().Contains(searchTerm.ToLower()) ||
+         message.Author.ToLower().Contains(searchTerm.ToLower())
+        )
+      );
+    }
     
   }
 }

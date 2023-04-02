@@ -103,6 +103,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVG9waWMvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[/home/jkmdroid/RiderProjects/Zowari/src/Web/Views/Topic/_TopicInfoPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVG9waWMvX1RvcGljSW5mb1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/jkmdroid/RiderProjects/Zowari/src/Web/Views/Topic/_TopicMessagesPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVG9waWMvX1RvcGljTWVzc2FnZXNQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/home/jkmdroid/RiderProjects/Zowari/src/Web/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
