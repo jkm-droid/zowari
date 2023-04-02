@@ -1,6 +1,7 @@
 using Core.Application.Boundary.Responses;
 using Core.Application.Boundary.Responses.Categories;
 using Core.Application.Boundary.Responses.Forums;
+using Core.Application.Boundary.Responses.Messages;
 using Core.Application.Boundary.Responses.Topics;
 using Domain.Entities;
 
@@ -23,8 +24,9 @@ public static class EntityToResponseFactory
     {
         return topics.Select(topic => new TopicResponse
         {
-            Id = topic.Id,
+            TopicId = topic.Id,
             Body = topic.Body,
+            Slug = topic.Slug,
             AuthorResponse = new AuthorResponse
             {
                 UserId = topic.User.Id,
@@ -34,7 +36,6 @@ public static class EntityToResponseFactory
                 Rating = topic.User.Rating,
                 Level = topic.User.Level
             },
-            Slug = topic.Slug,
             TopicStats = new TopicStatsResponse
             {
                 Replies = topic.Messages.Count,
@@ -59,11 +60,24 @@ public static class EntityToResponseFactory
         });
     }
 
-    public static TopicResponse TopicResponse(this Topic topic)
+    public static IQueryable<MessageResponse> ToMessageResponse(this IQueryable<Message> messages)
+    {
+        return messages.Select(m => new MessageResponse
+        {
+            Id = default,
+            Body = null,
+            Author = null,
+            CommentsResponses = null,
+            BookmarksResponses = null,
+            LikesResponses = null
+        });
+    }
+
+    public static TopicResponse ToTopicResponse(this Topic topic)
     {
         return new TopicResponse
         {
-            Id = default,
+            TopicId = default,
             Body = null,
             AuthorResponse = null,
             TopicStats = null,
