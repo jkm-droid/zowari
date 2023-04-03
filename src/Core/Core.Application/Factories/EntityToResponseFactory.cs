@@ -25,6 +25,7 @@ public static class EntityToResponseFactory
         return topics.Select(topic => new TopicResponse
         {
             TopicId = topic.Id,
+            Title = topic.Title,
             Body = topic.Body,
             Slug = topic.Slug,
             AuthorResponse = new AuthorResponse

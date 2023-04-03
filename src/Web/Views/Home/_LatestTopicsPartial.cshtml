@@ -11,7 +11,7 @@
                 </button>
                 <p class="text-black-600 ml-2">
                     <a asp-controller="Topic" asp-action="Index" asp-route-topicId="@topic.TopicId" asp-route-slug="@topic.Slug">
-                        @topic.Body
+                        @topic.Title
                     </a>
                 </p>
                 <span class="text-sm">@topic.AuthorResponse.AuthorName</span><span class="ml-2 text-gray-600 text-sm">@topic.CreatedOn</span>
