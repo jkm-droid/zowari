@@ -9,7 +9,7 @@ public class MessageResponse
     public  Guid Id { get; set; }
     public string Body { get; set; }
     public string Author { get; set; }
-    
+    public string CreatedOn { get; set; }
     public IList<CommentResponse> CommentsResponses { get; set; }
     public IList<BookmarkResponse> BookmarksResponses { get; set; }
     public IList<LikeResponse> LikesResponses { get; set; }

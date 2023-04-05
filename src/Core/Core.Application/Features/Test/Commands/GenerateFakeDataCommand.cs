@@ -51,14 +51,24 @@ internal sealed class GenerateFakeDataCommandHandler : IRequestHandler<GenerateF
         var fakeTopics = new Faker<Topic>()
             .RuleFor(t => t.CategoryId, f => f.PickRandom(fakeCategories.Select(fc => fc.Id)))
             .RuleFor(t => t.Title, f => f.Lorem.Sentence(5))
-            .RuleFor(t => t.Body, f => f.Lorem.Sentence(15))
-            .RuleFor(t => t.Views, f => f.Random.Number(100, 10000))
-            .RuleFor(t => t.Author, f => f.Person.FullName)
+            .RuleFor(t => t.Body, f => f.Lorem.Sentences(2))
+            .RuleFor(t => t.Views, f => f.Random.Number(1000, 10000))
+            .RuleFor(t => t.Author, f => f.Person.UserName)
             .RuleFor(t => t.UserId, f => f.PickRandom(userIds))
             .RuleFor(t => t.Slug, f => f.Random.Words(10).Replace(" ", "-").ToLower())
             .Generate(300);
 
         await _repository.DbContext().Topics.AddRangeAsync(fakeTopics, cancellationToken);
+
+        var fakeMessages = new Faker<Message>()
+            .RuleFor(m => m.Body, f => f.Lorem.Sentences(3))
+            .RuleFor(m => m.Author, f => f.Person.UserName)
+            .RuleFor(m => m.UserId, f => f.PickRandom(userIds))
+            .RuleFor(m => m.TopicId, f => f.PickRandom(fakeTopics.Select(ft => ft.Id)))
+            .Generate(900);
+        
+        await _repository.DbContext().Messages.AddRangeAsync(fakeMessages, cancellationToken);
+        
         await _repository.SaveAsync("Failed to save data");
 
         return await Result<string>.SuccessAsync("Success");

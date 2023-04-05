@@ -38,6 +38,7 @@ internal sealed class
         try
         {
             var query = _repositoryManager.Entity<Message>()
+                .Where(m=>m.TopicId == request.TopicId)
                 .FilterMessageRecords(request.Parameters.SearchTerm)
                 .Include(t=>t.User)
                 .TrackChanges(false);

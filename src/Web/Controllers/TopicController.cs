@@ -57,7 +57,7 @@ public class TopicController : Controller
             MessageResponse = topicMessages.Data
         };
         
-        return View("_TopicMessagesPartial",response);
+        return PartialView("_TopicMessagesPartial",response);
     }
     
 }

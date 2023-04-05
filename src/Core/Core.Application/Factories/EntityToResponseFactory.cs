@@ -65,9 +65,10 @@ public static class EntityToResponseFactory
     {
         return messages.Select(m => new MessageResponse
         {
-            Id = default,
-            Body = null,
-            Author = null,
+            Id = m.Id,
+            Body = m.Body,
+            Author = m.Author,
+            CreatedOn = m.CreatedOn.ToString(),
             CommentsResponses = null,
             BookmarksResponses = null,
             LikesResponses = null
