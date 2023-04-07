@@ -36,7 +36,7 @@ internal sealed class GenerateFakeDataCommandHandler : IRequestHandler<GenerateF
 
         await _repository.DbContext().Users.AddRangeAsync(fakeUsers, cancellationToken);
 
-        var userIds = fakeUsers.Select(u => u.Id);
+        var userIds = fakeUsers.Select(u => u.Id).ToList();
 
         var fakeCategories = new Faker<Category>()
             .RuleFor(c => c.Id, f => f.Random.AlphaNumeric(15).ToUpper())
@@ -44,28 +44,40 @@ internal sealed class GenerateFakeDataCommandHandler : IRequestHandler<GenerateF
             .RuleFor(c => c.Title, f => f.Random.Word())
             .RuleFor(c => c.Slug, f => f.Random.Words(5).Replace(" ", "-").ToLower())
             .RuleFor(c => c.Description, f => f.Lorem.Sentence(20))
-            .Generate(50);
+            .Generate(30);
 
         await _repository.DbContext().Categories.AddRangeAsync(fakeCategories, cancellationToken);
-
+       
+        var userId = new Faker().PickRandom(userIds);
+        var username = fakeUsers
+            .Where(u => u.Id == userId)
+            .Select(u => u.UserName)
+            .FirstOrDefault();
+            
         var fakeTopics = new Faker<Topic>()
             .RuleFor(t => t.CategoryId, f => f.PickRandom(fakeCategories.Select(fc => fc.Id)))
-            .RuleFor(t => t.Title, f => f.Lorem.Sentence(5))
-            .RuleFor(t => t.Body, f => f.Lorem.Sentences(2))
+            .RuleFor(t => t.Title, f => f.Lorem.Sentence())
+            .RuleFor(t => t.Body, f => f.Lorem.Sentences(5))
             .RuleFor(t => t.Views, f => f.Random.Number(1000, 10000))
-            .RuleFor(t => t.Author, f => f.Person.UserName)
-            .RuleFor(t => t.UserId, f => f.PickRandom(userIds))
+            .RuleFor(t => t.Author, f => username)
+            .RuleFor(t => t.UserId, f => userId)
             .RuleFor(t => t.Slug, f => f.Random.Words(10).Replace(" ", "-").ToLower())
             .Generate(300);
 
         await _repository.DbContext().Topics.AddRangeAsync(fakeTopics, cancellationToken);
+        
+        var mUserId = new Faker().PickRandom(userIds);
+        var mUsername = fakeUsers
+            .Where(u => u.Id == userId)
+            .Select(u => u.UserName)
+            .FirstOrDefault();
 
         var fakeMessages = new Faker<Message>()
-            .RuleFor(m => m.Body, f => f.Lorem.Sentences(3))
-            .RuleFor(m => m.Author, f => f.Person.UserName)
-            .RuleFor(m => m.UserId, f => f.PickRandom(userIds))
+            .RuleFor(m => m.Body, f => f.Lorem.Paragraphs(2,3))
+            .RuleFor(m => m.Author, f => mUsername)
+            .RuleFor(m => m.UserId, f => mUserId)
             .RuleFor(m => m.TopicId, f => f.PickRandom(fakeTopics.Select(ft => ft.Id)))
-            .Generate(900);
+            .Generate(4000);
         
         await _repository.DbContext().Messages.AddRangeAsync(fakeMessages, cancellationToken);
         

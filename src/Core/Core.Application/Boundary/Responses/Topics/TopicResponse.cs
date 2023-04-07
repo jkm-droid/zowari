@@ -10,5 +10,5 @@ public class TopicResponse
     public string Slug { get; set; }
     public AuthorResponse AuthorResponse { get; set; }
     public TopicStatsResponse TopicStats { get; set; }
-    public DateTimeOffset CreatedOn { get; set; }
+    public string CreatedOn { get; set; }
 }

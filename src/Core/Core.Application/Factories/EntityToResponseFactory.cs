@@ -43,7 +43,7 @@ public static class EntityToResponseFactory
                 Views = topic.Views,
                 LastReplyDate = default
             },
-            CreatedOn = topic.CreatedOn
+            CreatedOn = topic.CreatedOn.ToString("dd MMM yyyy HH:mm tt")
         });
     }
 
@@ -68,23 +68,11 @@ public static class EntityToResponseFactory
             Id = m.Id,
             Body = m.Body,
             Author = m.Author,
-            CreatedOn = m.CreatedOn.ToString(),
+            CreatedOn = m.CreatedOn.ToString("dd MMM yyyy"),
             CommentsResponses = null,
             BookmarksResponses = null,
             LikesResponses = null
         });
     }
 
-    public static TopicResponse ToTopicResponse(this Topic topic)
-    {
-        return new TopicResponse
-        {
-            TopicId = default,
-            Body = null,
-            AuthorResponse = null,
-            TopicStats = null,
-            Slug = null,
-            CreatedOn = default
-        };
-    }
 }

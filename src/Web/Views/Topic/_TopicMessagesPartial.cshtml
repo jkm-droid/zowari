@@ -1,9 +1,9 @@
 @model Zowari.Models.ViewModels.TopicMessageViewModel
 
-<div class="grid bg-orange-100 m-2">
+<div class="grid mr-2 ml-2">
     @foreach (var message in Model.MessageResponse.Data.ToList())
     {
-        <div class="p-5">
+        <div class="p-5 bg-white mt-2">
             <button class="mr-2 float-left max-w-xs rounded-full flex items-center text-sm focus:outline-none relative">
                 <img class="h-12 w-12 rounded-full border border-indigo-600" src="images/profile_images/rick_and_morty.jpg" alt="avatar"/>
                 <span class='absolute top-0 left-3 h-3 w-3 rounded-full bg-green-500 ring ring-white'></span>
@@ -16,14 +16,13 @@
                             <span class="col-start-4 col-end-6 justify-end items-end text-sm text-gray-400">@message.CreatedOn</span>
                         </div>
 
-                        <p class="text-gray-700 text-base text-sm font-small w-3/4 mt-2">
+                        <p class="text-gray-700 text-base text-sm font-small mt-2">
                             @message.Body
                         </p>
                     </div>
                 </div>
             </div>
         </div>
-        <hr class="w-full"/>
     }
 </div>
 

@@ -6,9 +6,12 @@
 
 <partial name="_TopicInfoPartial"/>
 
-<div id="topicMessagesDiv" class="mt-2">
-  @await Html.PartialAsync("_TopicMessagesPartial").ConfigureAwait(false)
-</div>
+@if (Model.MessageResponse.Data.Any())
+{
+  <div id="topicMessagesDiv" class="mt-2">
+    @await Html.PartialAsync("_TopicMessagesPartial").ConfigureAwait(false)
+  </div>
+}
 
 @section Scripts {
 
