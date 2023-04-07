@@ -29,7 +29,7 @@ public class TopicController : Controller
     public async Task<ActionResult<Result<TopicResponse>>> Index(Guid topicId,string slug)
     {
         //get the topic
-        var topic = await _mediator.Send(new GetSingleTopicQuery(topicId, slug));
+        var topic = await _mediator.Send(new GetTopicByIdQuery(topicId, slug));
         //get all messages belonging to the topic
         var messages = await _mediator.Send(new GetMessagesByTopicIdQuery(topicId, new MessageQueryParameters()));
 

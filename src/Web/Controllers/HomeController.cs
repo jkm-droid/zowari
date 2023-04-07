@@ -29,7 +29,7 @@ public class HomeController : Controller
         //show list of available forums
         var forumsResponse = await _mediator.Send(new GetAllForumsQuery());
 
-        var latestTopicsForums = new LatestTopicsForumsViewModel
+        var latestTopicsForums = new LatestTopicForumViewModel
         {
             TopicResponse = topicsResponse.Data,
             ForumResponse = forumsResponse.Data
@@ -42,7 +42,7 @@ public class HomeController : Controller
     {
         //show all forums in partial view
         var forumsResponse = await _mediator.Send(new GetAllForumsQuery());
-        var forums = new LatestTopicsForumsViewModel
+        var forums = new LatestTopicForumViewModel
         {
             ForumResponse = forumsResponse.Data
         };
@@ -54,7 +54,7 @@ public class HomeController : Controller
     {
         //show the latest topics in partial view
         var topicsResponse = await _mediator.Send(new GetAllTopicsQuery(parameters));
-        var latestTopics = new LatestTopicsForumsViewModel
+        var latestTopics = new LatestTopicForumViewModel
         {
             TopicResponse = topicsResponse.Data
         };

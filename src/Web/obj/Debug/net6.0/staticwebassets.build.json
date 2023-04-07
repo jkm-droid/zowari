@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "321e0y7zjDyWmq9JY5sGYc9QY1hW3RBUOtMfCBZWbZk=",
+  "Hash": "KJhKHxpFjJSy769MebtF+SpUo1qffCkwr3XY1vnWZUE=",
   "Source": "Zowari",
   "BasePath": "_content/Zowari",
   "Mode": "Default",
@@ -168,6 +168,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/js/site.js"
+    },
+    {
+      "Identity": "/home/jkmdroid/RiderProjects/Zowari/src/Web/wwwroot/lib/flowbite/flowbite.min.js",
+      "SourceId": "Zowari",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/jkmdroid/RiderProjects/Zowari/src/Web/wwwroot/",
+      "BasePath": "_content/Zowari",
+      "RelativePath": "lib/flowbite/flowbite.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/lib/flowbite/flowbite.min.js"
     },
     {
       "Identity": "/home/jkmdroid/RiderProjects/Zowari/src/Web/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
