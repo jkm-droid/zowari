@@ -21,11 +21,11 @@ public class GetTopicByIdQuery : IRequest<Result<TopicResponse>>
     }
 }
 
-internal sealed class GetSingleTopicQueryHandler : IRequestHandler<GetTopicByIdQuery, Result<TopicResponse>>
+internal sealed class GetTopicByIdQueryHandler : IRequestHandler<GetTopicByIdQuery, Result<TopicResponse>>
 {
     private readonly IRepositoryManager _repository;
 
-    public GetSingleTopicQueryHandler(IRepositoryManager repository)
+    public GetTopicByIdQueryHandler(IRepositoryManager repository)
     {
         _repository = repository;
     }

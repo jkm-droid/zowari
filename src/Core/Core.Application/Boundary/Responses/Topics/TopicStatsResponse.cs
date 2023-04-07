@@ -4,5 +4,5 @@ public class TopicStatsResponse
 {
     public int Replies { get; set; }
     public int Views { get; set; }
-    public DateTimeOffset LastReplyDate { get; set; }
+    public string LastActivity { get; set; }
 }

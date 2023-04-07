@@ -6,30 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="1acdc9d7-b462-46b4-afcb-b26a975fbb73" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Zowari/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Zowari/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/Boundary/Responses/Topics/TopicResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/Boundary/Responses/Topics/TopicResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/Boundary/Responses/Topics/TopicStatsResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/Boundary/Responses/Topics/TopicStatsResponse.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/Factories/EntityToResponseFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/Factories/EntityToResponseFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/Features/Test/Commands/GenerateFakeDataCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/Features/Test/Commands/GenerateFakeDataCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/Features/Categories/Queries/GetCategoryByIdQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/Features/Categories/Queries/GetCategoryByIdQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/Features/Topics/Queries/GetTopicByCategoryIdQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/Features/Topics/Queries/GetTopicByCategoryIdQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/Features/Topics/Queries/GetTopicByIdQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/Features/Topics/Queries/GetTopicByIdQuery.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/bin/Debug/net6.0/Core.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/bin/Debug/net6.0/Core.Application.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/bin/Debug/net6.0/Core.Application.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/bin/Debug/net6.0/Core.Application.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/obj/Debug/net6.0/Core.Application.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/obj/Debug/net6.0/Core.Application.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/obj/Debug/net6.0/Core.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/obj/Debug/net6.0/Core.Application.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/obj/Debug/net6.0/Core.Application.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/obj/Debug/net6.0/Core.Application.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/obj/Debug/net6.0/ref/Core.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/obj/Debug/net6.0/ref/Core.Application.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Core/Core.Application/obj/Debug/net6.0/refint/Core.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/Core.Application/obj/Debug/net6.0/refint/Core.Application.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/Views/Home/_LatestTopicsPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Views/Home/_LatestTopicsPartial.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Views/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/Views/Shared/_PagingPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Views/Shared/_PagingPartial.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/Views/Topic/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Views/Topic/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/Views/Topic/_TopicInfoPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Views/Topic/_TopicInfoPartial.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/Views/Topic/_TopicMessagesPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Views/Topic/_TopicMessagesPartial.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/bin/Debug/net6.0/Core.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/bin/Debug/net6.0/Core.Application.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/bin/Debug/net6.0/Core.Application.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/bin/Debug/net6.0/Core.Application.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/bin/Debug/net6.0/Zowari.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/bin/Debug/net6.0/Zowari.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/bin/Debug/net6.0/Zowari.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/bin/Debug/net6.0/Zowari.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/obj/Debug/net6.0/Zowari.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/obj/Debug/net6.0/Zowari.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/obj/Debug/net6.0/Zowari.dll" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/obj/Debug/net6.0/Zowari.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/obj/Debug/net6.0/Zowari.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/obj/Debug/net6.0/Zowari.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/obj/staticwebassets.pack.sentinel" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/obj/staticwebassets.pack.sentinel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/wwwroot/css/site.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +183,7 @@
       <workItem from="1680542873683" duration="5291000" />
       <workItem from="1680629088109" duration="599000" />
       <workItem from="1680714399502" duration="4895000" />
-      <workItem from="1680853316242" duration="5940000" />
+      <workItem from="1680853316242" duration="19489000" />
     </task>
     <servers />
   </component>

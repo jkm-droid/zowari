@@ -41,7 +41,7 @@ public static class EntityToResponseFactory
             {
                 Replies = topic.Messages.Count,
                 Views = topic.Views,
-                LastReplyDate = default
+                LastActivity = default
             },
             CreatedOn = topic.CreatedOn.ToString("dd MMM yyyy HH:mm tt")
         });
