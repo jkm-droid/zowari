@@ -33,7 +33,7 @@ public class CategoriesController : Controller
     /// Get paginated categories async
     /// </summary>
     /// <param name="parameters"></param>
-    /// <returns></returns>
+    /// <returns></returns> 
     [HttpGet("categories-list")]
     public async Task<IActionResult> CategoriesPartial(CategoryQueryParameters parameters)
     {
@@ -62,5 +62,22 @@ public class CategoriesController : Controller
             TopicResponse = categoryTopics.Data
         };
         return View(response);
+    }
+
+    /// <summary>
+    /// Category topics partial
+    /// </summary>
+    /// <param name="categoryId"></param>
+    /// <param name="parameters"></param>
+    /// <returns></returns>
+    [HttpGet("category-topics")]
+    public async Task<ActionResult> CategoryTopicsPartial(string categoryId, [FromQuery] TopicQueryParameters parameters)
+    {
+        var topics = await _mediator.Send(new GetTopicByCategoryIdQuery(parameters, categoryId));
+        var response = new CategoryTopicViewModel
+        {
+            TopicResponse = topics.Data
+        };
+        return PartialView("_CategoryTopicsPartial",response);
     }
 }

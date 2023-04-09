@@ -3,117 +3,110 @@
 @{
     ViewBag.Title = Model.CategoryResponse.Title;
     var category = Model.CategoryResponse;
-    var categoryTopics = Model.TopicResponse.Data.ToList();
 }
 
 <div class="p-5 bg-white m-2">
-    <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1">
-        <div class="rounded overflow-hidden">
-            <div class="px-1 py-1">
-                <div class="w-full grid grid-cols-2 mb-2 gap-2">
-                    <span class="col-start-1 col-end-4 justify-start items-start text-md font-medium text-gray-400">@category.Title</span>
-                    <span class="col-start-4 col-end-6 justify-end items-end text-sm font-small text-gray-400">Threads - @category.TopicCount</span>
-                </div>
-                <p class="text-gray-700 text-base text-sm font-small  w-full mt-2">
-                    @category.Description
-                </p>
-                <div class="mt-2">
-                    <span class="inline-block bg-gray-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-                    <span class="inline-block bg-gray-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-                    <span class="inline-block bg-gray-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
-                </div>
-                <hr class="w-full mt-2 mb-2"/>
-            </div>
+  <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1">
+    <div class="rounded overflow-hidden">
+      <div class="px-1 py-1">
+        <div class="w-full grid grid-cols-2 mb-2 gap-2">
+          <span class="col-start-1 col-end-4 justify-start items-start text-md font-medium text-gray-400">@category.Title</span>
+          <span class="col-start-4 col-end-6 justify-end items-end text-sm font-small text-gray-400">Threads - @category.TopicCount</span>
         </div>
+        <p class="text-gray-700 text-base text-sm font-small  w-full mt-2">
+          @category.Description
+        </p>
+        <div class="mt-2">
+          <span class="inline-block bg-gray-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+          <span class="inline-block bg-gray-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+          <span class="inline-block bg-gray-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
+        </div>
+        <hr class="w-full mt-2 mb-2"/>
+      </div>
     </div>
+  </div>
 </div>
 
-@if (categoryTopics.Any())
-{
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg m-2">
-        <div class="flex items-center justify-between pb-4">
-            <div>
-                <select class="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
-                    <option selected disabled="">Sort topics</option>
-                    <option value="today">Today</option>
-                    <option value="last_7_days">Last 7 days</option>
-                    <option value="last_14_days">Last 14 days</option>
-                    <option value="last_30_days">Last 30 days</option>
-                    <option value="last_month">Last Month</option>
-                    <option value="last_year">Last Year</option>
-                </select>
-            </div>
-            <label for="table-search" class="sr-only">Search</label>
-            <div class="relative">
-                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                    <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
-                    </svg>
-                </div>
-                <input type="text" id="table-search" class="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for items">
-            </div>
-        </div>
-        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
-                <th scope="col" class="px-6 py-3">
-                    Author
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Topic
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Category
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Likes
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Replies
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Views
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Activity
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach (var topic in categoryTopics)
-            {
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                    <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
-                        <img class="w-10 h-10 rounded-full" src="/docs/images/people/profile-picture-1.jpg" alt="Jese image">
-                        <div class="pl-3">
-                            <div class="text-base font-semibold">@topic.AuthorResponse.AuthorName</div>
-                        </div>
-                    </th>
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        @topic.Title
-                    </th>
-                    <td class="px-6 py-4">
-                        @category.Title
-                    </td>
-                    <td class="px-6 py-4">
-                        @topic.TopicStats.Views
-                    </td>
-                    <td class="px-6 py-4">
-                        @topic.TopicStats.Replies
-                    </td>
-                    <td class="px-6 py-4">
-                        @topic.TopicStats.Views
-                    </td>
-                    <td class="px-6 py-4">
-                        @topic.TopicStats.LastActivity
-                    </td>
-                </tr>
-            }
-            </tbody>
-        </table>
-    </div>
+<div id="categoryTopicsDiv" class="mt-2">
+    @await Html.PartialAsync("_CategoryTopicsPartial").ConfigureAwait(false)
+</div>
 
-    <div id="paginationDiv">
-        @await Html.PartialAsync("_PagingPartial", Model.TopicResponse.PagingMetaData).ConfigureAwait(false)
-    </div>
+@section Scripts {
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      addPageClickListeners();
+      addSearchClickListener();
+      addsortTermPickerListener();
+    });
+
+    function addPageClickListeners() {
+      const url = new URL(window.location);
+
+      url.searchParams.set('pageSize', '10');
+      url.searchParams.set('pageNumber', $('#CurrentPage').val());
+      url.searchParams.set('SearchTerm', $('#searchTerm').val());
+      url.searchParams.set('sortTerm', $('#sortTerm').val());
+      window.history.pushState({}, '', url);
+      $(".page-number > a").click(function() {
+        let params = getQueryParams();
+        params.currentPage = parseInt($(this).find("input:first").val());
+
+        getView(params.currentPage, params.searchTerm, params.sortTerm);
+
+      });
+    }
+
+    function addSearchClickListener() {
+      $('#searchTerm').change(function() {
+        let params = getQueryParams();
+        params.currentPage = parseInt($(this).find("input:first").val());
+      
+        getView(params.currentPage, params.searchTerm, params.sortTerm);
+      });
+    }
+
+    function addsortTermPickerListener() {
+      $('#sortTerm') .change(function () {
+        let params = getQueryParams();
+        params.currentPage = parseInt($(this).find("input:first").val());
+
+        getView(params.currentPage, params.searchTerm, params.sortTerm);
+        document.getElementById("sortTerm");
+      });
+    }
+
+    function getQueryParams() {
+      return {
+        currentPage: $('#CurrentPage').val(),
+        searchTerm: $('#searchTerm').val(),
+        sortTerm: $('#sortTerm').val()
+      };
+    }
+
+    function getView(pageNumber, searchTerm, sortTerm) {
+      if (isNaN(pageNumber) || pageNumber === "undefined") {
+        pageNumber = 1;
+      }
+      $.ajax({
+        url: '@Url.Action("CategoryTopicsPartial", "Categories")',
+        type: 'GET',
+        data: {
+          "categoryId": "@category.Id",
+          "pageNumber": pageNumber ?? 1,
+          "pageSize": 10,
+          "searchTerm": searchTerm,
+          "sortTerm": sortTerm,
+          "name": "",
+          "description": ""
+        },
+        success: function(data) {
+          $("#categoryTopicsDiv").html(data);
+          addPageClickListeners();
+        }
+      });
+    }
+
+  </script>
+
 }

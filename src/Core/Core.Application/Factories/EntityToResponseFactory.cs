@@ -39,6 +39,7 @@ public static class EntityToResponseFactory
             },
             TopicStats = new TopicStatsResponse
             {
+                CategoryName = topic.Category.Title ?? string.Empty,
                 Replies = topic.Messages.Count,
                 Views = topic.Views,
                 LastActivity = default

@@ -39,8 +39,9 @@ internal sealed class
         {
             var query = _repository.Entity<Topic>()
                 .Where(t=>t.CategoryId == request.CategoryId)
-                .FilterTopicRecords(request.QueryParameters.SearchTerm)
+                .FilterTopicRecords(request.QueryParameters.SearchTerm,request.QueryParameters.SortTerm)
                 .Include(t=>t.User)
+                .Include(t=>t.Category)
                 .TrackChanges(false);
 
             var topicRecords = await query
