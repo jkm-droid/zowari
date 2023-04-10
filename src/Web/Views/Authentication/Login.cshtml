@@ -22,7 +22,7 @@
             @await Html.PartialAsync("_ErrorPartial", errors).ConfigureAwait(false)
         </div>
         
-        <form class="mt-8 space-y-6" asp-action="Login" asp-controller="Authentication" asp-route-returnUrl="@returnUrl">
+        <form class="mt-8 space-y-6" asp-controller="Authentication" asp-action="LoginUser" asp-route-returnUrl="@returnUrl">
             <input type="hidden" name="remember" value="true">
 
             <div class="-space-y-px rounded-md shadow-sm">

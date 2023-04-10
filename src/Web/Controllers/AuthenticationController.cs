@@ -45,13 +45,13 @@ public class AuthenticationController : Controller
     /// <param name="userRegistrationRequest"></param>
     /// <returns></returns>
     [AllowAnonymous]
-    [HttpPost]
+    [HttpPost("register-user")]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> RegisterAsync(UserRegistrationRequest userRegistrationRequest)
+    public async Task<IActionResult> RegisterUserAsync(UserRegistrationRequest userRegistrationRequest)
     {
         if (!ModelState.IsValid)
         {
-            return View(userRegistrationRequest);
+            return View("Register",userRegistrationRequest);
         }
 
         var response = await _mediator.Send(new UserRegistrationCommand(userRegistrationRequest));
@@ -59,7 +59,7 @@ public class AuthenticationController : Controller
         
         _logger.LogError($"Errors: {response.Messages}");
         ViewData["PageErrors"] = response.Messages;
-        return View();
+        return View("Register");
     }
 
     /// <summary>
@@ -90,20 +90,20 @@ public class AuthenticationController : Controller
     /// <param name="returnUrl"></param>
     /// <returns></returns>
     [AllowAnonymous]
-    [HttpPost]
+    [HttpPost("login-user")]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> LoginAsync([Bind("Username","Password")] UserLoginRequest userLoginRequest,string? returnUrl = null)
+    public async Task<IActionResult> LoginUserAsync([Bind("Username","Password")] UserLoginRequest userLoginRequest,string? returnUrl = null)
     {
         if (!ModelState.IsValid)
         {
-            return View(userLoginRequest);
+            return View("Login",userLoginRequest);
         }
 
         var response = await _mediator.Send(new UserLoginCommand(userLoginRequest));
         if (!response.Succeeded)
         {
             ViewData["PageErrors"] = response.Messages;
-            return View();
+            return View("Login");
         }
         
         await HttpContext.SignInAsync(IdentityConstants.ApplicationScheme, new ClaimsPrincipal(response.Data.Identity));

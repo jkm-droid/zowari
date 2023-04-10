@@ -7,12 +7,6 @@ namespace Infrastructure.Extensions
     public static IQueryable<Topic> FilterTopicRecords(this IQueryable<Topic> topicRecords,
       string searchTerm,string sortTerm)
     {
-      // <option value="today">Today</option>
-      //   <option value="last_7_days">Last 7 days</option>
-      //   <option value="last_14_days">Last 14 days</option>
-      //   <option value="last_30_days">Last 30 days</option>
-      //   <option value="last_month">Last Month</option>
-      //   <option value="last_year">Last Year</option>
       var sortValues = new string[] {"today", "last_7_days", "last_14_days", "last_30_days", "last_month", "last_year"};
       DateTimeOffset sortDate;
       switch (sortValues.ToString()?.ToLower())
@@ -45,7 +39,7 @@ namespace Infrastructure.Extensions
          topic.Slug.ToLower().Contains(searchTerm.ToLower()) ||
          topic.Author.ToLower().Contains(searchTerm.ToLower())
         )&&
-        (sortTerm == null || topic.CreatedOn >= sortDate && topic.CreatedOn <= sortDate)
+        (sortTerm == null || topic.CreatedOn >= sortDate )
       );
     } 
     public static IQueryable<Category> FilterCategoryRecords(this IQueryable<Category> categories,

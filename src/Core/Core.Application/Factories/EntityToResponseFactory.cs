@@ -4,6 +4,7 @@ using Core.Application.Boundary.Responses.Forums;
 using Core.Application.Boundary.Responses.Messages;
 using Core.Application.Boundary.Responses.Topics;
 using Domain.Entities;
+using Infrastructure.Abstractions;
 
 namespace Core.Application.Factories;
 
