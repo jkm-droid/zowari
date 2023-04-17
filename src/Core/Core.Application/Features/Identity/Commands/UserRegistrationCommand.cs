@@ -70,6 +70,6 @@ internal sealed class UserRegistrationCommandHandler : IRequestHandler<UserRegis
             await _userManager.AddToRoleAsync(user, "visitor");
         }
         _logger.LogInfo($"user created{response.Succeeded}");
-        return await Result<string>.SuccessAsync($"{request.UserRegistrationRequest.Username} created successfully");
+        return await Result<string>.SuccessAsync($"{request.UserRegistrationRequest.Username}'s account created successfully");
     }
 }

@@ -460,6 +460,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "AspNetCoreHero.ToastNotification": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
             "AutoMapper": {
               "target": "Package",
               "version": "[11.0.1, )"

@@ -1,3 +1,5 @@
+using AspNetCoreHero.ToastNotification;
+using AspNetCoreHero.ToastNotification.Extensions;
 using Microsoft.AspNetCore.HttpOverrides;
 using Zowari.Extensions;
 using Zowari.Middlewares;
@@ -22,8 +24,7 @@ builder.Services.ConfigureSharedInfrastructure();
 builder.Services.ConfigureIdentity();
 builder.Services.AddOptionConfigurations(builder.Configuration);
 builder.Services.ConfigureEmailService();
-
-builder.Services.AddAutoMapper(typeof(Program));
+builder.Services.AddNotyf(config=> { config.DurationInSeconds = 10;config.IsDismissable = true;config.Position = NotyfPosition.BottomRight; });
 
 builder.Host.AddSerilog();
 
@@ -43,7 +44,7 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
-
+app.UseNotyf();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}", new{});

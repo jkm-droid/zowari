@@ -79,3 +79,5 @@
 /home/jkmdroid/RiderProjects/Zowari/src/Web/obj/Debug/net6.0/Zowari.pdb
 /home/jkmdroid/RiderProjects/Zowari/src/Web/obj/Debug/net6.0/Zowari.genruntimeconfig.cache
 /home/jkmdroid/RiderProjects/Zowari/src/Web/obj/Debug/net6.0/ref/Zowari.dll
+/home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/AspNetCoreHero.ToastNotification.Views.dll
+/home/jkmdroid/RiderProjects/Zowari/src/Web/bin/Debug/net6.0/AspNetCoreHero.ToastNotification.dll
