@@ -29,19 +29,16 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Core\Core.Application\Core.Application.csproj" />
-      <ProjectReference Include="..\Core\Core.EmailService\Core.EmailService.csproj" />
-      <ProjectReference Include="..\Domain\Domain.csproj" />
-      <ProjectReference Include="..\Logging\LoggerService.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
         <UpToDateCheckBuilt Include="postcss.config.js" Set="Css" />
     </ItemGroup>
 
     <ItemGroup>
       <Folder Include="wwwroot\css" />
       <Folder Include="wwwroot\images\profile_images" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Core\Application\Application.csproj" />
     </ItemGroup>
 
     <Target Name="BuildCSS" BeforeTargets="Compile">

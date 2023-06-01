@@ -8,15 +8,12 @@
     ".NETCoreApp,Version=v6.0": {
       "Zowari/1.0.0": {
         "dependencies": {
+          "Application": "1.0.0",
           "AspNetCoreHero.ToastNotification": "1.1.0",
           "AutoMapper": "11.0.1",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "11.0.0",
-          "Core.Application": "1.0.0",
-          "Core.EmailService": "1.0.0",
-          "Domain": "1.0.0",
           "FluentValidation.AspNetCore": "11.1.2",
           "FluentValidation.DependencyInjectionExtensions": "11.1.0",
-          "LoggerService": "1.0.0",
           "MediatR.Extensions.Microsoft.DependencyInjection": "10.0.1",
           "Microsoft.EntityFrameworkCore.Design": "6.0.6",
           "Microsoft.Extensions.Configuration": "6.0.1",
@@ -823,25 +820,18 @@
           "System.Text.Encodings.Web": "6.0.0"
         }
       },
-      "Core.Application/1.0.0": {
+      "Application/1.0.0": {
         "dependencies": {
-          "Core.EmailService": "1.0.0",
+          "Domain": "1.0.0",
+          "EmailService": "1.0.0",
           "Infrastructure": "1.0.0",
+          "Infrastructure.Shared": "1.0.0",
           "MediatR": "10.0.1",
+          "Microsoft.AspNetCore.WebUtilities": "2.2.0",
           "Microsoft.Extensions.Identity.Core": "6.0.6"
         },
         "runtime": {
-          "Core.Application.dll": {}
-        }
-      },
-      "Core.EmailService/1.0.0": {
-        "dependencies": {
-          "LoggerService": "1.0.0",
-          "Microsoft.Extensions.Options": "6.0.0",
-          "NETCore.MailKit": "2.1.0"
-        },
-        "runtime": {
-          "Core.EmailService.dll": {}
+          "Application.dll": {}
         }
       },
       "Domain/1.0.0": {
@@ -850,6 +840,16 @@
         },
         "runtime": {
           "Domain.dll": {}
+        }
+      },
+      "EmailService/1.0.0": {
+        "dependencies": {
+          "LoggerService": "1.0.0",
+          "Microsoft.Extensions.Options": "6.0.0",
+          "NETCore.MailKit": "2.1.0"
+        },
+        "runtime": {
+          "EmailService.dll": {}
         }
       },
       "Infrastructure/1.0.0": {
@@ -1564,17 +1564,17 @@
       "path": "system.text.json/6.0.0",
       "hashPath": "system.text.json.6.0.0.nupkg.sha512"
     },
-    "Core.Application/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Core.EmailService/1.0.0": {
+    "Application/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
     "Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EmailService/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -1,9 +1,9 @@
 using Core.Application.Assembly;
 using Core.EmailService.Configurations;
 using Core.EmailService.Services;
-using Infrastructure.Abstractions;
 using Infrastructure.Context;
-using Infrastructure.Implementations;
+using Infrastructure.Repositories.Abstractions;
+using Infrastructure.Repositories.Implementations;
 using Infrastructure.Shared.Abstractions;
 using Infrastructure.Shared.Implementations;
 using LoggerService.Abstractions;

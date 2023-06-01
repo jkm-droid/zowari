@@ -1360,35 +1360,23 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
-      "Core.Application/1.0.0": {
+      "Application/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Core.EmailService": "1.0.0",
+          "Domain": "1.0.0",
+          "EmailService": "1.0.0",
           "Infrastructure": "1.0.0",
+          "Infrastructure.Shared": "1.0.0",
           "MediatR": "10.0.1",
+          "Microsoft.AspNetCore.WebUtilities": "2.2.0",
           "Microsoft.Extensions.Identity.Core": "6.0.6"
         },
         "compile": {
-          "bin/placeholder/Core.Application.dll": {}
+          "bin/placeholder/Application.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Core.Application.dll": {}
-        }
-      },
-      "Core.EmailService/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "LoggerService": "1.0.0",
-          "Microsoft.Extensions.Options": "6.0.0",
-          "NETCore.MailKit": "2.1.0"
-        },
-        "compile": {
-          "bin/placeholder/Core.EmailService.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Core.EmailService.dll": {}
+          "bin/placeholder/Application.dll": {}
         }
       },
       "Domain/1.0.0": {
@@ -1402,6 +1390,21 @@
         },
         "runtime": {
           "bin/placeholder/Domain.dll": {}
+        }
+      },
+      "EmailService/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "LoggerService": "1.0.0",
+          "Microsoft.Extensions.Options": "6.0.0",
+          "NETCore.MailKit": "2.1.0"
+        },
+        "compile": {
+          "bin/placeholder/EmailService.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EmailService.dll": {}
         }
       },
       "Infrastructure/1.0.0": {
@@ -3540,48 +3543,45 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Core.Application/1.0.0": {
+    "Application/1.0.0": {
       "type": "project",
-      "path": "../Core/Core.Application/Core.Application.csproj",
-      "msbuildProject": "../Core/Core.Application/Core.Application.csproj"
-    },
-    "Core.EmailService/1.0.0": {
-      "type": "project",
-      "path": "../Core/Core.EmailService/Core.EmailService.csproj",
-      "msbuildProject": "../Core/Core.EmailService/Core.EmailService.csproj"
+      "path": "../Core/Application/Application.csproj",
+      "msbuildProject": "../Core/Application/Application.csproj"
     },
     "Domain/1.0.0": {
       "type": "project",
-      "path": "../Domain/Domain.csproj",
-      "msbuildProject": "../Domain/Domain.csproj"
+      "path": "../Core/Domain/Domain.csproj",
+      "msbuildProject": "../Core/Domain/Domain.csproj"
+    },
+    "EmailService/1.0.0": {
+      "type": "project",
+      "path": "../Core/EmailService/EmailService.csproj",
+      "msbuildProject": "../Core/EmailService/EmailService.csproj"
     },
     "Infrastructure/1.0.0": {
       "type": "project",
-      "path": "../Infrastructure/Infrastructure.csproj",
-      "msbuildProject": "../Infrastructure/Infrastructure.csproj"
+      "path": "../Core/Infrastructure/Infrastructure.csproj",
+      "msbuildProject": "../Core/Infrastructure/Infrastructure.csproj"
     },
     "Infrastructure.Shared/1.0.0": {
       "type": "project",
-      "path": "../Shared/Infrastructure.Shared.csproj",
-      "msbuildProject": "../Shared/Infrastructure.Shared.csproj"
+      "path": "../Shared/Infrastructure.Shared/Infrastructure.Shared.csproj",
+      "msbuildProject": "../Shared/Infrastructure.Shared/Infrastructure.Shared.csproj"
     },
     "LoggerService/1.0.0": {
       "type": "project",
-      "path": "../Logging/LoggerService.csproj",
-      "msbuildProject": "../Logging/LoggerService.csproj"
+      "path": "../Shared/Logger/LoggerService.csproj",
+      "msbuildProject": "../Shared/Logger/LoggerService.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Application >= 1.0.0",
       "AspNetCoreHero.ToastNotification >= 1.1.0",
       "AutoMapper >= 11.0.1",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 11.0.0",
-      "Core.Application >= 1.0.0",
-      "Core.EmailService >= 1.0.0",
-      "Domain >= 1.0.0",
       "FluentValidation.AspNetCore >= 11.1.2",
       "FluentValidation.DependencyInjectionExtensions >= 11.1.0",
-      "LoggerService >= 1.0.0",
       "MediatR.Extensions.Microsoft.DependencyInjection >= 10.0.1",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.6",
       "Microsoft.Extensions.Configuration >= 6.0.1",
@@ -3619,17 +3619,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.Application/Core.Application.csproj": {
-              "projectPath": "/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.Application/Core.Application.csproj"
-            },
-            "/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.EmailService/Core.EmailService.csproj": {
-              "projectPath": "/home/jkmdroid/RiderProjects/Zowari/src/Core/Core.EmailService/Core.EmailService.csproj"
-            },
-            "/home/jkmdroid/RiderProjects/Zowari/src/Domain/Domain.csproj": {
-              "projectPath": "/home/jkmdroid/RiderProjects/Zowari/src/Domain/Domain.csproj"
-            },
-            "/home/jkmdroid/RiderProjects/Zowari/src/Logging/LoggerService.csproj": {
-              "projectPath": "/home/jkmdroid/RiderProjects/Zowari/src/Logging/LoggerService.csproj"
+            "/home/jkmdroid/RiderProjects/Zowari/src/Core/Application/Application.csproj": {
+              "projectPath": "/home/jkmdroid/RiderProjects/Zowari/src/Core/Application/Application.csproj"
             }
           }
         }
